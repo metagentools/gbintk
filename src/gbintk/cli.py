@@ -38,7 +38,7 @@ class OrderedGroup(click.Group):
 @click.group(cls=OrderedGroup)
 @click.version_option(__version__, "-v", "--version", is_flag=True)
 def main():
-    """gbintk (GraphBin Toolkit): Assembly graph-based metagenomic binning toolkit"""
+    """gbintk (GraphBin-Tk): Assembly graph-based metagenomic binning toolkit"""
     pass
 
 
