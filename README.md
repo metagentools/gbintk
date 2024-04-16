@@ -32,11 +32,9 @@ Usage: gbintk graphbin [OPTIONS]
   GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs
 
 Options:
-  --assembler [spades|sga|megahit|flye|canu|miniasm]
-                                  name of the assembler used (SPAdes, SGA or
-                                  MEGAHIT). GraphBin supports Flye, Canu and
-                                  Miniasm long-read assemblies as well.
-                                  [required]
+  --assembler [spades|sga|megahit|flye]
+                                  name of the assembler used (SPAdes, SGA,
+                                  MEGAHIT or Flye)  [required]
   --graph PATH                    path to the assembly graph file  [required]
   --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
@@ -67,11 +65,9 @@ Usage: gbintk graphbin2 [OPTIONS]
   Assembly Graphs
 
 Options:
-  --assembler [spades|sga|megahit|flye|canu|miniasm]
-                                  name of the assembler used (SPAdes, SGA or
-                                  MEGAHIT). GraphBin supports Flye, Canu and
-                                  Miniasm long-read assemblies as well.
-                                  [required]
+  --assembler [spades|sga|megahit|flye]
+                                  name of the assembler used (SPAdes, SGA,
+                                  MEGAHIT or Flye)  [required]
   --graph PATH                    path to the assembly graph file  [required]
   --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
@@ -104,11 +100,9 @@ Usage: gbintk metacoag [OPTIONS]
   Graphs
 
 Options:
-  --assembler [spades|sga|megahit|flye|canu|miniasm]
-                                  name of the assembler used (SPAdes, SGA or
-                                  MEGAHIT). GraphBin supports Flye, Canu and
-                                  Miniasm long-read assemblies as well.
-                                  [required]
+  --assembler [spades|sga|megahit|flye]
+                                  name of the assembler used (SPAdes, SGA,
+                                  MEGAHIT or Flye)  [required]
   --graph PATH                    path to the assembly graph file  [required]
   --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
