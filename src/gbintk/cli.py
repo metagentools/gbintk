@@ -44,9 +44,9 @@ def main():
 
 _assembler = click.option(
     "--assembler",
-    help="name of the assembler used (SPAdes, SGA or MEGAHIT). GraphBin supports Flye, Canu and Miniasm long-read assemblies as well.",
+    help="name of the assembler used (SPAdes, SGA, MEGAHIT or Flye)",
     type=click.Choice(
-        ["spades", "sga", "megahit", "flye", "canu", "miniasm"], case_sensitive=False
+        ["spades", "sga", "megahit", "flye"], case_sensitive=False
     ),
     required=True,
 )
