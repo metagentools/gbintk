@@ -1,0 +1,36 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "gbintk"
+authors = [{name = "Vijini Mallawaarachchi", email = "viji.mallawaarachchi@gmail.com"}]
+keywords = ["metagenomics", "binning", "contigs", "bioinformatics"]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10,<3.13"
+dependencies = ["click",
+  "biopython",
+  "igraph",
+  "networkx",
+  "scipy",
+  "numpy",
+  "pandas",
+  "tqdm"]
+classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+    ]
+# the following are inferred from the source code
+dynamic = ["version", "description"]
+
+[project.sdist]
+include = ["doc/", "requirements.txt", "src/*", "pyproject.toml"]
+exclude = ["doc/*.html"]
+
+[project.scripts]
+gbintk = "gbintk.cli:main"
