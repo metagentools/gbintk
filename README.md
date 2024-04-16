@@ -1,4 +1,4 @@
-# GraphBin-Tk
+# GraphBin-Tk: Assembly graph-based metagenomic binning toolkit
 
 GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques GraphBin, GraphBin2 and 
 MetaCoAG into one comprehensive toolkit.
