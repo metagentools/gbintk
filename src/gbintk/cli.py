@@ -1,7 +1,7 @@
-import click
-
 from collections import OrderedDict
 from typing import Mapping, Optional
+
+import click
 
 __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2019-2022, GraphBin-Tk Project"
@@ -13,13 +13,12 @@ __email__ = "viji.mallawaarachchi@gmail.com"
 __status__ = "Alpha"
 
 
-
 class OrderedGroup(click.Group):
     """custom group class to ensure help function returns commands in desired order.
     class is adapted from Максим Стукало's answer to
     https://stackoverflow.com/questions/47972638/how-can-i-define-the-order-of-click-sub-commands-in-help
     """
-    
+
     def __init__(
         self,
         name: Optional[str] = None,
@@ -34,8 +33,9 @@ class OrderedGroup(click.Group):
         return self.commands
 
 
-
-@click.group(cls=OrderedGroup, context_settings=dict(help_option_names=["-h", "--help"]))
+@click.group(
+    cls=OrderedGroup, context_settings=dict(help_option_names=["-h", "--help"])
+)
 @click.version_option(__version__, "-v", "--version", is_flag=True)
 def main():
     """gbintk (GraphBin-Tk): Assembly graph-based metagenomic binning toolkit"""
@@ -45,9 +45,7 @@ def main():
 _assembler = click.option(
     "--assembler",
     help="name of the assembler used (SPAdes, SGA, MEGAHIT or Flye)",
-    type=click.Choice(
-        ["spades", "sga", "megahit", "flye"], case_sensitive=False
-    ),
+    type=click.Choice(["spades", "sga", "megahit", "flye"], case_sensitive=False),
     required=True,
 )
 _graph = click.option(
@@ -110,7 +108,6 @@ _nthreads = click.option(
 )
 
 
-
 _click_command_opts = dict(
     no_args_is_help=True, context_settings={"show_default": True}
 )
@@ -153,7 +150,7 @@ def graphbin(
     prefix,
     max_iteration,
     diff_threshold,
-    delimiter
+    delimiter,
 ):
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
@@ -206,7 +203,7 @@ def graphbin2(
     depth,
     threshold,
     delimiter,
-    nthreads
+    nthreads,
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
@@ -333,7 +330,7 @@ def metacoag(
     bin_mg_threshold,
     min_bin_size,
     delimiter,
-    nthreads
+    nthreads,
 ):
     """MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs"""
 
