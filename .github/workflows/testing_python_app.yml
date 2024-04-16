@@ -29,6 +29,7 @@ jobs:
           python --version
           python -m pip install --upgrade pip
           pip install --upgrade pip wheel setuptools flit
+          flit install
       
       - name: "Generate coverage report on ${{ matrix.os }} for Python ${{ matrix.python-version }}"
         run: |
