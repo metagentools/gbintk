@@ -4,8 +4,7 @@
 [![CodeQL](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques GraphBin, GraphBin2 and 
-MetaCoAG into one comprehensive toolkit.
+GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques [GraphBin](https://github.com/metagentools/GraphBin), [GraphBin2](https://github.com/metagentools/GraphBin2) and [MetaCoAG](https://github.com/metagentools/MetaCoAG) into one comprehensive toolkit.
 
 ## Available commands
 
@@ -26,7 +25,7 @@ Commands:
   metacoag   MetaCoAG: Binning Metagenomic Contigs via Composition,...
 ```
 
-### `gbintk graphbin`: Run GraphBin
+### `gbintk graphbin`: Run [GraphBin](https://github.com/metagentools/GraphBin)
 
 Run `gbintk graphbin --help` to list the help message for GraphBin.
 
@@ -58,7 +57,7 @@ Options:
   --help                          Show this message and exit.
 ```
 
-### `gbintk graphbin2`: Run GraphBin2
+### `gbintk graphbin2`: Run [GraphBin2](https://github.com/metagentools/GraphBin2)
 
 Run `gbintk graphbin2 --help` to list the help message for GraphBin2.
 
@@ -93,7 +92,7 @@ Options:
   --help                          Show this message and exit.
 ```
 
-### `gbintk metacoag`: Run MetaCoAG
+### `gbintk metacoag`: Run [MetaCoAG](https://github.com/metagentools/MetaCoAG)
 
 Run `gbintk metacoag --help` to list the help message for MetaCoAG.
 
