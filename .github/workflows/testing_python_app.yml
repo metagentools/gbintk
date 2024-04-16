@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    name: "Python ${{ matrix.python-version }}"
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: "actions/checkout@v3"
+        with:
+          fetch-depth: 0
+
+      # Setup env
+      - uses: "actions/setup-python@v3"
+        with:
+            python-version: "${{ matrix.python-version }}"
+
+      - name: "Install dependencies on ${{ matrix.os }} for Python ${{ matrix.python-version }}"
+        run: |
+          python --version
+          python -m pip install --upgrade pip
+          pip install --upgrade pip wheel setuptools flit
+      
+      - name: "Generate coverage report on ${{ matrix.os }} for Python ${{ matrix.python-version }}"
+        run: |
+          pip install pytest pytest-cov
+          pytest --cov=graphbin --cov-report=xml --cov-append
+          
