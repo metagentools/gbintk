@@ -3,7 +3,8 @@ import pytest
 
 from click.testing import CliRunner
 
-from gbintk.cli import graphbin
+from gbintk.cli import graphbin, graphbin2, metacoag
+
 
 __author__ = "Vijini Mallawaarachchi"
 __credits__ = ["Vijini Mallawaarachchi"]
@@ -36,4 +37,25 @@ def test_graphbin_run(runner, tmp_dir):
     binned = DATADIR / "ESC_metaSPAdes" / "initial_binning_res.csv"
     args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --binned {binned} --output {outpath}".split()
     r = runner.invoke(graphbin, args, catch_exceptions=False)
+    assert r.exit_code == 0, r.output
+
+def test_graphbin2_run(runner, tmp_dir):
+    outpath = tmp_dir
+    graph = DATADIR / "Sim-5G+metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
+    contigs = DATADIR / "Sim-5G+metaSPAdes" / "contigs.fasta"
+    paths = DATADIR / "Sim-5G+metaSPAdes" / "contigs.paths"
+    binned = DATADIR / "Sim-5G+metaSPAdes" / "initial_contig_bins.csv"
+    abundance = DATADIR / "Sim-5G+metaSPAdes" / "abundance.abund"
+    args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --binned {binned} --abundance {abundance} --output {outpath}".split()
+    r = runner.invoke(graphbin2, args, catch_exceptions=False)
+    assert r.exit_code == 0, r.output
+
+def test_metacoag_run(runner, tmp_dir):
+    outpath = tmp_dir
+    graph = DATADIR / "Sim-5G+metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
+    contigs = DATADIR / "Sim-5G+metaSPAdes" / "contigs.fasta"
+    paths = DATADIR / "Sim-5G+metaSPAdes" / "contigs.paths"
+    abundance = DATADIR / "Sim-5G+metaSPAdes" / "coverm_mean_coverage.tsv"
+    args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --abundance {abundance} --output {outpath}".split()
+    r = runner.invoke(metacoag, args, catch_exceptions=False)
     assert r.exit_code == 0, r.output
