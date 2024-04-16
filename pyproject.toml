@@ -34,3 +34,19 @@ exclude = ["doc/*.html"]
 
 [project.scripts]
 gbintk = "gbintk.cli:main"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
+dev = [
+    "black",
+    "click",
+    "flit",
+    "isort",
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
