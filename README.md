@@ -26,7 +26,7 @@ Commands:
 
 Run `gbintk graphbin --help` to list the help message for GraphBin.
 
-```python
+```bash
 Usage: gbintk graphbin [OPTIONS]
 
   GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs
@@ -60,7 +60,7 @@ Options:
 
 Run `gbintk graphbin2 --help` to list the help message for GraphBin2.
 
-```python
+```bash
 Usage: gbintk graphbin2 [OPTIONS]
 
   GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using
@@ -97,7 +97,7 @@ Options:
 
 Run `gbintk metacoag --help` to list the help message for MetaCoAG.
 
-```python
+```bash
 Usage: gbintk metacoag [OPTIONS]
 
   MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly
