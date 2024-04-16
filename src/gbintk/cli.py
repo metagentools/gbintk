@@ -35,7 +35,7 @@ class OrderedGroup(click.Group):
 
 
 
-@click.group(cls=OrderedGroup)
+@click.group(cls=OrderedGroup, context_settings=dict(help_option_names=["-h", "--help"]))
 @click.version_option(__version__, "-v", "--version", is_flag=True)
 def main():
     """gbintk (GraphBin-Tk): Assembly graph-based metagenomic binning toolkit"""
