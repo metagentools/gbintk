@@ -34,5 +34,10 @@ jobs:
       - name: "Generate coverage report on ${{ matrix.os }} for Python ${{ matrix.python-version }}"
         run: |
           pip install pytest pytest-cov
-          pytest --cov=graphbin --cov-report=xml --cov-append
-          
+          pytest --cov=gbintk --cov-report=xml --cov-append
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: metagentools/gbintk
