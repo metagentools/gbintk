@@ -8,7 +8,7 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
 
 ## Available commands
 
-Run `gbintk --help` to list the help message for GraphBin-Tk.
+Run `gbintk --help` or `gbintk -h` to list the help message for GraphBin-Tk.
 
 ```bash
 Usage: gbintk [OPTIONS] COMMAND [ARGS]...
@@ -27,7 +27,7 @@ Commands:
 
 ### `gbintk graphbin`: Run [GraphBin](https://github.com/metagentools/GraphBin)
 
-Run `gbintk graphbin --help` to list the help message for GraphBin.
+Run `gbintk graphbin --help` or `gbintk graphbin -h` to list the help message for GraphBin.
 
 ```bash
 Usage: gbintk graphbin [OPTIONS]
@@ -54,12 +54,12 @@ Options:
   --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
                                   a comma (,), a semicolon (;), a tab ($'\t'),
                                   a space (" ") and a pipe (|)  [default: ,]
-  --help                          Show this message and exit.
+  -h, --help                      Show this message and exit.
 ```
 
 ### `gbintk graphbin2`: Run [GraphBin2](https://github.com/metagentools/GraphBin2)
 
-Run `gbintk graphbin2 --help` to list the help message for GraphBin2.
+Run `gbintk graphbin2 --help` or `gbintk graphbin2 -h` to list the help message for GraphBin2.
 
 ```bash
 Usage: gbintk graphbin2 [OPTIONS]
@@ -89,12 +89,12 @@ Options:
                                   a comma (,), a semicolon (;), a tab ($'\t'),
                                   a space (" ") and a pipe (|)  [default: ,]
   --nthreads INTEGER              number of threads to use.  [default: 8]
-  --help                          Show this message and exit.
+  -h, --help                      Show this message and exit.
 ```
 
 ### `gbintk metacoag`: Run [MetaCoAG](https://github.com/metagentools/MetaCoAG)
 
-Run `gbintk metacoag --help` to list the help message for MetaCoAG.
+Run `gbintk metacoag --help` or `gbintk metacoag -h` to list the help message for MetaCoAG.
 
 ```bash
 Usage: gbintk metacoag [OPTIONS]
@@ -140,7 +140,7 @@ Options:
                                   a comma (,), a semicolon (;), a tab ($'\t'),
                                   a space (" ") and a pipe (|)  [default: ,]
   --nthreads INTEGER              number of threads to use.  [default: 8]
-  --help                          Show this message and exit.
+  -h, --help                      Show this message and exit.
 ```
 
 ## Funding
