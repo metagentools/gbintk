@@ -1,5 +1,9 @@
 # GraphBin-Tk: Assembly graph-based metagenomic binning toolkit
 
+[![CI](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml)
+[![CodeQL](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques GraphBin, GraphBin2 and 
 MetaCoAG into one comprehensive toolkit.
 
