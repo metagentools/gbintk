@@ -18,7 +18,7 @@ Usage: gbintk [OPTIONS] COMMAND [ARGS]...
 
 Options:
   -v, --version  Show the version and exit.
-  --help         Show this message and exit.
+  -h, --help     Show this message and exit.
 
 Commands:
   graphbin   GraphBin: Refined Binning of Metagenomic Contigs using...
