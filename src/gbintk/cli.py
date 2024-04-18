@@ -174,7 +174,7 @@ def graphbin(
 @_output
 @_prefix
 @click.option(
-    "--depth",
+    "--depthb",
     help="maximum depth for the breadth-first-search.",
     type=int,
     default=5,
@@ -200,7 +200,7 @@ def graphbin2(
     binned,
     output,
     prefix,
-    depth,
+    depthb,
     threshold,
     delimiter,
     nthreads,
@@ -261,7 +261,7 @@ def graphbin2(
     required=False,
 )
 @click.option(
-    "--depthp",
+    "--depthlp",
     help="depth to consider for label propagation.",
     type=int,
     default=10,
@@ -323,7 +323,7 @@ def metacoag(
     p_intra,
     p_inter,
     d_limit,
-    depthp,
+    depthlp,
     n_mg,
     no_cut_tc,
     mg_threshold,
