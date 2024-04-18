@@ -81,7 +81,7 @@ Options:
                                   [required]
   --output PATH                   path to the output folder  [required]
   --prefix TEXT                   prefix for the output file
-  --depth INTEGER                 maximum depth for the breadth-first-search.
+  --depthb INTEGER                maximum depth for the breadth-first-search.
                                   [default: 5]
   --threshold FLOAT               threshold for determining inconsistent
                                   vertices.  [default: 1.5]
@@ -124,7 +124,7 @@ Options:
                                   create a new bin.  [default: 0.01; 0<=x<=1]
   --d_limit INTEGER               distance limit for contig matching.
                                   [default: 20]
-  --depthp INTEGER                depth to consider for label propagation.
+  --depthlp INTEGER               depth to consider for label propagation.
                                   [default: 10]
   --n_mg INTEGER                  total number of marker genes.  [default:
                                   108]
