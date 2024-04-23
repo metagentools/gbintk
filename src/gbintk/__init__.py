@@ -1,5 +1,4 @@
-"""my doctsring
-"""
+"""gbintk (GraphBin-Tk): Assembly graph-based metagenomic binning toolkit"""
 
 __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2019-2022, GraphBin-Tk Project"
