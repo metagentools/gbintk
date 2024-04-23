@@ -157,7 +157,68 @@ def graphbin(
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
     print("Run GraphBin...")
+    from graphbin.utils import (
+        graphbin_Canu,
+        graphbin_Flye,
+        graphbin_MEGAHIT,
+        graphbin_Miniasm,
+        graphbin_SGA,
+        graphbin_SPAdes,
+    )
 
+    class ArgsObj:
+        def __init__(
+            self,
+            assembler,
+            graph,
+            contigs,
+            paths,
+            binned,
+            output,
+            prefix,
+            max_iteration,
+            diff_threshold,
+            delimiter,
+        ):
+            self.assembler = assembler
+            self.graph = graph
+            self.contigs = contigs
+            self.paths = paths
+            self.binned = binned
+            self.output = output
+            self.prefix = prefix
+            self.max_iteration = max_iteration
+            self.diff_threshold = diff_threshold
+            self.delimiter = delimiter
+
+    # Make args object
+    args = ArgsObj(
+        assembler,
+        graph,
+        contigs,
+        paths,
+        binned,
+        output,
+        prefix,
+        max_iteration,
+        diff_threshold,
+        delimiter,
+    )
+
+    # Run GraphBin
+    # ---------------------------------------------------
+    if assembler.lower() == "canu":
+        graphbin_Canu.main(args)
+    if assembler.lower() == "flye":
+        graphbin_Flye.main(args)
+    if assembler.lower() == "megahit":
+        graphbin_MEGAHIT.main(args)
+    if assembler.lower() == "miniasm":
+        graphbin_Miniasm.main(args)
+    if assembler.lower() == "sga":
+        graphbin_SGA.main(args)
+    if assembler.lower() == "spades":
+        graphbin_SPAdes.main(args)
 
 # Main GraphBin2
 # -------------------------------------------------------------------
