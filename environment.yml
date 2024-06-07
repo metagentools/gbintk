@@ -8,6 +8,8 @@ dependencies:
   - click
   - biopython
   - python-igraph
+  - cairo
+  - pkg-config
   - fraggenescan
   - hmmer
   - networkx
@@ -15,3 +17,6 @@ dependencies:
   - numpy
   - pandas
   - tqdm
+  - pip
+  - pip:
+    - .
