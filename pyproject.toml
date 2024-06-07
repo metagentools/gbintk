@@ -12,6 +12,7 @@ requires-python = ">=3.9,<3.13"
 dependencies = ["click",
   "biopython",
   "igraph",
+  "cairocffi", 
   "networkx",
   "scipy",
   "numpy",
