@@ -46,8 +46,8 @@ def main():
 
 _assembler = click.option(
     "--assembler",
-    help="name of the assembler used (SPAdes, SGA, MEGAHIT or Flye)",
-    type=click.Choice(["spades", "sga", "megahit", "flye"], case_sensitive=False),
+    help="name of the assembler used (SPAdes, MEGAHIT or Flye)",
+    type=click.Choice(["spades", "megahit", "flye"], case_sensitive=False),
     required=True,
 )
 _graph = click.option(
@@ -90,6 +90,7 @@ _prefix = click.option(
     "--prefix",
     help="prefix for the output file",
     type=str,
+    default = "",
     required=False,
 )
 _delimiter = click.option(
@@ -156,17 +157,15 @@ def graphbin(
 ):
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
-    print("Run GraphBin...")
+    print("Running GraphBin...")
     from graphbin.utils import (
-        graphbin_Canu,
         graphbin_Flye,
         graphbin_MEGAHIT,
-        graphbin_Miniasm,
-        graphbin_SGA,
         graphbin_SPAdes,
     )
 
-    class ArgsObj:
+    # Make args class
+    class GraphBinArgsObj:
         def __init__(
             self,
             assembler,
@@ -192,7 +191,7 @@ def graphbin(
             self.delimiter = delimiter
 
     # Make args object
-    args = ArgsObj(
+    args = GraphBinArgsObj(
         assembler,
         graph,
         contigs,
@@ -207,16 +206,10 @@ def graphbin(
 
     # Run GraphBin
     # ---------------------------------------------------
-    if assembler.lower() == "canu":
-        graphbin_Canu.main(args)
     if assembler.lower() == "flye":
         graphbin_Flye.main(args)
     if assembler.lower() == "megahit":
         graphbin_MEGAHIT.main(args)
-    if assembler.lower() == "miniasm":
-        graphbin_Miniasm.main(args)
-    if assembler.lower() == "sga":
-        graphbin_SGA.main(args)
     if assembler.lower() == "spades":
         graphbin_SPAdes.main(args)
 
@@ -270,7 +263,7 @@ def graphbin2(
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
-    print("Run GraphBin2...")
+    print("GraphBin2 feature is still inder constraction. Stay tuned!")
 
 
 # Main MetaCoAG
@@ -397,4 +390,79 @@ def metacoag(
 ):
     """MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs"""
 
-    print("Run MetaCoAG...")
+    print("Running MetaCoAG...")
+    from metacoag import metacoag_runner
+
+    # Make args class
+    class MetaCoAGArgsObj:
+        def __init__(
+            self,
+            assembler,
+            graph,
+            contigs,
+            paths,
+            abundance,
+            output,
+            hmm,
+            prefix,
+            min_length,
+            p_intra,
+            p_inter,
+            d_limit,
+            depth,
+            n_mg,
+            no_cut_tc,
+            mg_threshold,
+            bin_mg_threshold,
+            min_bin_size,
+            delimiter,
+            nthreads
+        ):
+            self.assembler = assembler
+            self.graph = graph
+            self.contigs = contigs
+            self.paths = paths
+            self.abundance = abundance
+            self.output = output
+            self.hmm = hmm
+            self.prefix = prefix
+            self.min_length = min_length
+            self.p_intra = p_intra
+            self.p_inter = p_inter
+            self.d_limit = d_limit
+            self.depth = depthlp
+            self.n_mg = n_mg
+            self.no_cut_tc = no_cut_tc
+            self.mg_threshold = mg_threshold
+            self.bin_mg_threshold = bin_mg_threshold
+            self.min_bin_size = min_bin_size
+            self.delimiter = delimiter
+            self.nthreads = nthreads
+
+    # Make args object
+    args = MetaCoAGArgsObj(
+        assembler,
+        graph,
+        contigs,
+        paths,
+        abundance,
+        output,
+        hmm,
+        prefix,
+        min_length,
+        p_intra,
+        p_inter,
+        d_limit,
+        depthlp,
+        n_mg,
+        no_cut_tc,
+        mg_threshold,
+        bin_mg_threshold,
+        min_bin_size,
+        delimiter,
+        nthreads
+    )
+    
+    # Run MetaCoAG
+    # ---------------------------------------------------
+    metacoag_runner.main(args)

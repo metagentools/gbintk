@@ -17,7 +17,8 @@ dependencies = ["click",
   "numpy",
   "pandas",
   "tqdm",
-  "graphbin"]
+  "graphbin",
+  "metacoag>=1.2.1"]
 classifiers = [
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
