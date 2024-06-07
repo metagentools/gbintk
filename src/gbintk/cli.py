@@ -27,8 +27,6 @@ consoleHeader.setFormatter(formatter)
 consoleHeader.setLevel(logging.INFO)
 logger.addHandler(consoleHeader)
 
-logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
-
 class OrderedGroup(click.Group):
     """custom group class to ensure help function returns commands in desired order.
     class is adapted from Максим Стукало's answer to
@@ -171,6 +169,7 @@ def graphbin(
 ):
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
+    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
     logger.info("Running GraphBin...")
 
     from graphbin.utils import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
@@ -217,7 +216,6 @@ def graphbin(
 
     # Run GraphBin
     # ---------------------------------------------------
-    logger.info(f"GraphBin results can be found at {output}")
     if assembler.lower() == "flye":
         graphbin_Flye.main(args)
     if assembler.lower() == "megahit":
@@ -276,6 +274,7 @@ def graphbin2(
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
+    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
     logger.info(f"The GraphBin2 feature is still under construction. Stay tuned!")
 
 
@@ -403,6 +402,7 @@ def metacoag(
 ):
     """MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs"""
 
+    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
     logger.info("Running MetaCoAG...")
 
     from metacoag import metacoag_runner
@@ -479,7 +479,6 @@ def metacoag(
 
     # Run MetaCoAG
     # ---------------------------------------------------
-    logger.info(f"MetaCoAG results can be found at {output}")
     metacoag_runner.main(args)
 
 
@@ -579,6 +578,7 @@ def visualise(
 ):
     """Visualise binning and refinement results"""
 
+    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
     logger.info("Running Visualisation for binning and refinement results...")
     from gbintk.support import visualise_result_SPAdes
 
