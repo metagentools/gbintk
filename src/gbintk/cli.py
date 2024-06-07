@@ -4,6 +4,7 @@ from collections import OrderedDict
 from typing import Mapping, Optional
 
 import click
+import logging
 
 __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2019-2022, GraphBin-Tk Project"
@@ -14,6 +15,19 @@ __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
 __status__ = "Alpha"
 
+
+# Setup logger
+# ---------------------------------------------------
+
+logger = logging.getLogger("GraphBin-Tk %s" % __version__)
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+consoleHeader = logging.StreamHandler()
+consoleHeader.setFormatter(formatter)
+consoleHeader.setLevel(logging.INFO)
+logger.addHandler(consoleHeader)
+
+logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
 
 class OrderedGroup(click.Group):
     """custom group class to ensure help function returns commands in desired order.
@@ -157,7 +171,8 @@ def graphbin(
 ):
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
-    print("Running GraphBin...")
+    logger.info("Running GraphBin...")
+
     from graphbin.utils import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
 
     # Make args class
@@ -202,6 +217,7 @@ def graphbin(
 
     # Run GraphBin
     # ---------------------------------------------------
+    logger.info(f"GraphBin results can be found at {output}")
     if assembler.lower() == "flye":
         graphbin_Flye.main(args)
     if assembler.lower() == "megahit":
@@ -260,7 +276,7 @@ def graphbin2(
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
-    print("The GraphBin2 feature is still under construction. Stay tuned!")
+    logger.info(f"The GraphBin2 feature is still under construction. Stay tuned!")
 
 
 # Main MetaCoAG
@@ -387,7 +403,8 @@ def metacoag(
 ):
     """MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs"""
 
-    print("Running MetaCoAG...")
+    logger.info("Running MetaCoAG...")
+
     from metacoag import metacoag_runner
 
     # Make args class
@@ -462,4 +479,169 @@ def metacoag(
 
     # Run MetaCoAG
     # ---------------------------------------------------
+    logger.info(f"MetaCoAG results can be found at {output}")
     metacoag_runner.main(args)
+
+
+# Main Visualise
+# -------------------------------------------------------------------
+@main.command(**_click_command_opts)
+@_assembler
+@click.option(
+    "--initial",
+    help="path to the initial binning result",
+    type=click.Path(exists=True),
+    required=True,
+)
+@click.option(
+    "--final",
+    help="path to the final binning result",
+    type=click.Path(exists=True),
+    required=True,
+)
+@_graph
+@_paths
+@_output
+@_prefix
+@click.option(
+    "--dpi",
+    help="dpi value",
+    type=int,
+    default=300,
+    show_default=True,
+    required=False,
+)
+@click.option(
+    "--width",
+    help="width of the image in pixels",
+    type=int,
+    default=2000,
+    show_default=True,
+    required=False,
+)
+@click.option(
+    "--height",
+    help="height of the image in pixels",
+    type=int,
+    default=2000,
+    show_default=True,
+    required=False,
+)
+@click.option(
+    "--vsize",
+    help="size of the vertices",
+    type=int,
+    default=50,
+    show_default=True,
+    required=False,
+)
+@click.option(
+    "--lsize",
+    help="size of the vertex labels",
+    type=int,
+    default=8,
+    show_default=True,
+    required=False,
+)
+@click.option(
+    "--margin",
+    help="margin of the figure",
+    type=int,
+    default=50,
+    show_default=True,
+    required=False,
+)
+@click.option(
+    "--type",
+    help="type of the image (jpg, png, eps, svg)",
+    type=str,
+    default="png",
+    show_default=True,
+    required=False,
+)
+@_delimiter
+def visualise(
+    assembler,
+    initial,
+    final,
+    graph,
+    paths,
+    output,
+    prefix,
+    dpi,
+    width,
+    height,
+    vsize,
+    lsize,
+    margin,
+    type,
+    delimiter
+):
+    """Visualise binning and refinement results"""
+
+    logger.info("Running Visualisation for binning and refinement results...")
+    from gbintk.support import visualise_result_SPAdes
+
+    # Make args class
+    class VizArgsObj:
+        def __init__(
+            self,
+            assembler,
+            initial,
+            final,
+            graph,
+            paths,
+            output,
+            prefix,
+            dpi,
+            width,
+            height,
+            vsize,
+            lsize,
+            margin,
+            type,
+            delimiter
+        ):
+            self.assembler = assembler
+            self.initial = initial
+            self.final = final
+            self.graph = graph
+            self.paths = paths
+            self.output = output
+            self.prefix = prefix
+            self.dpi = dpi
+            self.width = width
+            self.height = height
+            self.vsize = vsize
+            self.lsize = lsize
+            self.margin = margin
+            self.type = type
+            self.delimiter = delimiter
+
+    # Make args object
+    args = VizArgsObj(
+        assembler,
+        initial,
+        final,
+        graph,
+        paths,
+        output,
+        prefix,
+        dpi,
+        width,
+        height,
+        vsize,
+        lsize,
+        margin,
+        type,
+        delimiter
+    )
+
+    # Run Visualisation
+    # ---------------------------------------------------
+    # if assembler.lower() == "flye":
+    #     graphbin_Flye.main(args)
+    # if assembler.lower() == "megahit":
+    #     graphbin_MEGAHIT.main(args)
+    if assembler.lower() == "spades":
+        visualise_result_SPAdes.main(args)
