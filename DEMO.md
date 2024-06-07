@@ -2,7 +2,7 @@
 
 ## Test data
 
-Test data for the demo can be found in the [`tests/data/Sim-5G+metaSPAdes/`](https://github.com/metagentools/gbintk/tree/main/tests/data/Sim-5G%2BmetaSPAdes) folder.
+Test data for the demo can be found in the [`tests/data/Sim-5G+metaSPAdes/`](https://github.com/metagentools/gbintk/tree/main/tests/data/Sim-5G%2BmetaSPAdes) folder. Let's set the testing directory path to a variable as shown below so we don't have to type the path every time.
 
 ```bash
 TESTDIR=tests/data/Sim-5G+metaSPAdes/
@@ -35,11 +35,11 @@ gbintk visualise --assembler spades --initial $TESTDIR/contig_to_bin.tsv --final
 **Initial binning result**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/initial_binning_result.png" width="400" title="Initial binning" alt="Initial binning">
+  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/initial_binning_result.png" width="700" title="Initial binning" alt="Initial binning">
 </p>
 
 **Refined binning result**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/final_GraphBin_binning_result.png" width="400" title="Refined binning result" alt="Refined binning result">
+  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/final_GraphBin_binning_result.png" width="700" title="Refined binning result" alt="Refined binning result">
 </p>
