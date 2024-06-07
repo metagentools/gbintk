@@ -26,12 +26,6 @@ Activate the environment.
 conda activate gbintk
 ```
 
-Now let's install `gbintk` using the following command.
-
-```bash
-flit install
-```
-
 Test your installation.
 
 ```bash
