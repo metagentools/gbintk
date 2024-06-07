@@ -29,7 +29,7 @@ gbintk graphbin --assembler spades --graph $TESTDIR/assembly_graph_with_scaffold
 Run the following command to visualise the original binning result and the refined binning results on the assembly graph.
 
 ```bash
-gbintk visualise --assembler spades --initial $TESTDIR/contig_to_bin.tsv --final $TESTDIR/graphbin_output.csv --graph $TESTDIR/assembly_graph_with_scaffolds.gfa --paths $TESTDIR/contigs.paths --output $TESTDIR
+gbintk visualise --assembler spades --initial $TESTDIR/contig_to_bin.tsv --final $TESTDIR/graphbin_output.csv --graph $TESTDIR/assembly_graph_with_scaffolds.gfa --paths $TESTDIR/contigs.paths --output $TESTDIR --width 2500 --height 2500
 ```
 
 **Initial binning result**
