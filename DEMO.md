@@ -1,5 +1,45 @@
 # GraphBin-Tk Demo
 
+## Setup GraphBin-Tk
+
+First, let's download GraphBin-Tk. Make sure you have `git` installed.
+
+```bash
+git clone https://github.com/metagentools/gbintk.git
+```
+
+Now move in to the 'gbintk' directory.
+
+```bash
+cd gbintk
+```
+
+Let's create an environment for gbintk using the provided `environment.yml` file. Make sure you have `conda`` installed.
+
+```bash
+conda env create -f environment.yml
+```
+
+Activate the environment.
+
+```bash
+conda activate gbintk
+```
+
+Now let's install `gbintk` using the following command.
+
+```bash
+flit install
+```
+
+Test your installation.
+
+```bash
+gbintk --help
+```
+
+Now we are all set for the demo.
+
 ## Test data
 
 Test data for the demo can be found in the [`tests/data/Sim-5G+metaSPAdes/`](https://github.com/metagentools/gbintk/tree/main/tests/data/Sim-5G%2BmetaSPAdes) folder. Let's set the testing directory path to a variable as shown below so we don't have to type the path every time.
@@ -31,6 +71,8 @@ Run the following command to visualise the original binning result and the refin
 ```bash
 gbintk visualise --assembler spades --initial $TESTDIR/contig_to_bin.tsv --final $TESTDIR/graphbin_output.csv --graph $TESTDIR/assembly_graph_with_scaffolds.gfa --paths $TESTDIR/contigs.paths --output $TESTDIR --width 2500 --height 2500
 ```
+
+Below are some example visualisations generated.
 
 **Initial binning result**
 
