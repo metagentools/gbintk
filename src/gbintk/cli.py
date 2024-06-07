@@ -108,7 +108,7 @@ _prefix = click.option(
 _delimiter = click.option(
     "--delimiter",
     help="delimiter for input/output results. Supports a comma (,), a semicolon (;), a tab ($'\\t'), a space (\" \") and a pipe (|)",
-    type=click.Choice([",", ";", "$'\\t'", '" "'], case_sensitive=False),
+    type=click.Choice([",", ";", "\t", '" "'], case_sensitive=False),
     default=",",
     show_default=True,
     required=False,
