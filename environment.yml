@@ -1,0 +1,17 @@
+name: gbintk
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python>=3.9,<3.13
+  - flit
+  - click
+  - biopython
+  - python-igraph
+  - fraggenescan
+  - hmmer
+  - networkx
+  - scipy
+  - numpy
+  - pandas
+  - tqdm
