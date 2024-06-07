@@ -61,7 +61,7 @@ Options:
 
 ### `gbintk graphbin2`: Run [GraphBin2](https://github.com/metagentools/GraphBin2)
 
-**NOTE: GraphBin2 feature is still inder constraction. Stay tuned!**
+**NOTE: GraphBin2 feature is still inder construction. Stay tuned!**
 
 Run `gbintk graphbin2 --help` or `gbintk graphbin2 -h` to list the help message for GraphBin2.
 

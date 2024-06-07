@@ -90,7 +90,7 @@ _prefix = click.option(
     "--prefix",
     help="prefix for the output file",
     type=str,
-    default = "",
+    default="",
     required=False,
 )
 _delimiter = click.option(
@@ -158,11 +158,7 @@ def graphbin(
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
     print("Running GraphBin...")
-    from graphbin.utils import (
-        graphbin_Flye,
-        graphbin_MEGAHIT,
-        graphbin_SPAdes,
-    )
+    from graphbin.utils import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
 
     # Make args class
     class GraphBinArgsObj:
@@ -212,6 +208,7 @@ def graphbin(
         graphbin_MEGAHIT.main(args)
     if assembler.lower() == "spades":
         graphbin_SPAdes.main(args)
+
 
 # Main GraphBin2
 # -------------------------------------------------------------------
@@ -263,7 +260,7 @@ def graphbin2(
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
-    print("GraphBin2 feature is still inder constraction. Stay tuned!")
+    print("GraphBin2 feature is still inder construction. Stay tuned!")
 
 
 # Main MetaCoAG
@@ -416,7 +413,7 @@ def metacoag(
             bin_mg_threshold,
             min_bin_size,
             delimiter,
-            nthreads
+            nthreads,
         ):
             self.assembler = assembler
             self.graph = graph
@@ -460,9 +457,9 @@ def metacoag(
         bin_mg_threshold,
         min_bin_size,
         delimiter,
-        nthreads
+        nthreads,
     )
-    
+
     # Run MetaCoAG
     # ---------------------------------------------------
     metacoag_runner.main(args)
