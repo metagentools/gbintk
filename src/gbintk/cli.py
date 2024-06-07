@@ -260,7 +260,7 @@ def graphbin2(
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
-    print("GraphBin2 feature is still inder construction. Stay tuned!")
+    print("The GraphBin2 feature is still under construction. Stay tuned!")
 
 
 # Main MetaCoAG
