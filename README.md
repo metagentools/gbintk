@@ -1,4 +1,4 @@
-# GraphBin-Tk: Assembly graph-based metagenomic binning toolkit
+# GraphBin-Tk: assembly graph-based metagenomic binning toolkit
 
 ![GitHub License](https://img.shields.io/github/license/metagentools/gbintk)
 [![CI](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml)
