@@ -539,6 +539,62 @@ def metacoag(
     metacoag_runner.main(args)
 
 
+# Main Prepare
+# -------------------------------------------------------------------
+@main.command(**_click_command_opts)
+@_assembler
+@click.option(
+    "--resfolder",
+    help="path to the folder containing FASTA files for individual bins",
+    type=click.Path(exists=True),
+    required=True,
+)
+@_delimiter
+@_prefix
+@_output
+def prepare(
+    assembler,
+    resfolder,
+    delimiter,
+    prefix,
+    output
+):
+    """Format the initial binning result from an existing binning tool"""
+
+    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info("Formatting the binning result...")
+    from gbintk.support import prep_result
+
+    # Make args class
+    class PrepArgsObj:
+        def __init__(
+            self,
+            assembler,
+            resfolder,
+            delimiter,
+            prefix,
+            output
+        ):
+            self.assembler = assembler
+            self.resfolder = resfolder
+            self.delimiter = delimiter
+            self.prefix = prefix
+            self.output = output
+
+    # Make args object
+    args = PrepArgsObj(
+        assembler,
+        resfolder,
+        delimiter,
+        prefix,
+        output
+    )
+
+    # Run Results Formatter
+    # ---------------------------------------------------
+    prep_result.main(args)
+
+
 # Main Visualise
 # -------------------------------------------------------------------
 @main.command(**_click_command_opts)
