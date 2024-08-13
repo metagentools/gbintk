@@ -24,7 +24,7 @@ Options:
 Commands:
   graphbin   GraphBin: Refined Binning of Metagenomic Contigs using...
   graphbin2  GraphBin2: Refined and Overlapped Binning of Metagenomic...
-  metacoag   MetaCoAG: Binning Metagenomic Contigs via Composition,...
+  prepare    Format the initial binning result from an existing binning tool
   visualise  Visualise binning and refinement results
   evaluate   Evaluate the binning results given a ground truth
 ```
@@ -144,6 +144,29 @@ Options:
                                   a comma (,), a semicolon (;), a tab ($'\t'),
                                   a space (" ") and a pipe (|)  [default: ,]
   --nthreads INTEGER              number of threads to use.  [default: 8]
+  -h, --help                      Show this message and exit.
+```
+
+### `gbintk prepare`: Format the initial binning result from an existing binning tool
+
+Run `gbintk prepare --help` or `gbintk prepare -h` to list the help message for formatting.
+
+```shell
+Usage: gbintk prepare [OPTIONS]
+
+  Format the initial binning result from an existing binning tool
+
+Options:
+  --assembler [spades|megahit|flye]
+                                  name of the assembler used (SPAdes, MEGAHIT
+                                  or Flye)  [required]
+  --resfolder PATH                path to the folder containing FASTA files
+                                  for individual bins  [required]
+  --delimiter [,|;|     |" "]         delimiter for input/output results. Supports
+                                  a comma (,), a semicolon (;), a tab ($'\t'),
+                                  a space (" ") and a pipe (|)  [default: ,]
+  --prefix TEXT                   prefix for the output file
+  --output PATH                   path to the output folder  [required]
   -h, --help                      Show this message and exit.
 ```
 
