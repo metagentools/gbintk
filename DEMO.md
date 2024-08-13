@@ -36,10 +36,10 @@ Now we are all set for the demo.
 
 ## Test data
 
-Test data for the demo can be found in the [`tests/data/Sim-5G+metaSPAdes/`](https://github.com/metagentools/gbintk/tree/main/tests/data/Sim-5G%2BmetaSPAdes) folder. Let's set the testing directory path to a variable as shown below so we don't have to type the path every time.
+Test data for the demo can be found in the [`tests/data/5G_metaSPAdes/`](https://github.com/metagentools/gbintk/tree/main/tests/data/Sim-5G%2BmetaSPAdes) folder. Let's set the testing directory path to a variable as shown below so we don't have to type the path every time.
 
 ```bash
-TESTDIR=tests/data/Sim-5G+metaSPAdes/
+TESTDIR=tests/data/5G_metaSPAdes/
 ```
 
 ## Run MetaCoAG
