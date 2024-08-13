@@ -48,7 +48,7 @@ def run(args):
     vsize = args.vsize
     lsize = args.lsize
     margin = args.margin
-    image_type = args.type
+    image_type = args.imgtype
     delimiter = args.delimiter
 
     logger.info(f"Welcome to binning result visualiser of GraphBin-Tk!")

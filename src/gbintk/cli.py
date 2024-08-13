@@ -608,7 +608,7 @@ def metacoag(
     required=False,
 )
 @click.option(
-    "--type",
+    "--imgtype",
     help="type of the image (jpg, png, eps, svg)",
     type=click.Choice(["jpg", "png", "eps", "svg"], case_sensitive=False),
     default="png",
@@ -630,7 +630,7 @@ def visualise(
     vsize,
     lsize,
     margin,
-    type,
+    imgtype,
     delimiter
 ):
     """Visualise binning and refinement results"""
@@ -656,7 +656,7 @@ def visualise(
             vsize,
             lsize,
             margin,
-            type,
+            imgtype,
             delimiter
         ):
             self.assembler = assembler
@@ -672,7 +672,7 @@ def visualise(
             self.vsize = vsize
             self.lsize = lsize
             self.margin = margin
-            self.type = type
+            self.imgtype = imgtype
             self.delimiter = delimiter
 
     # Make args object
@@ -690,7 +690,7 @@ def visualise(
         vsize,
         lsize,
         margin,
-        type,
+        imgtype,
         delimiter
     )
 
