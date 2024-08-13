@@ -39,9 +39,9 @@ Usage: gbintk graphbin [OPTIONS]
   GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs
 
 Options:
-  --assembler [spades|sga|megahit|flye]
-                                  name of the assembler used (SPAdes, SGA,
-                                  MEGAHIT or Flye)  [required]
+  --assembler [spades|megahit|flye]
+                                  name of the assembler used (SPAdes, MEGAHIT
+                                  or Flye)  [required]
   --graph PATH                    path to the assembly graph file  [required]
   --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
@@ -72,9 +72,9 @@ Usage: gbintk graphbin2 [OPTIONS]
   Assembly Graphs
 
 Options:
-  --assembler [spades|sga|megahit|flye]
-                                  name of the assembler used (SPAdes, SGA,
-                                  MEGAHIT or Flye)  [required]
+  --assembler [spades|megahit|flye]
+                                  name of the assembler used (SPAdes, MEGAHIT
+                                  or Flye)  [required]
   --graph PATH                    path to the assembly graph file  [required]
   --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
@@ -107,9 +107,9 @@ Usage: gbintk metacoag [OPTIONS]
   Graphs
 
 Options:
-  --assembler [spades|sga|megahit|flye]
-                                  name of the assembler used (SPAdes, SGA,
-                                  MEGAHIT or Flye)  [required]
+  --assembler [spades|megahit|flye]
+                                  name of the assembler used (SPAdes, MEGAHIT
+                                  or Flye)  [required]
   --graph PATH                    path to the assembly graph file  [required]
   --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
