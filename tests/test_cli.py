@@ -80,13 +80,13 @@ def test_visualise_prefix(runner, tmp_dir):
     r = runner.invoke(visualise, args, catch_exceptions=False)
     assert r.exit_code == 0, r.output
 
-def test_visualise_type(runner, tmp_dir):
+def test_visualise_imgtype(runner, tmp_dir):
     outpath = tmp_dir
     initial = DATADIR / "Sim-5G+metaSPAdes" / "metacoag_res.csv"
     final = DATADIR / "Sim-5G+metaSPAdes" / "graphbin_res.csv"
     graph = DATADIR / "Sim-5G+metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
     paths = DATADIR / "Sim-5G+metaSPAdes" / "contigs.paths"
-    args = f"--assembler spades --initial {initial} --final {final} --graph {graph} --paths {paths} --type svg --output {outpath}".split()
+    args = f"--assembler spades --initial {initial} --final {final} --graph {graph} --paths {paths} --imgtype svg --output {outpath}".split()
     r = runner.invoke(visualise, args, catch_exceptions=False)
     assert r.exit_code == 0, r.output
 
