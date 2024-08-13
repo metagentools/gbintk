@@ -610,7 +610,7 @@ def metacoag(
 @click.option(
     "--type",
     help="type of the image (jpg, png, eps, svg)",
-    type=str,
+    type=click.Choice(["jpg", "png", "eps", "svg"], case_sensitive=False),
     default="png",
     show_default=True,
     required=False,
