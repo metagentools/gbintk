@@ -17,6 +17,7 @@ dependencies:
   - numpy
   - pandas
   - tqdm
+  - tabulate
   - pip
   - pip:
     - .

@@ -702,3 +702,54 @@ def visualise(
     #     graphbin_MEGAHIT.main(args)
     if assembler.lower() == "spades":
         visualise_result_SPAdes.main(args)
+
+
+# Main Evaluate
+# -------------------------------------------------------------------
+@main.command(**_click_command_opts)
+@_binned
+@click.option(
+    "--groundtruth",
+    help="path to the .csv file with the ground truth",
+    type=click.Path(exists=True),
+    required=True,
+)
+@_delimiter
+@_output
+def evaluate(
+    binned,
+    groundtruth,
+    delimiter,
+    output
+):
+    """Evaluate the binning results given a ground truth"""
+
+    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info("Evaluating the binning results results...")
+    from gbintk.support import evaluate
+
+    # Make args class
+    class EvalArgsObj:
+        def __init__(
+            self,
+            binned,
+            groundtruth,
+            delimiter,
+            output
+        ):
+            self.binned = binned
+            self.groundtruth = groundtruth
+            self.delimiter = delimiter
+            self.output = output
+
+    # Make args object
+    args = EvalArgsObj(
+        binned,
+        groundtruth,
+        delimiter,
+        output
+    )
+
+    # Run Evaluation
+    # ---------------------------------------------------
+    evaluate.main(args)
