@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """visualise_result_SPAdes.py: Visualise the binning result from on the SPAdes assembly graph.
 
 Visualize the binning result by denoting coloured contigs in the assembly
@@ -8,17 +10,16 @@ result obtained from GraphBin and compare.
 """
 
 import csv
+import logging
 import os
 import random
 import re
 import subprocess
 import sys
-import logging
+from collections import defaultdict
 
 from graphbin.utils.bidirectionalmap.bidirectionalmap import BidirectionalMap
 from igraph import *
-from collections import defaultdict
-
 
 __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2019-2022, GraphBin-Tk Project"
@@ -56,7 +57,6 @@ def run(args):
         f"This version of the visualiser makes use of the assembly graph produced by SPAdes which is based on the de Bruijn graph approach."
     )
 
-
     # Validate prefix
     # ---------------------------------------------------
     try:
@@ -71,12 +71,10 @@ def run(args):
         logger.info(f"Exiting visualiseResult... Bye...!")
         sys.exit(1)
 
-
     # Format type if provided
     # ---------------------------------------------------
     if image_type.startswith("."):
         image_type = image_type[1:]
-
 
     # Check if output folder exists
     # ---------------------------------------------------
@@ -100,7 +98,6 @@ def run(args):
     logger.info(f"Size of the vertex labels: {lsize} pt")
     logger.info(f"Size of the margin: {margin} pt")
     logger.info(f"Delimiter: {delimiter}")
-
 
     # Get the number of bins from the initial binning result
     # ---------------------------------------------------
@@ -126,7 +123,6 @@ def run(args):
         logger.info(f"Exiting visualiseResult... Bye...!")
         sys.exit(1)
 
-
     logger.info(f"Constructing the assembly graph...")
 
     # Get contig paths from contigs.paths
@@ -151,7 +147,9 @@ def run(args):
 
                 start = "NODE_"
                 end = "_length_"
-                contig_num = str(int(re.search("%s(.*)%s" % (start, end), name).group(1)))
+                contig_num = str(
+                    int(re.search("%s(.*)%s" % (start, end), name).group(1))
+                )
 
                 segments = path.rstrip().split(",")
 
@@ -183,7 +181,6 @@ def run(args):
 
     logger.info(f"Total number of contigs available: {node_count}")
 
-
     ## Construct the assembly graph
     # -------------------------------
 
@@ -202,7 +199,9 @@ def run(args):
                     f1, f2 = strings[1] + strings[2], strings[3] + strings[4]
                     links_map[f1].add(f2)
                     links_map[f2].add(f1)
-                    links.append(strings[1] + strings[2] + " " + strings[3] + strings[4])
+                    links.append(
+                        strings[1] + strings[2] + " " + strings[3] + strings[4]
+                    )
 
         # Create graph
         assembly_graph = Graph()
@@ -265,7 +264,6 @@ def run(args):
         prilogger.infont(f"Exiting GraphBin... Bye...!")
         sys.exit(1)
 
-
     # Get the number of bins from the initial binning result
     # ---------------------------------------------------
 
@@ -290,7 +288,6 @@ def run(args):
         )
         logger.info(f"Exiting visualiseResult... Bye...!")
         sys.exit(1)
-
 
     # Get initial binning result
     # ----------------------------
@@ -321,7 +318,6 @@ def run(args):
         )
         logger.info(f"Exiting visualiseResult... Bye...!")
         sys.exit(1)
-
 
     # Get list of colours according to number of bins
     # -------------------------------------------------
@@ -372,11 +368,12 @@ def run(args):
         "#000000",
     ]
 
-
     # Visualise the initial assembly graph
     # --------------------------------------
 
-    logger.info(f"Drawing and saving the assembly graph with the initial binning result...")
+    logger.info(
+        f"Drawing and saving the assembly graph with the initial binning result..."
+    )
 
     initial_out_fig_name = output_path + prefix + "initial_binning_result." + image_type
 
@@ -416,7 +413,6 @@ def run(args):
     # Plot the graph
     plot(assembly_graph, initial_out_fig_name, **visual_style)
 
-
     # Get the final GraphBin binning result
     # ---------------------------------------
 
@@ -448,7 +444,6 @@ def run(args):
         )
         logger.info(f"Exiting visualiseResult... Bye...!")
         sys.exit(1)
-
 
     # Visualise the final assembly graph
     # ------------------------------------
@@ -503,7 +498,6 @@ def run(args):
         f"Visualization of the final GraphBin binning results can be found at {final_out_fig_name}"
     )
 
-
     # Exit program
     # --------------
 
@@ -512,6 +506,7 @@ def run(args):
 
 def main(args):
     run(args)
+
 
 if __name__ == "__main__":
     main()

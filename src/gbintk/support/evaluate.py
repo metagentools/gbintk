@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """evaluate.py: Evaluate the binning results given a ground truth.
 
 Evaluate the binning results given a ground truth and calculate the
@@ -7,8 +9,8 @@ precision, recall, F1-score and ARI of the provided binning result.
 
 import csv
 import logging
-import scipy.special
 
+import scipy.special
 from tabulate import tabulate
 
 __author__ = "Vijini Mallawaarachchi"
@@ -47,9 +49,8 @@ def run(args):
     logger.info(f"Delimiter: {delimiter}")
     logger.info(f"Output path: {output_path}")
 
-
     # Get the number of bins from the ground truth
-    #---------------------------------------------------------
+    # ---------------------------------------------------------
     ground_truth_n_bins = 0
 
     all_ground_truth_bins_list = []
@@ -58,15 +59,14 @@ def run(args):
         readCSV = csv.reader(csvfile, delimiter=delimiter)
         for row in readCSV:
             all_ground_truth_bins_list.append(row[1])
-            
+
     ground_truth_bins_list = list(set(all_ground_truth_bins_list))
     ground_truth_n_bins = len(ground_truth_bins_list)
 
     logger.info(f"Number of bins available in the ground truth: {ground_truth_n_bins}")
 
-
     # Get the ground truth
-    #----------------------------
+    # ----------------------------
     ground_truth_bins = [[] for x in range(ground_truth_n_bins)]
 
     ground_truth_count = 0
@@ -74,7 +74,7 @@ def run(args):
 
     with open(ground_truth_file) as contig_bins:
         readCSV = csv.reader(contig_bins, delimiter=delimiter)
-        
+
         for row in readCSV:
             ground_truth_count += 1
             contig = row[0]
@@ -82,28 +82,29 @@ def run(args):
             ground_truth_bins[bin_num].append(contig)
             ground_truth_bins_1[contig] = bin_num
 
-    logger.info(f"Number of contigs available in the ground truth: {ground_truth_count}")
+    logger.info(
+        f"Number of contigs available in the ground truth: {ground_truth_count}"
+    )
 
     # Get the number of bins from the initial binning result
-    #---------------------------------------------------------
+    # ---------------------------------------------------------
     n_bins = 0
 
     all_bins_list = []
 
     with open(binned_file) as csvfile:
         readCSV = csv.reader(csvfile, delimiter=delimiter)
-        
+
         for row in readCSV:
             all_bins_list.append(row[1])
-            
+
     bins_list = list(set(all_bins_list))
     n_bins = len(bins_list)
 
     logger.info(f"Number of bins available in the binning result: {n_bins}")
 
-
     # Get initial binning result
-    #----------------------------
+    # ----------------------------
     bins = [[] for x in range(n_bins)]
 
     bins_1 = {}
@@ -123,9 +124,8 @@ def run(args):
 
     logger.info(f"Number of contigs available in the binning result: {binned_count}")
 
-
     # Determine precision, recall, F1-score and ARI for binning result
-    #------------------------------------------------------------------
+    # ------------------------------------------------------------------
 
     total_binned = 0
 
@@ -136,9 +136,12 @@ def run(args):
             total_binned += 1
             bins_species[bins_1[i]][ground_truth_bins_1[i]] += 1
 
-
-    logger.info(f"Number of contigs available in the binning result that are present in the ground truth: {total_binned}")
-    logger.info(f"Number of unbinned contigs from the ground truth: {ground_truth_count-total_binned}")
+    logger.info(
+        f"Number of contigs available in the binning result that are present in the ground truth: {total_binned}"
+    )
+    logger.info(
+        f"Number of unbinned contigs from the ground truth: {ground_truth_count-total_binned}"
+    )
 
     logger.info(f"Ground truth bin labels:")
 
@@ -148,19 +151,22 @@ def run(args):
     logger.info(f"KxS Matrix:")
     logger.info(f"\n{tabulate(bins_species)}")
 
-
     my_precision = getPrecision(bins_species, n_bins, ground_truth_n_bins, total_binned)
-    my_recall = getRecall(bins_species, n_bins, ground_truth_n_bins, total_binned, (ground_truth_count-total_binned))
+    my_recall = getRecall(
+        bins_species,
+        n_bins,
+        ground_truth_n_bins,
+        total_binned,
+        (ground_truth_count - total_binned),
+    )
     my_ari = getARI(bins_species, n_bins, ground_truth_n_bins, total_binned)
     my_f1 = getF1(my_precision, my_recall)
-
 
     logger.info(f"Evaluation Results:")
     logger.info(f"Precision = {my_precision*100}")
     logger.info(f"Recall = {my_recall*100}")
     logger.info(f"F1-score = {my_f1*100}")
     logger.info(f"ARI = {my_ari*100}")
-
 
     # Exit program
     # --------------
@@ -169,7 +175,8 @@ def run(args):
 
 
 # Functions to determine precision, recall, F1-score and ARI
-#------------------------------------------------------------
+# ------------------------------------------------------------
+
 
 # Get precicion
 def getPrecision(mat, k, s, total):
@@ -180,7 +187,8 @@ def getPrecision(mat, k, s, total):
             if mat[i][j] > max_s:
                 max_s = mat[i][j]
         sum_k += max_s
-    return sum_k/total
+    return sum_k / total
+
 
 # Get recall
 def getRecall(mat, k, s, total, unclassified):
@@ -191,41 +199,44 @@ def getRecall(mat, k, s, total, unclassified):
             if mat[j][i] > max_k:
                 max_k = mat[j][i]
         sum_s += max_k
-    return sum_s/(total+unclassified)
+    return sum_s / (total + unclassified)
+
 
 # Get ARI
 def getARI(mat, k, s, N):
-    t1 = 0    
+    t1 = 0
     for i in range(k):
         sum_k = 0
         for j in range(s):
             sum_k += mat[i][j]
         t1 += scipy.special.binom(sum_k, 2)
-        
+
     t2 = 0
     for i in range(s):
         sum_s = 0
         for j in range(k):
             sum_s += mat[j][i]
         t2 += scipy.special.binom(sum_s, 2)
-        
-    t3 = t1*t2/scipy.special.binom(N, 2)
-    
+
+    t3 = t1 * t2 / scipy.special.binom(N, 2)
+
     t = 0
     for i in range(k):
         for j in range(s):
             t += scipy.special.binom(mat[i][j], 2)
-        
-    ari = (t-t3)/((t1+t2)/2-t3)
+
+    ari = (t - t3) / ((t1 + t2) / 2 - t3)
     return ari
+
 
 # Get F1-score
 def getF1(prec, recall):
-    return 2*prec*recall/(prec+recall)
+    return 2 * prec * recall / (prec + recall)
 
 
 def main(args):
     run(args)
+
 
 if __name__ == "__main__":
     main()

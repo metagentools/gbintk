@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
+import logging
 from collections import OrderedDict
 from typing import Mapping, Optional
 
 import click
-import logging
 
 __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2019-2022, GraphBin-Tk Project"
@@ -26,6 +26,7 @@ consoleHeader = logging.StreamHandler()
 consoleHeader.setFormatter(formatter)
 consoleHeader.setLevel(logging.INFO)
 logger.addHandler(consoleHeader)
+
 
 class OrderedGroup(click.Group):
     """custom group class to ensure help function returns commands in desired order.
@@ -169,7 +170,9 @@ def graphbin(
 ):
     """GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs"""
 
-    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info(
+        f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
+    )
     logger.info("Running GraphBin...")
 
     from graphbin.utils import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
@@ -274,7 +277,9 @@ def graphbin2(
 ):
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
-    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info(
+        f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
+    )
     logger.info(f"Running GraphBin2...")
 
     from graphbin2 import graphbin2_Flye, graphbin2_MEGAHIT, graphbin2_SPAdes
@@ -459,7 +464,9 @@ def metacoag(
 ):
     """MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs"""
 
-    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info(
+        f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
+    )
     logger.info("Running MetaCoAG...")
 
     from metacoag import metacoag_runner
@@ -552,29 +559,18 @@ def metacoag(
 @_delimiter
 @_prefix
 @_output
-def prepare(
-    assembler,
-    resfolder,
-    delimiter,
-    prefix,
-    output
-):
+def prepare(assembler, resfolder, delimiter, prefix, output):
     """Format the initial binning result from an existing binning tool"""
 
-    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info(
+        f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
+    )
     logger.info("Formatting the binning result...")
     from gbintk.support import prep_result
 
     # Make args class
     class PrepArgsObj:
-        def __init__(
-            self,
-            assembler,
-            resfolder,
-            delimiter,
-            prefix,
-            output
-        ):
+        def __init__(self, assembler, resfolder, delimiter, prefix, output):
             self.assembler = assembler
             self.resfolder = resfolder
             self.delimiter = delimiter
@@ -582,13 +578,7 @@ def prepare(
             self.output = output
 
     # Make args object
-    args = PrepArgsObj(
-        assembler,
-        resfolder,
-        delimiter,
-        prefix,
-        output
-    )
+    args = PrepArgsObj(assembler, resfolder, delimiter, prefix, output)
 
     # Run Results Formatter
     # ---------------------------------------------------
@@ -687,11 +677,13 @@ def visualise(
     lsize,
     margin,
     imgtype,
-    delimiter
+    delimiter,
 ):
     """Visualise binning and refinement results"""
 
-    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info(
+        f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
+    )
     logger.info("Running Visualisation for binning and refinement results...")
     from gbintk.support import visualise_result_SPAdes
 
@@ -713,7 +705,7 @@ def visualise(
             lsize,
             margin,
             imgtype,
-            delimiter
+            delimiter,
         ):
             self.assembler = assembler
             self.initial = initial
@@ -747,7 +739,7 @@ def visualise(
         lsize,
         margin,
         imgtype,
-        delimiter
+        delimiter,
     )
 
     # Run Visualisation
@@ -772,39 +764,25 @@ def visualise(
 )
 @_delimiter
 @_output
-def evaluate(
-    binned,
-    groundtruth,
-    delimiter,
-    output
-):
+def evaluate(binned, groundtruth, delimiter, output):
     """Evaluate the binning results given a ground truth"""
 
-    logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
+    logger.info(
+        f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
+    )
     logger.info("Evaluating the binning results results...")
     from gbintk.support import evaluate
 
     # Make args class
     class EvalArgsObj:
-        def __init__(
-            self,
-            binned,
-            groundtruth,
-            delimiter,
-            output
-        ):
+        def __init__(self, binned, groundtruth, delimiter, output):
             self.binned = binned
             self.groundtruth = groundtruth
             self.delimiter = delimiter
             self.output = output
 
     # Make args object
-    args = EvalArgsObj(
-        binned,
-        groundtruth,
-        delimiter,
-        output
-    )
+    args = EvalArgsObj(binned, groundtruth, delimiter, output)
 
     # Run Evaluation
     # ---------------------------------------------------
