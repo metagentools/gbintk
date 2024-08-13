@@ -6,7 +6,7 @@
 [![CodeQL](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques [GraphBin](https://github.com/metagentools/GraphBin), [GraphBin2](https://github.com/metagentools/GraphBin2) and [MetaCoAG](https://github.com/metagentools/MetaCoAG) into one comprehensive toolkit.
+GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques [GraphBin](https://github.com/metagentools/GraphBin), [GraphBin2](https://github.com/metagentools/GraphBin2) and [MetaCoAG](https://github.com/metagentools/MetaCoAG) along with support functionality to visualise and evaluate results, into one comprehensive toolkit.
 
 ## Available commands
 
@@ -26,13 +26,14 @@ Commands:
   graphbin2  GraphBin2: Refined and Overlapped Binning of Metagenomic...
   metacoag   MetaCoAG: Binning Metagenomic Contigs via Composition,...
   visualise  Visualise binning and refinement results
+  evaluate   Evaluate the binning results given a ground truth
 ```
 
 ### `gbintk graphbin`: Run [GraphBin](https://github.com/metagentools/GraphBin)
 
 Run `gbintk graphbin --help` or `gbintk graphbin -h` to list the help message for GraphBin.
 
-```bash
+```shell
 Usage: gbintk graphbin [OPTIONS]
 
   GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs
@@ -62,11 +63,9 @@ Options:
 
 ### `gbintk graphbin2`: Run [GraphBin2](https://github.com/metagentools/GraphBin2)
 
-**NOTE: The GraphBin2 feature is still under construction. Stay tuned!**
-
 Run `gbintk graphbin2 --help` or `gbintk graphbin2 -h` to list the help message for GraphBin2.
 
-```bash
+```shell
 Usage: gbintk graphbin2 [OPTIONS]
 
   GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using
@@ -101,7 +100,7 @@ Options:
 
 Run `gbintk metacoag --help` or `gbintk metacoag -h` to list the help message for MetaCoAG.
 
-```bash
+```shell
 Usage: gbintk metacoag [OPTIONS]
 
   MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly
@@ -152,7 +151,7 @@ Options:
 
 Run `gbintk visualise --help` or `gbintk visualise -h` to list the help message for visualisation.
 
-```bash
+```shell
 Usage: gbintk visualise [OPTIONS]
 
   Visualise binning and refinement results
@@ -183,6 +182,27 @@ Options:
                                   a comma (,), a semicolon (;), a tab ($'\t'),
                                   a space (" ") and a pipe (|)  [default: ,]
   -h, --help                      Show this message and exit.
+```
+
+### `gbintk evaluate`: Evaluate binning results give a ground trith
+
+Run `gbintk evaluate --help` or `gbintk evaluate -h` to list the help message for evaluation.
+
+```shell
+Usage: gbintk evaluate [OPTIONS]
+
+  Evaluate the binning results given a ground truth
+
+Options:
+  --binned PATH            path to the .csv file with the initial binning
+                           output from an existing tool  [required]
+  --groundtruth PATH       path to the .csv file with the ground truth
+                           [required]
+  --delimiter [,|;|     |" "]  delimiter for input/output results. Supports a
+                           comma (,), a semicolon (;), a tab ($'\t'), a space
+                           (" ") and a pipe (|)  [default: ,]
+  --output PATH            path to the output folder  [required]
+  -h, --help               Show this message and exit.
 ```
 
 ## Funding
