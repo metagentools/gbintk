@@ -31,10 +31,10 @@ def runner():
 
 def test_metacoag_run(runner, tmp_dir):
     outpath = tmp_dir
-    graph = DATADIR / "Sim-5G+metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
-    contigs = DATADIR / "Sim-5G+metaSPAdes" / "contigs.fasta"
-    paths = DATADIR / "Sim-5G+metaSPAdes" / "contigs.paths"
-    abundance = DATADIR / "Sim-5G+metaSPAdes" / "coverm_mean_coverage.tsv"
+    graph = DATADIR / "5G_metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
+    contigs = DATADIR / "5G_metaSPAdes" / "contigs.fasta"
+    paths = DATADIR / "5G_metaSPAdes" / "contigs.paths"
+    abundance = DATADIR / "5G_metaSPAdes" / "coverm_mean_coverage.tsv"
     args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --abundance {abundance} --output {outpath}".split()
     r = runner.invoke(metacoag, args, catch_exceptions=False)
     assert r.exit_code == 0, r.output

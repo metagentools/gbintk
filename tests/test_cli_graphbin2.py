@@ -31,11 +31,11 @@ def runner():
 
 def test_graphbin2_run(runner, tmp_dir):
     outpath = tmp_dir
-    graph = DATADIR / "Sim-5G+metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
-    contigs = DATADIR / "Sim-5G+metaSPAdes" / "contigs.fasta"
-    paths = DATADIR / "Sim-5G+metaSPAdes" / "contigs.paths"
-    binned = DATADIR / "Sim-5G+metaSPAdes" / "initial_contig_bins.csv"
-    abundance = DATADIR / "Sim-5G+metaSPAdes" / "abundance.abund"
+    graph = DATADIR / "5G_metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
+    contigs = DATADIR / "5G_metaSPAdes" / "contigs.fasta"
+    paths = DATADIR / "5G_metaSPAdes" / "contigs.paths"
+    binned = DATADIR / "5G_metaSPAdes" / "initial_contig_bins.csv"
+    abundance = DATADIR / "5G_metaSPAdes" / "abundance.abund"
     args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --binned {binned} --abundance {abundance} --output {outpath}".split()
     r = runner.invoke(graphbin2, args, catch_exceptions=False)
     assert r.exit_code == 0, r.output
