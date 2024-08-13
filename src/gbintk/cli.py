@@ -19,7 +19,7 @@ __status__ = "Alpha"
 # Setup logger
 # ---------------------------------------------------
 
-logger = logging.getLogger("GraphBin-Tk %s" % __version__)
+logger = logging.getLogger(f"GraphBin-Tk {__version__}")
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 consoleHeader = logging.StreamHandler()

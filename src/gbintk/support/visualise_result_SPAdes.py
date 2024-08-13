@@ -32,7 +32,7 @@ __status__ = "Alpha"
 
 
 # create logger
-logger = logging.getLogger("GraphBin-Tk %s" % __version__)
+logger = logging.getLogger(f"GraphBin-Tk {__version__}")
 
 
 def run(args):
