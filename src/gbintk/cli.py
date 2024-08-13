@@ -275,7 +275,64 @@ def graphbin2(
     """GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using Assembly Graphs"""
 
     logger.info(f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!")
-    logger.info(f"The GraphBin2 feature is still under construction. Stay tuned!")
+    logger.info(f"Running GraphBin2...")
+
+    from graphbin2 import graphbin2_Flye, graphbin2_MEGAHIT, graphbin2_SPAdes
+
+    # Make args class
+    class GraphBin2ArgsObj:
+        def __init__(
+            self,
+            assembler,
+            graph,
+            contigs,
+            paths,
+            abundance,
+            binned,
+            output,
+            prefix,
+            depth,
+            threshold,
+            delimiter,
+            nthreads,
+        ):
+            self.assembler = assembler
+            self.graph = graph
+            self.contigs = contigs
+            self.paths = paths
+            self.abundance = abundance
+            self.binned = binned
+            self.output = output
+            self.prefix = prefix
+            self.depth = depth
+            self.threshold = threshold
+            self.delimiter = delimiter
+            self.nthreads = nthreads
+
+    # Make args object
+    args = GraphBin2ArgsObj(
+        assembler,
+        graph,
+        contigs,
+        paths,
+        abundance,
+        binned,
+        output,
+        prefix,
+        depthb,
+        threshold,
+        delimiter,
+        nthreads,
+    )
+
+    # Run GraphBin
+    # ---------------------------------------------------
+    if assembler.lower() == "flye":
+        graphbin2_Flye.main(args)
+    if assembler.lower() == "megahit":
+        graphbin2_MEGAHIT.main(args)
+    if assembler.lower() == "spades":
+        graphbin2_SPAdes.main(args)
 
 
 # Main MetaCoAG
