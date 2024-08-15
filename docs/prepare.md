@@ -15,7 +15,7 @@ Options:
                                   or Flye)  [required]
   --resfolder PATH                path to the folder containing FASTA files
                                   for individual bins  [required]
-  --delimiter [,|;|     |" "]         delimiter for input/output results. Supports
+  --delimiter [,|;|     |" "]     delimiter for input/output results. Supports
                                   a comma (,), a semicolon (;), a tab ($'\t'),
                                   a space (" ") and a pipe (|)  [default: ,]
   --prefix TEXT                   prefix for the output file
@@ -23,9 +23,13 @@ Options:
   -h, --help                      Show this message and exit.
 ```
 
+## Input
+
+`prepare` subcommand takes the path to the folder containing the `.fasta` files of the bins as input.
+
 ## Example usage
 
-You can use the `prepare` subcommand to format an initial binning result in to the `.csv` format (by default) with contig identifiers and bin ID. Contigs are named according to their original identifier and bins are numbered according to the fasta file name. You can run the `prepare` subcommand as follows.
+You can use the `prepare` subcommand to format an initial binning result in to the `.csv` format (by default) with contig identifiers and bin ID. You can run the `prepare` subcommand as follows.
 
 ```shell
 # For SPAdes
@@ -40,7 +44,7 @@ gbintk prepare --assembler flye ----resfolder /path/to/folder_with_binning_resul
 
 ## Output
 
-Formatted binning result will be stored in a file named `initial_contig_bins.csv` in the output folder provided. This file would look as below.
+Formatted binning result will be stored in a file named `initial_contig_bins.csv` in the output folder provided. Contigs are named according to their original identifier and bins are numbered according to the fasta file name. This file would look as below.
 
 ```
 contig-1,bin-1
