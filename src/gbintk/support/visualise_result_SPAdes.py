@@ -433,7 +433,9 @@ def run(args):
         f"Drawing and saving the assembly graph with the final GraphBin binning result..."
     )
 
-    final_out_fig_name = final_out_fig_name = f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
+    final_out_fig_name = final_out_fig_name = (
+        f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
+    )
 
     node_colours = []
 

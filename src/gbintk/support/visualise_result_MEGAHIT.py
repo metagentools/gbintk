@@ -17,10 +17,9 @@ import re
 import subprocess
 import sys
 
-from graphbin.utils.bidirectionalmap.bidirectionalmap import BidirectionalMap
 from cogent3.parse.fasta import MinimalFastaParser
+from graphbin.utils.bidirectionalmap.bidirectionalmap import BidirectionalMap
 from igraph import *
-
 
 __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2019-2022, GraphBin-Tk Project"
@@ -87,7 +86,6 @@ def run(args):
     if not os.path.isdir(output_path):
         subprocess.run(f"mkdir -p {output_path}", shell=True)
 
-    
     logger.info(f"Assembly graph file: {assembly_graph_file}")
     logger.info(f"Initial binning results file: {initial_binning_result}")
     logger.info(f"Final binning results file: {final_binning_result}")
@@ -99,7 +97,6 @@ def run(args):
     logger.info(f"Size of the vertex labels: {lsize} pt")
     logger.info(f"Size of the margin: {margin} pt")
     logger.info(f"Delimiter: {delimiter}")
-
 
     # Get the number of bins from the initial binning result
     # ---------------------------------------------------
@@ -120,11 +117,11 @@ def run(args):
         logger.info(f"Number of bins available in initial binning result: {n_bins}")
 
     except:
-        logger.error(f"Please make sure that the correct path to the initial binning result file is provided and it is having the correct format"
+        logger.error(
+            f"Please make sure that the correct path to the initial binning result file is provided and it is having the correct format"
         )
         logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
-
 
     logger.info("Constructing the assembly graph...")
 
@@ -138,7 +135,6 @@ def run(args):
         name = label.split()[0]
         original_contigs[name] = seq
         contig_descriptions[name] = label
-
 
     ## Construct the assembly graph
     # -------------------------------
@@ -238,10 +234,11 @@ def run(args):
         assembly_graph.simplify(multiple=True, loops=False, combine_edges=None)
 
     except:
-        logger.error("Please make sure that the correct path to the assembly graph file is provided.")
+        logger.error(
+            "Please make sure that the correct path to the assembly graph file is provided."
+        )
         logger.info("Exiting visualiser... Bye...!")
         sys.exit(1)
-
 
     # Get initial binning result
     # ----------------------------
@@ -259,10 +256,11 @@ def run(args):
                 bins[bin_num].append(contig_num)
 
     except:
-        logger.error(f"Please make sure that the correct path to the binning result file is provided and it is having the correct format")
+        logger.error(
+            f"Please make sure that the correct path to the binning result file is provided and it is having the correct format"
+        )
         logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
-
 
     # Get isolated vertices
     # -------------------------------------------------
@@ -270,7 +268,6 @@ def run(args):
     # Get isolated contigs with no neighbours
     isolated = [v.index for v in assembly_graph.vs if v.degree() == 0]
     logger.info(f"Total isolated contigs in the assembly graph: {len(isolated)}")
-
 
     # Get list of colours according to number of bins
     # -------------------------------------------------
@@ -305,7 +302,9 @@ def run(args):
     # Visualise the initial assembly graph
     # --------------------------------------
 
-    logger.info("Drawing and saving the assembly graph with the initial binning result...")
+    logger.info(
+        "Drawing and saving the assembly graph with the initial binning result..."
+    )
 
     initial_out_fig_name = f"{output_path}{prefix}initial_binning_result.{image_type}"
 
@@ -346,7 +345,6 @@ def run(args):
     # Plot the graph
     plot(assembly_graph, initial_out_fig_name, **visual_style)
 
-
     # Get the final GraphBin binning result
     # ---------------------------------------
 
@@ -363,10 +361,11 @@ def run(args):
                 bins[bin_num].append(contig_num)
 
     except:
-        logger.error(f"Please make sure that the correct path to the final binning result file is provided and it is having the correct format")
+        logger.error(
+            f"Please make sure that the correct path to the final binning result file is provided and it is having the correct format"
+        )
         logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
-
 
     # Visualise the final assembly graph
     # ------------------------------------
@@ -375,7 +374,9 @@ def run(args):
         f"Drawing and saving the assembly graph with the final GraphBin binning result..."
     )
 
-    final_out_fig_name = f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
+    final_out_fig_name = (
+        f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
+    )
 
     node_colours = []
 
@@ -419,7 +420,6 @@ def run(args):
     logger.info(
         f"Visualization of the final GraphBin binning results can be found at {final_out_fig_name}"
     )
-
 
     # Exit program
     # --------------
