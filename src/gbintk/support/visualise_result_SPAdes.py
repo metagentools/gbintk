@@ -68,7 +68,7 @@ def run(args):
 
     except:
         logger.error(f"Please enter a valid string for prefix")
-        logger.info(f"Exiting visualiseResult... Bye...!")
+        logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
 
     # Format type if provided
@@ -120,7 +120,7 @@ def run(args):
         logger.error(
             f"Please make sure that the correct path to the initial binning result file is provided and it is having the correct format"
         )
-        logger.info(f"Exiting visualiseResult... Bye...!")
+        logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
 
     logger.info(f"Constructing the assembly graph...")
@@ -173,7 +173,7 @@ def run(args):
         logger.error(
             f"Please make sure that the correct path to the contig paths file is provided"
         )
-        logger.info(f"Exiting visualiseResult...")
+        logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
 
     contigs_map = my_map
@@ -261,7 +261,7 @@ def run(args):
         logger.error(
             f"Please make sure that the correct path to the assembly graph file is provided"
         )
-        prilogger.infont(f"Exiting GraphBin... Bye...!")
+        logger.info("Exiting visualiser... Bye...!")
         sys.exit(1)
 
     # Get the number of bins from the initial binning result
@@ -286,7 +286,7 @@ def run(args):
         logger.error(
             f"Please make sure that the correct path to the initial binning result file is provided and it is having the correct format."
         )
-        logger.info(f"Exiting visualiseResult... Bye...!")
+        logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
 
     # Get initial binning result
@@ -316,7 +316,7 @@ def run(args):
         logger.error(
             f"Please make sure that the correct path to the binning result file is provided and it is having the correct format"
         )
-        logger.info(f"Exiting visualiseResult... Bye...!")
+        logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
 
     # Get list of colours according to number of bins
@@ -375,7 +375,7 @@ def run(args):
         f"Drawing and saving the assembly graph with the initial binning result..."
     )
 
-    initial_out_fig_name = output_path + prefix + "initial_binning_result." + image_type
+    initial_out_fig_name = f"{output_path}{prefix}initial_binning_result.{image_type}"
 
     node_colours = []
 
@@ -442,7 +442,7 @@ def run(args):
         logger.error(
             f"Please make sure that the correct path to the final binning result file is provided and it is having the correct format"
         )
-        logger.info(f"Exiting visualiseResult... Bye...!")
+        logger.info(f"Exiting visualiser... Bye...!")
         sys.exit(1)
 
     # Visualise the final assembly graph
@@ -452,9 +452,7 @@ def run(args):
         f"Drawing and saving the assembly graph with the final GraphBin binning result..."
     )
 
-    final_out_fig_name = (
-        output_path + prefix + "final_GraphBin_binning_result." + image_type
-    )
+    final_out_fig_name = final_out_fig_name = f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
 
     node_colours = []
 
@@ -501,7 +499,7 @@ def run(args):
     # Exit program
     # --------------
 
-    logger.info(f"Thank you for using visualiseResult for GraphBin-Tk!")
+    logger.info(f"Thank you for using visualiser for GraphBin-Tk!")
 
 
 def main(args):
