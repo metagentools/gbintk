@@ -64,7 +64,7 @@ def run(args):
 
     all_ground_truth_bins_list = []
 
-    with open(ground_truth_file) as csvfile:
+    with open(ground_truth_file, mode="r") as csvfile:
         readCSV = csv.reader(csvfile, delimiter=delimiter)
         for row in readCSV:
             all_ground_truth_bins_list.append(row[1])
@@ -81,7 +81,7 @@ def run(args):
     ground_truth_count = 0
     ground_truth_bins_1 = {}
 
-    with open(ground_truth_file) as contig_bins:
+    with open(ground_truth_file, mode="r") as contig_bins:
         readCSV = csv.reader(contig_bins, delimiter=delimiter)
 
         for row in readCSV:
@@ -101,7 +101,7 @@ def run(args):
 
     all_bins_list = []
 
-    with open(binned_file) as csvfile:
+    with open(binned_file, mode="r") as csvfile:
         readCSV = csv.reader(csvfile, delimiter=delimiter)
 
         for row in readCSV:
@@ -121,7 +121,7 @@ def run(args):
     binned_count = 0
     binned_contigs = []
 
-    with open(binned_file) as contig_bins:
+    with open(binned_file, mode="r") as contig_bins:
         readCSV = csv.reader(contig_bins, delimiter=delimiter)
         for row in readCSV:
             binned_count += 1

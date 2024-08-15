@@ -691,7 +691,11 @@ def visualise(
     )
     logger.info("Running Visualisation for binning and refinement results...")
 
-    from gbintk.support import visualise_result_MEGAHIT, visualise_result_SPAdes, visualise_result_Flye
+    from gbintk.support import (
+        visualise_result_Flye,
+        visualise_result_MEGAHIT,
+        visualise_result_SPAdes,
+    )
 
     # Make args class
     class VizArgsObj:

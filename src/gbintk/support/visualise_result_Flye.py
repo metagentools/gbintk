@@ -98,7 +98,6 @@ def run(args):
     logger.info(f"Size of the margin: {margin} pt")
     logger.info(f"Delimiter: {delimiter}")
 
-
     # Get the number of bins from the initial binning result
     # ---------------------------------------------------
 
@@ -123,7 +122,6 @@ def run(args):
         )
         logger.info("Exiting visualiser... Bye...!")
         sys.exit(1)
-
 
     logger.info("Constructing the assembly graph...")
 
@@ -303,7 +301,6 @@ def run(args):
 
     logger.info(f"Total number of edges in the assembly graph: {len(edge_list)}")
 
-
     # Get initial binning result
     # ----------------------------
 
@@ -329,7 +326,6 @@ def run(args):
         )
         logger.info("Exiting visualiser... Bye...!")
         sys.exit(1)
-
 
     # Get list of colours according to number of bins
     # -------------------------------------------------
@@ -361,11 +357,12 @@ def run(args):
         "#000000",
     ]
 
-
     # Visualise the initial assembly graph
     # --------------------------------------
 
-    logger.info("Drawing and saving the assembly graph with the initial binning result...")
+    logger.info(
+        "Drawing and saving the assembly graph with the initial binning result..."
+    )
 
     initial_out_fig_name = f"{output_path}{prefix}initial_binning_result.{image_type}"
 
@@ -405,7 +402,6 @@ def run(args):
     # Plot the graph
     plot(assembly_graph, initial_out_fig_name, **visual_style)
 
-
     # Get the final GraphBin binning result
     # ---------------------------------------
 
@@ -432,7 +428,6 @@ def run(args):
         logger.info("Exiting visualiseResult... Bye...!")
         sys.exit(1)
 
-
     # Visualise the final assembly graph
     # ------------------------------------
 
@@ -440,7 +435,9 @@ def run(args):
         "Drawing and saving the assembly graph with the final GraphBin binning result..."
     )
 
-    final_out_fig_name = f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
+    final_out_fig_name = (
+        f"{output_path}{prefix}final_GraphBin_binning_result.{image_type}"
+    )
 
     node_colours = []
 

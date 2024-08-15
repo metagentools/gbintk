@@ -105,7 +105,7 @@ def run(args):
         all_bins_list = []
         n_bins = 0
 
-        with open(initial_binning_result) as csvfile:
+        with open(initial_binning_result, mode="r") as csvfile:
             readCSV = csv.reader(csvfile, delimiter=delimiter)
             for row in readCSV:
                 all_bins_list.append(row[1])
@@ -149,7 +149,7 @@ def run(args):
 
     try:
         # Get links from .gfa file
-        with open(assembly_graph_file) as file:
+        with open(assembly_graph_file, mode="r") as file:
             for line in file.readlines():
                 line = line.strip()
 
@@ -248,7 +248,7 @@ def run(args):
     bins = [[] for x in range(n_bins)]
 
     try:
-        with open(initial_binning_result) as contig_bins:
+        with open(initial_binning_result, mode="r") as contig_bins:
             readCSV = csv.reader(contig_bins, delimiter=delimiter)
             for row in readCSV:
                 contig_num = contigs_map_rev[int(graph_to_contig_map_rev[row[0]])]
@@ -353,7 +353,7 @@ def run(args):
     bins = [[] for x in range(n_bins)]
 
     try:
-        with open(final_binning_result) as contig_bins:
+        with open(final_binning_result, mode="r") as contig_bins:
             readCSV = csv.reader(contig_bins, delimiter=delimiter)
             for row in readCSV:
                 contig_num = contigs_map_rev[int(graph_to_contig_map_rev[row[0]])]
