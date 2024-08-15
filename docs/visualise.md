@@ -1,5 +1,7 @@
 # Visualising binning results
 
+You can use the `visualise` subcommand to visualise the binning results by denoting coloured contigs in the assembly graph according to their corresponding bins. You can visualise the initial binning result obtained from an existing binning tool and the final binning result obtained from GraphBin/GraphBin2 and compare.
+
 Run `gbintk visualise --help` or `gbintk visualise -h` to list the help message for visualisation.
 
 ```shell
@@ -34,3 +36,54 @@ Options:
                                   a space (" ") and a pipe (|)  [default: ,]
   -h, --help                      Show this message and exit.
 ```
+
+## Input Format
+
+The *metaSPAdes* version takes in 4 files as inputs.
+
+* Initial binning resilt (in `.csv` format)
+* Final binning resilt (in `.csv` format)
+* Assembly graph file (in `.gfa` format)
+* Contigs file (in `.fasta` format)
+* Contig paths file (in `.paths` format)
+* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+
+The *MEGAHIT* version takes in 3 files as inputs.
+
+* Initial binning resilt (in `.csv` format)
+* Final binning resilt (in `.csv` format)
+* Assembly graph file (in `.gfa` format)
+* Contigs file (in `.fasta` format)
+* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+
+The *Flye* version takes in 4 files as inputs.
+
+* Initial binning resilt (in `.csv` format)
+* Final binning resilt (in `.csv` format)
+* Assembly graph file (`assembly_graph.gfa`)
+* Contigs file (`assembly.fasta`)
+* Contig paths file (`assembly_info.txt`)
+* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+
+## Example Usage
+
+```shell
+# SPAdes assembly
+gbintk visualise --assembler spades --initial /path/to/initial_binning_res.csv --final /path/to/final_binning_res.csv --graph /path/to/graph_file.gfa --contigs /path/to/contigs.fasta --paths /path/to/paths_file.paths --output /path/to/output_folder
+
+# MEGAHIT assembly
+gbintk visualise --assembler megahit --initial /path/to/initial_binning_res.csv --final /path/to/final_binning_res.csv --graph /path/to/graph_file.gfa --contigs /path/to/contigs.fasta --output /path/to/output_folder
+
+# Flye assembly
+gbintk visualise --assembler flye --initial /path/to/initial_binning_res.csv --final /path/to/final_binning_res.csv --graph /path/to/assembly_graph.gfa --contigs /path/to/assembly.fasta --paths /path/to/assembly_info.txt --output /path/to/output_folder
+```
+
+### Example visualisation
+
+**Initial binning result**
+
+![](images/initial_binning_result.png)
+
+**Final refined binning result**
+
+![](images/final_GraphBin_binning_result.png)
