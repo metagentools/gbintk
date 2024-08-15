@@ -50,6 +50,17 @@ def test_visualise_megahit_run(runner, tmp_dir):
     r = runner.invoke(visualise, args, catch_exceptions=False)
     assert r.exit_code == 0, r.output
 
+def test_visualise_flye_run(runner, tmp_dir):
+    outpath = tmp_dir
+    initial = DATADIR / "1Y3B_Flye" / "initial_contig_bins.csv"
+    final = DATADIR / "1Y3B_Flye" / "graphbin_output.csv"
+    graph = DATADIR / "1Y3B_Flye" / "assembly_graph.gfa"
+    contigs = DATADIR / "1Y3B_Flye" / "assembly.fasta"
+    paths = DATADIR / "1Y3B_Flye" / "assembly_info.txt"
+    args = f"--assembler flye --initial {initial} --final {final} --graph {graph} --contigs {contigs} --paths {paths} --output {outpath}".split()
+    r = runner.invoke(visualise, args, catch_exceptions=False)
+    assert r.exit_code == 0, r.output
+
 def test_visualise_prefix(runner, tmp_dir):
     outpath = tmp_dir
     initial = DATADIR / "5G_metaSPAdes" / "metacoag_res.csv"
