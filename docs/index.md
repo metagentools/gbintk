@@ -24,3 +24,4 @@ Commands:
   prepare    Format the initial binning result from an existing binning tool
   visualise  Visualise binning and refinement results
   evaluate   Evaluate the binning results given a ground truth
+```
