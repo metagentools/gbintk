@@ -9,11 +9,46 @@
 
 GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques [GraphBin](https://github.com/metagentools/GraphBin), [GraphBin2](https://github.com/metagentools/GraphBin2) and [MetaCoAG](https://github.com/metagentools/MetaCoAG) along with support functionality to visualise and evaluate results, into one comprehensive toolkit.
 
-## Available commands
+<p align="center">
+  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/gbintk_workflow.png" width="800" title="Initial binning" alt="Initial binning">
+</p>
+
+## Installing GraphBin-Tk
+
+You can clone the `gbintk` repository to your machine.
+```shell
+git clone https://github.com/metagentools/gbintk.git
+```
+
+Now go into the `gbintk` folder using the following command.
+```shell
+cd gbintk
+```
+
+Once you have installed `conda`, make sure you are in the `gbintk` folder. Now run the following commands to create a conda environment and activate it to run `gbintk`.
+
+```shell
+conda env create -f environment.yml
+conda activate gbintk
+```
+
+You ca run the following command to install `gbintk` using `flit`.
+
+```shell
+flit install
+```
+
+Now run the following command to ensure that `gbintk` is working.
+
+```shell
+gbintk --help
+```
+
+## Available commands in GraphBin-Tk
 
 Run `gbintk --help` or `gbintk -h` to list the help message for GraphBin-Tk.
 
-```bash
+```shell
 Usage: gbintk [OPTIONS] COMMAND [ARGS]...
 
   gbintk (GraphBin-Tk): Assembly graph-based metagenomic binning toolkit
@@ -31,204 +66,7 @@ Commands:
   evaluate   Evaluate the binning results given a ground truth
 ```
 
-### `gbintk graphbin`: Run [GraphBin](https://github.com/metagentools/GraphBin)
-
-Run `gbintk graphbin --help` or `gbintk graphbin -h` to list the help message for GraphBin.
-
-```shell
-Usage: gbintk graphbin [OPTIONS]
-
-  GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs
-
-Options:
-  --assembler [spades|megahit|flye]
-                                  name of the assembler used (SPAdes, MEGAHIT
-                                  or Flye)  [required]
-  --graph PATH                    path to the assembly graph file  [required]
-  --contigs PATH                  path to the contigs file  [required]
-  --paths PATH                    path to the contigs.paths (metaSPAdes) or
-                                  assembly.info (metaFlye) file
-  --binned PATH                   path to the .csv file with the initial
-                                  binning output from an existing tool
-                                  [required]
-  --output PATH                   path to the output folder  [required]
-  --prefix TEXT                   prefix for the output file
-  --max_iteration INTEGER         maximum number of iterations for label
-                                  propagation algorithm  [default: 100]
-  --diff_threshold FLOAT RANGE    difference threshold for label propagation
-                                  algorithm  [default: 0.1; 0<=x<=1]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
-  -h, --help                      Show this message and exit.
-```
-
-### `gbintk graphbin2`: Run [GraphBin2](https://github.com/metagentools/GraphBin2)
-
-Run `gbintk graphbin2 --help` or `gbintk graphbin2 -h` to list the help message for GraphBin2.
-
-```shell
-Usage: gbintk graphbin2 [OPTIONS]
-
-  GraphBin2: Refined and Overlapped Binning of Metagenomic Contigs Using
-  Assembly Graphs
-
-Options:
-  --assembler [spades|megahit|flye]
-                                  name of the assembler used (SPAdes, MEGAHIT
-                                  or Flye)  [required]
-  --graph PATH                    path to the assembly graph file  [required]
-  --contigs PATH                  path to the contigs file  [required]
-  --paths PATH                    path to the contigs.paths (metaSPAdes) or
-                                  assembly.info (metaFlye) file
-  --abundance PATH                path to the abundance file  [required]
-  --binned PATH                   path to the .csv file with the initial
-                                  binning output from an existing tool
-                                  [required]
-  --output PATH                   path to the output folder  [required]
-  --prefix TEXT                   prefix for the output file
-  --depthb INTEGER                maximum depth for the breadth-first-search.
-                                  [default: 5]
-  --threshold FLOAT               threshold for determining inconsistent
-                                  vertices.  [default: 1.5]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
-  --nthreads INTEGER              number of threads to use.  [default: 8]
-  -h, --help                      Show this message and exit.
-```
-
-### `gbintk metacoag`: Run [MetaCoAG](https://github.com/metagentools/MetaCoAG)
-
-Run `gbintk metacoag --help` or `gbintk metacoag -h` to list the help message for MetaCoAG.
-
-```shell
-Usage: gbintk metacoag [OPTIONS]
-
-  MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly
-  Graphs
-
-Options:
-  --assembler [spades|megahit|flye]
-                                  name of the assembler used (SPAdes, MEGAHIT
-                                  or Flye)  [required]
-  --graph PATH                    path to the assembly graph file  [required]
-  --contigs PATH                  path to the contigs file  [required]
-  --paths PATH                    path to the contigs.paths (metaSPAdes) or
-                                  assembly.info (metaFlye) file
-  --abundance PATH                path to the abundance file  [required]
-  --output PATH                   path to the output folder  [required]
-  --hmm TEXT                      path to marker.hmm file.  [default:
-                                  auxiliary/marker.hmm]
-  --prefix TEXT                   prefix for the output file
-  --min_length INTEGER            minimum length of contigs to consider for
-                                  binning.  [default: 1000]
-  --p_intra FLOAT RANGE           minimum probability of an edge matching to
-                                  assign to the same bin.  [default: 0.1;
-                                  0<=x<=1]
-  --p_inter FLOAT RANGE           maximum probability of an edge matching to
-                                  create a new bin.  [default: 0.01; 0<=x<=1]
-  --d_limit INTEGER               distance limit for contig matching.
-                                  [default: 20]
-  --depthlp INTEGER               depth to consider for label propagation.
-                                  [default: 10]
-  --n_mg INTEGER                  total number of marker genes.  [default:
-                                  108]
-  --no_cut_tc                     do not use --cut_tc for hmmsearch.
-  --mg_threshold FLOAT RANGE      length threshold to consider marker genes.
-                                  [default: 0.5; 0<=x<=1]
-  --bin_mg_threshold FLOAT RANGE  minimum fraction of marker genes that should
-                                  be present in a bin.  [default: 0.33333;
-                                  0<=x<=1]
-  --min_bin_size INTEGER          minimum size of a bin to output in base
-                                  pairs (bp).  [default: 200000]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
-  --nthreads INTEGER              number of threads to use.  [default: 8]
-  -h, --help                      Show this message and exit.
-```
-
-### `gbintk prepare`: Format the initial binning result from an existing binning tool
-
-Run `gbintk prepare --help` or `gbintk prepare -h` to list the help message for formatting.
-
-```shell
-Usage: gbintk prepare [OPTIONS]
-
-  Format the initial binning result from an existing binning tool
-
-Options:
-  --assembler [spades|megahit|flye]
-                                  name of the assembler used (SPAdes, MEGAHIT
-                                  or Flye)  [required]
-  --resfolder PATH                path to the folder containing FASTA files
-                                  for individual bins  [required]
-  --delimiter [,|;|     |" "]         delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
-  --prefix TEXT                   prefix for the output file
-  --output PATH                   path to the output folder  [required]
-  -h, --help                      Show this message and exit.
-```
-
-### `gbintk visualise`: Visualise binning and refinement results
-
-Run `gbintk visualise --help` or `gbintk visualise -h` to list the help message for visualisation.
-
-```shell
-Usage: gbintk visualise [OPTIONS]
-
-  Visualise binning and refinement results
-
-Options:
-  --assembler [spades|megahit|flye]
-                                  name of the assembler used (SPAdes, MEGAHIT
-                                  or Flye)  [required]
-  --initial PATH                  path to the initial binning result
-                                  [required]
-  --final PATH                    path to the final binning result  [required]
-  --graph PATH                    path to the assembly graph file  [required]
-  --paths PATH                    path to the contigs.paths (metaSPAdes) or
-                                  assembly.info (metaFlye) file
-  --output PATH                   path to the output folder  [required]
-  --prefix TEXT                   prefix for the output file
-  --dpi INTEGER                   dpi value  [default: 300]
-  --width INTEGER                 width of the image in pixels  [default:
-                                  2000]
-  --height INTEGER                height of the image in pixels  [default:
-                                  2000]
-  --vsize INTEGER                 size of the vertices  [default: 50]
-  --lsize INTEGER                 size of the vertex labels  [default: 8]
-  --margin INTEGER                margin of the figure  [default: 50]
-  --type TEXT                     type of the image (jpg, png, eps, svg)
-                                  [default: png]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
-  -h, --help                      Show this message and exit.
-```
-
-### `gbintk evaluate`: Evaluate binning results give a ground trith
-
-Run `gbintk evaluate --help` or `gbintk evaluate -h` to list the help message for evaluation.
-
-```shell
-Usage: gbintk evaluate [OPTIONS]
-
-  Evaluate the binning results given a ground truth
-
-Options:
-  --binned PATH            path to the .csv file with the initial binning
-                           output from an existing tool  [required]
-  --groundtruth PATH       path to the .csv file with the ground truth
-                           [required]
-  --delimiter [,|;|     |" "]  delimiter for input/output results. Supports a
-                           comma (,), a semicolon (;), a tab ($'\t'), a space
-                           (" ") and a pipe (|)  [default: ,]
-  --output PATH            path to the output folder  [required]
-  -h, --help               Show this message and exit.
-```
+**Detailed documentation hosted at [Read the Docs](https://gbintk.readthedocs.io/en/latest/) is coming soon!**
 
 ## Citation
 
