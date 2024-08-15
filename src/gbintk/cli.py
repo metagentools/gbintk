@@ -602,6 +602,7 @@ def prepare(assembler, resfolder, delimiter, prefix, output):
     required=True,
 )
 @_graph
+@_contigs
 @_paths
 @_output
 @_prefix
@@ -667,6 +668,7 @@ def visualise(
     initial,
     final,
     graph,
+    contigs,
     paths,
     output,
     prefix,
@@ -684,8 +686,11 @@ def visualise(
     logger.info(
         f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
     )
+    logger.info(
+        f"Please note that only 22 distinct colours are supported for visualisation."
+    )
     logger.info("Running Visualisation for binning and refinement results...")
-    from gbintk.support import visualise_result_SPAdes
+    from gbintk.support import visualise_result_SPAdes, visualise_result_MEGAHIT
 
     # Make args class
     class VizArgsObj:
@@ -695,6 +700,7 @@ def visualise(
             initial,
             final,
             graph,
+            contigs,
             paths,
             output,
             prefix,
@@ -711,6 +717,7 @@ def visualise(
             self.initial = initial
             self.final = final
             self.graph = graph
+            self.contigs = contigs
             self.paths = paths
             self.output = output
             self.prefix = prefix
@@ -729,6 +736,7 @@ def visualise(
         initial,
         final,
         graph,
+        contigs,
         paths,
         output,
         prefix,
@@ -745,9 +753,9 @@ def visualise(
     # Run Visualisation
     # ---------------------------------------------------
     # if assembler.lower() == "flye":
-    #     graphbin_Flye.main(args)
-    # if assembler.lower() == "megahit":
-    #     graphbin_MEGAHIT.main(args)
+        # graphbin_Flye.main(args)
+    if assembler.lower() == "megahit":
+        visualise_result_MEGAHIT.main(args)
     if assembler.lower() == "spades":
         visualise_result_SPAdes.main(args)
 
