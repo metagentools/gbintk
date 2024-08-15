@@ -322,27 +322,8 @@ def run(args):
     # Get list of colours according to number of bins
     # -------------------------------------------------
 
-    logger.info(f"Picking colours...")
+    logger.info(f"Picking colours out of 22 supported colours...")
 
-    # def colours(n):
-    #   ret = []
-    #   r = int(random.random() * 256)
-    #   g = int(random.random() * 256)
-    #   b = int(random.random() * 256)
-    #   step = 256 / n
-    #   for i in range(n):
-    #     r += step
-    #     g += step
-    #     b += step
-    #     r = int(r) % 256
-    #     g = int(g) % 256
-    #     b = int(b) % 256
-
-    #     ret.append('#%02x%02x%02x' % (r,g,b))
-
-    #   return ret
-
-    # my_colours = colours(n_bins)
     my_colours = [
         "#e6194b",
         "#3cb44b",
