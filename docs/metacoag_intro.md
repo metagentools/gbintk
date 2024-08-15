@@ -1,0 +1,1 @@
+# MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs

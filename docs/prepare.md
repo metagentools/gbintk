@@ -1,0 +1,1 @@
+# Formatting binning results for GraphBin/GraphBin2
