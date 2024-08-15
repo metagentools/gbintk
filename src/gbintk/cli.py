@@ -690,7 +690,8 @@ def visualise(
         f"Please note that only 22 distinct colours are supported for visualisation."
     )
     logger.info("Running Visualisation for binning and refinement results...")
-    from gbintk.support import visualise_result_MEGAHIT, visualise_result_SPAdes
+
+    from gbintk.support import visualise_result_MEGAHIT, visualise_result_SPAdes, visualise_result_Flye
 
     # Make args class
     class VizArgsObj:
@@ -752,8 +753,8 @@ def visualise(
 
     # Run Visualisation
     # ---------------------------------------------------
-    # if assembler.lower() == "flye":
-    # graphbin_Flye.main(args)
+    if assembler.lower() == "flye":
+        visualise_result_Flye.main(args)
     if assembler.lower() == "megahit":
         visualise_result_MEGAHIT.main(args)
     if assembler.lower() == "spades":
