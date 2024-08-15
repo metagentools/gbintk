@@ -34,7 +34,7 @@ Options:
 ```
 
 
-# Input Format
+## Input Format
 
 The SPAdes version of GraphBin2 takes in 4 files as inputs (required).
 

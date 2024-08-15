@@ -78,7 +78,7 @@ gbintk visualise --assembler megahit --initial /path/to/initial_binning_res.csv 
 gbintk visualise --assembler flye --initial /path/to/initial_binning_res.csv --final /path/to/final_binning_res.csv --graph /path/to/assembly_graph.gfa --contigs /path/to/assembly.fasta --paths /path/to/assembly_info.txt --output /path/to/output_folder
 ```
 
-### Example visualisation
+## Example visualisation
 
 **Initial binning result**
 

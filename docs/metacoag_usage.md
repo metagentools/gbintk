@@ -58,7 +58,7 @@ You can specify the delimiter for the final binning output file using the `delim
 * `" "` for a space 
 * `|` for a pipe.
 
-# Input Format
+## Input Format
 
 For the *metaSPAdes* version, MetaCoAG takes in 4 files as inputs.
 
@@ -80,7 +80,7 @@ For the *Flye* version, MetaCoAG takes in 4 files as inputs.
 * Contig paths file (`assembly_info.txt`)
 * Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
 
-# Example Usage
+## Example Usage
 
 ```shell
 # SPAdes assembly
@@ -93,7 +93,7 @@ gbintk metacoag --assembler megahit --graph /path/to/graph_file.gfa --contigs /p
 gbintk metacoag --assembler flye --graph /path/to/assembly_graph.gfa --contigs /path/to/assembly.fasta --paths /path/to/assembly_info.txt --abundance /path/to/abundance.tsv --output /path/to/output_folder
 ```
 
-# Output
+## Output
 
 The output of MetaCoAG will contain the following main files and folders.
 

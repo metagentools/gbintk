@@ -4,8 +4,6 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
 
 ![](images/gbintk_workflow.png)
 
-## Available commands
-
 Run `gbintk --help` or `gbintk -h` to list the help message for GraphBin-Tk.
 
 ```shell

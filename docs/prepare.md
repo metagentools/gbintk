@@ -38,6 +38,8 @@ gbintk prepare --assembler megahit ----resfolder /path/to/folder_with_binning_re
 gbintk prepare --assembler flye ----resfolder /path/to/folder_with_binning_result --output /path/to/output_folder
 ```
 
+## Output
+
 Formatted binning result will be stored in a file named `initial_contig_bins.csv` in the output folder provided. This file would look as below.
 
 ```
