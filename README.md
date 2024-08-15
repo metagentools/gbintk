@@ -13,38 +13,29 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
   <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/gbintk_workflow.png" width="800" title="Initial binning" alt="Initial binning">
 </p>
 
+**Detailed documentation hosted at [Read the Docs](https://gbintk.readthedocs.io/en/latest/) is coming soon!**
+
 ## Installing GraphBin-Tk
 
-You can clone the `gbintk` repository to your machine.
 ```shell
+# clone repository
 git clone https://github.com/metagentools/gbintk.git
-```
 
-Now go into the `gbintk` folder using the following command.
-```shell
+# move to gbintk directory
 cd gbintk
-```
 
-Once you have installed `conda`, make sure you are in the `gbintk` folder. Now run the following commands to create a conda environment and activate it to run `gbintk`.
-
-```shell
+# create and activate conda env
 conda env create -f environment.yml
 conda activate gbintk
-```
 
-You ca run the following command to install `gbintk` using `flit`.
-
-```shell
+# install using flit
 flit install
-```
 
-Now run the following command to ensure that `gbintk` is working.
-
-```shell
+# test installation
 gbintk --help
 ```
 
-## Available commands in GraphBin-Tk
+## Available subcommands in GraphBin-Tk
 
 Run `gbintk --help` or `gbintk -h` to list the help message for GraphBin-Tk.
 
@@ -65,8 +56,6 @@ Commands:
   visualise  Visualise binning and refinement results
   evaluate   Evaluate the binning results given a ground truth
 ```
-
-**Detailed documentation hosted at [Read the Docs](https://gbintk.readthedocs.io/en/latest/) is coming soon!**
 
 ## Citation
 
