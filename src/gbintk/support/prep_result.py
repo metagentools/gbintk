@@ -39,6 +39,13 @@ def run(args):
     delimiter = args.delimiter
     output_path = args.output
 
+    # Setup output path for log file
+    fileHandler = logging.FileHandler(f"{output_path}/gbintk.log")
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    fileHandler.setLevel(logging.DEBUG)
+    fileHandler.setFormatter(formatter)
+    logger.addHandler(fileHandler)
+
     logger.info(f"Welcome to binning results formatter of GraphBin-Tk!")
 
     logger.info(f"Formatting binning results...")
