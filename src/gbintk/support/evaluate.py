@@ -32,6 +32,7 @@ def run(args):
     binned_file = args.binned
     ground_truth_file = args.groundtruth
     delimiter = args.delimiter
+    prefix = args.prefix
     output_path = args.output
 
     # Setup output path for log file
@@ -48,6 +49,14 @@ def run(args):
     logger.info(f"Ground truth file: {ground_truth_file}")
     logger.info(f"Delimiter: {delimiter}")
     logger.info(f"Output path: {output_path}")
+
+    # Validate prefix
+    # ---------------------------------------------------
+    if prefix != "":
+        if not prefix.endswith("_"):
+            prefix = prefix + "_"
+    else:
+        prefix = ""
 
     # Get the number of bins from the ground truth
     # ---------------------------------------------------------
@@ -148,8 +157,7 @@ def run(args):
     for i in range(len(ground_truth_bins_list)):
         logger.info(f"{i+1}, {ground_truth_bins_list[i]}")
 
-    logger.info(f"KxS Matrix:")
-    logger.info(f"\n{tabulate(bins_species)}")
+    logger.info(f"KxS Matrix:\n{tabulate(bins_species)}")
 
     my_precision = getPrecision(bins_species, n_bins, ground_truth_n_bins, total_binned)
     my_recall = getRecall(
@@ -167,6 +175,21 @@ def run(args):
     logger.info(f"Recall = {my_recall*100}")
     logger.info(f"F1-score = {my_f1*100}")
     logger.info(f"ARI = {my_ari*100}")
+
+    # Write results to output file
+    # -----------------------------
+
+    output_file_path = f"{output_path}/{prefix}evaluation_results.txt"
+
+    with open(output_file_path, mode="w") as eval_res:
+        eval_res.write(f"KxS Matrix:\n{tabulate(bins_species)}\n")
+        eval_res.write(f"Evaluation Results:\n")
+        eval_res.write(f"Precision = {my_precision*100}\n")
+        eval_res.write(f"Recall = {my_recall*100}\n")
+        eval_res.write(f"F1-score = {my_f1*100}\n")
+        eval_res.write(f"ARI = {my_ari*100}\n")
+
+    logger.info(f"Evaluation results can be found in {output_file_path}")
 
     # Exit program
     # --------------

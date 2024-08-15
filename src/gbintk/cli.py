@@ -771,8 +771,9 @@ def visualise(
     required=True,
 )
 @_delimiter
+@_prefix
 @_output
-def evaluate(binned, groundtruth, delimiter, output):
+def evaluate(binned, groundtruth, delimiter, prefix, output):
     """Evaluate the binning results given a ground truth"""
 
     logger.info(
@@ -783,14 +784,15 @@ def evaluate(binned, groundtruth, delimiter, output):
 
     # Make args class
     class EvalArgsObj:
-        def __init__(self, binned, groundtruth, delimiter, output):
+        def __init__(self, binned, groundtruth, delimiter, prefix, output):
             self.binned = binned
             self.groundtruth = groundtruth
             self.delimiter = delimiter
+            self.prefix = prefix
             self.output = output
 
     # Make args object
-    args = EvalArgsObj(binned, groundtruth, delimiter, output)
+    args = EvalArgsObj(binned, groundtruth, delimiter, prefix, output)
 
     # Run Evaluation
     # ---------------------------------------------------
