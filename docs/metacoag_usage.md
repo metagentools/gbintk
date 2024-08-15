@@ -48,3 +48,54 @@ Options:
   --nthreads INTEGER              number of threads to use.  [default: 8]
   -h, --help                      Show this message and exit.
 ```
+
+`min_length`, `p_intra`, `p_inter`, `d_limit`, `mg_threshold`, `bin_mg_threshold`, `min_bin_size`, `depthlp` and `nthreads` parameters are set by default to `1000`, `0.1`, `0.01`, `20`, `0.5`, `0.3333`, `200000`, `10` and `8` respectively. However, the user can specify them when running MetaCoAG.
+
+You can specify the delimiter for the final binning output file using the `delimiter` parameter. Enter the following values for different delimiters; 
+* `,` for a comma
+* `;` for a semicolon
+* `$'\t'` for a tab
+* `" "` for a space 
+* `|` for a pipe.
+
+# Input Format
+
+For the metaSPAdes version, MetaCoAG takes in 4 files as inputs.
+* Assembly graph file (in `.gfa` format)
+* Contigs file (in `.fasta` format)
+* Contig paths file (in `.paths` format)
+* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+
+For the MEGAHIT version, MetaCoAG takes in 3 files as inputs.
+* Assembly graph file (in `.gfa` format)
+* Contigs file (in `.fasta` format)
+* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+
+For the Flye version, MetaCoAG takes in 4 files as inputs.
+* Assembly graph file (`assembly_graph.gfa`)
+* Contigs file (`assembly.fasta`)
+* Contig paths file (`assembly_info.txt`)
+* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+
+# Example Usage
+
+```shell
+# SPAdes assembly
+gbintk metacoag --assembler spades --graph /path/to/graph_file.gfa --contigs /path/to/contigs.fasta --paths /path/to/paths_file.paths --abundance /path/to/abundance.tsv --output /path/to/output_folder
+
+# MEGAHIT assembly
+gbintk metacoag --assembler megahit --graph /path/to/graph_file.gfa --contigs /path/to/contigs.fasta --abundance /path/to/abundance.tsv --output /path/to/output_folder
+
+# Flye assembly
+gbintk metacoag --assembler flye --graph /path/to/assembly_graph.gfa --contigs /path/to/assembly.fasta --paths /path/to/assembly_info.txt --abundance /path/to/abundance.tsv --output /path/to/output_folder
+```
+
+# Output
+
+The output of MetaCoAG will contain the following main files and folders.
+
+* `contig_to_bin.tsv` containing the comma separated records of `contig id, bin number`
+* `bins` containing the identified bins (FASTA file for each bin)
+* `low_quality_bins` containing the identified low-quality bins, i.e., having a fraction of marker genes lower than `bin_mg_threshold` (FASTA file for each bin)
+* `*.frag.faa`, `*.frag.ffn` and `*.frag.gff` files containing FragGeneScan output
+* `*.hmmout` containing HMMER output
