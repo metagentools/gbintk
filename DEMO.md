@@ -71,11 +71,11 @@ Below are some example visualisations generated.
 **Initial binning result**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/initial_binning_result.png" width="700" title="Initial binning" alt="Initial binning">
+  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/initial_binning_result.png" width="700" title="Initial binning" alt="Initial binning">
 </p>
 
 **Refined binning result**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/final_GraphBin_binning_result.png" width="700" title="Refined binning result" alt="Refined binning result">
+  <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/final_GraphBin_binning_result.png" width="700" title="Refined binning result" alt="Refined binning result">
 </p>
