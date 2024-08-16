@@ -51,12 +51,12 @@ GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin r
 
 | Subcommand  | Tool/processing functionality                              | Inputs required                                                                                 |
 |-------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| graphbin  | Bin refinement tool GraphBin                               | Contigs, assembly graph file(s)[^1], initial binning result                                       |
-| graphbin2 | Bin refinement tool GraphBin2                              | Contigs, assembly graph file(s), initial binning result, coverage of contigs                  |
-| metacoag  | Binning tool MetaCoAG                                      | Contigs, assembly graph file(s), coverage of contigs                                          |
-| prepare   | Format initial binning results for GraphBin and GraphBin2  | Folder containing the initial binning result                                                    |
-| visualise | Visualise initial and refined binning results on the assembly graph | Assembly graph file(s), initial binning result, final binning result                            |
-| evaluate  | Evaluate binning results given a ground truth              | Binning result, ground truth                                                                     |
+| `graphbin`  | Bin refinement tool GraphBin                               | Contigs, assembly graph file(s)[^1], initial binning result                                       |
+| `graphbin2` | Bin refinement tool GraphBin2                              | Contigs, assembly graph file(s), initial binning result, coverage of contigs                  |
+| `metacoag`  | Binning tool MetaCoAG                                      | Contigs, assembly graph file(s), coverage of contigs                                          |
+| `prepare`   | Format initial binning results for GraphBin and GraphBin2  | Folder containing the initial binning result                                                    |
+| `visualise` | Visualise initial and refined binning results on the assembly graph | Assembly graph file(s), initial binning result, final binning result                            |
+| `evaluate`  | Evaluate binning results given a ground truth              | Binning result, ground truth                                                                     |
 
 [^1]: The assembly graph files can vary depending on the assembler used to generate the contigs. metaSPAdes version requires the assembly graph file `.gfa` format and the paths file `contigs.paths`. MEGAHIT version requires the assembly graph file in `.gfa`. metaFlye version requires the assembly graph file `assembly_graph.gfa` and the paths file in `assembly_info.txt` format.
 
