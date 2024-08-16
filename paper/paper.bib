@@ -243,3 +243,145 @@ doi={10.1038/s41592-018-0046-7},
 url={https://doi.org/10.1038/s41592-018-0046-7}
 }
 
+@Article{Alneberg:2014,
+author={Alneberg, Johannes
+and Bjarnason, Brynjar Sm{\'a}ri
+and de Bruijn, Ino
+and Schirmer, Melanie
+and Quick, Joshua
+and Ijaz, Umer Z.
+and Lahti, Leo
+and Loman, Nicholas J.
+and Andersson, Anders F.
+and Quince, Christopher},
+title={Binning metagenomic contigs by coverage and composition},
+journal={Nature Methods},
+year={2014},
+month={Nov},
+day={01},
+volume={11},
+number={11},
+pages={1144-1146},
+abstract={The CONCOCT software performs unsupervised binning of metagenomic contigs across multiple samples to allow better genome reconstruction from microbial communities.},
+issn={1548-7105},
+doi={10.1038/nmeth.3103},
+url={https://doi.org/10.1038/nmeth.3103}
+}
+
+@article{Wu:2015,
+author = {Wu, Yu-Wei and Simmons, Blake A. and Singer, Steven W.},
+title = "{MaxBin 2.0: an automated binning algorithm to recover genomes from multiple metagenomic datasets}",
+journal = {Bioinformatics},
+volume = {32},
+number = {4},
+pages = {605-607},
+year = {2015},
+month = {10},
+abstract = "{Summary: The recovery of genomes from metagenomic datasets is a critical step to defining the functional roles of the underlying uncultivated populations. We previously developed MaxBin, an automated binning approach for high-throughput recovery of microbial genomes from metagenomes. Here we present an expanded binning algorithm, MaxBin 2.0, which recovers genomes from co-assembly of a collection of metagenomic datasets. Tests on simulated datasets revealed that MaxBin 2.0 is highly accurate in recovering individual genomes, and the application of MaxBin 2.0 to several metagenomes from environmental samples demonstrated that it could achieve two complementary goals: recovering more bacterial genomes compared to binning a single sample as well as comparing the microbial community composition between different sampling environments.Availability and implementation: MaxBin 2.0 is freely available at http://sourceforge.net/projects/maxbin/ under BSD license.Contact:  ywwei@lbl.govSupplementary information:  Supplementary data are available at Bioinformatics online.}",
+issn = {1367-4803},
+doi = {10.1093/bioinformatics/btv638},
+url = {https://doi.org/10.1093/bioinformatics/btv638},
+eprint = {https://academic.oup.com/bioinformatics/article-pdf/32/4/605/49017620/btv638.pdf},
+}
+
+@article{Kang:2019,
+ title = {MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies},
+ author = {Kang, Dongwan D. and Li, Feng and Kirton, Edward and Thomas, Ashleigh and Egan, Rob and An, Hong and Wang, Zhong},
+ year = 2019,
+ month = jul,
+ keywords = {Metagenomics, Metagenome binning, Clustering},
+ abstract = {
+We previously reported on MetaBAT, an automated metagenome binning software tool to reconstruct single genomes from microbial communities for subsequent analyses of uncultivated microbial species. MetaBAT has become one of the most popular binning tools largely due to its computational efficiency and ease of use, especially in binning experiments with a large number of samples and a large assembly. MetaBAT requires users to choose parameters to fine-tune its sensitivity and specificity. If those parameters are not chosen properly, binning accuracy can suffer, especially on assemblies of poor quality. Here, we developed MetaBAT 2 to overcome this problem. MetaBAT 2 uses a new adaptive binning algorithm to eliminate manual parameter tuning. We also performed extensive software engineering optimization to increase both computational and memory efficiency. Comparing MetaBAT 2 to alternative software tools on over 100 real world metagenome assemblies shows superior accuracy and computing speed. Binning a typical metagenome assembly takes only a few minutes on a single commodity workstation. We therefore recommend the community adopts MetaBAT 2 for their metagenome binning experiments. MetaBAT 2 is open source software and available at https://bitbucket.org/berkeleylab/metabat.
+},
+ volume = 7,
+ pages = {e7359},
+ journal = {PeerJ},
+ issn = {2167-8359},
+ url = {https://doi.org/10.7717/peerj.7359},
+ doi = {10.7717/peerj.7359}
+}
+
+@article{Pan:2023,
+author = {Pan, Shaojun and Zhao, Xing-Ming and Coelho, Luis Pedro},
+title = "{SemiBin2: self-supervised contrastive learning leads to better MAGs for short- and long-read sequencing}",
+journal = {Bioinformatics},
+volume = {39},
+number = {Supplement_1},
+pages = {i21-i29},
+year = {2023},
+month = {06},
+abstract = "{Metagenomic binning methods to reconstruct metagenome-assembled genomes (MAGs) from environmental samples have been widely used in large-scale metagenomic studies. The recently proposed semi-supervised binning method, SemiBin, achieved state-of-the-art binning results in several environments. However, this required annotating contigs, a computationally costly and potentially biased process.We propose SemiBin2, which uses self-supervised learning to learn feature embeddings from the contigs. In simulated and real datasets, we show that self-supervised learning achieves better results than the semi-supervised learning used in SemiBin1 and that SemiBin2 outperforms other state-of-the-art binners. Compared to SemiBin1, SemiBin2 can reconstruct 8.3–21.5\\% more high-quality bins and requires only 25\\% of the running time and 11\\% of peak memory usage in real short-read sequencing samples. To extend SemiBin2 to long-read data, we also propose ensemble-based DBSCAN clustering algorithm, resulting in 13.1–26.3\\% more high-quality genomes than the second best binner for long-read data.SemiBin2 is available as open source software at https://github.com/BigDataBiology/SemiBin/ and the analysis scripts used in the study can be found at https://github.com/BigDataBiology/SemiBin2\_benchmark.}",
+issn = {1367-4811},
+doi = {10.1093/bioinformatics/btad209},
+url = {https://doi.org/10.1093/bioinformatics/btad209},
+eprint = {https://academic.oup.com/bioinformatics/article-pdf/39/Supplement\_1/i21/50741692/btad209.pdf},
+}
+
+@article{Xue:2022, 
+title={RepBin: Constraint-Based Graph Representation Learning for Metagenomic Binning}, 
+volume={36}, 
+url={https://ojs.aaai.org/index.php/AAAI/article/view/20388}, 
+DOI={10.1609/aaai.v36i4.20388}, 
+abstractNote={Mixed communities of organisms are found in many environments -- from the human gut to marine ecosystems -- and can have profound impact on human health and the environment. Metagenomics studies the genomic material of such communities through high-throughput sequencing that yields DNA subsequences for subsequent analysis. A fundamental problem in the standard workflow, called binning, is to discover clusters, of genomic subsequences, associated with the constituent organisms. Inherent noise in the subsequences, various biological constraints that need to be imposed on them and the skewed cluster size distribution exacerbate the difficulty of this unsupervised learning problem. In this paper, we present a new formulation using a graph where the nodes are subsequences and edges represent homophily information. In addition, we model biological constraints providing heterophilous signal about nodes that cannot be clustered together. We solve the binning problem by developing new algorithms for (i) graph representation learning that preserves both homophily relations and heterophily constraints (ii) constraint-based graph clustering method that addresses the problems of skewed cluster size distribution. Extensive experiments, on real and synthetic datasets, demonstrate that our approach, called RepBin, outperforms a wide variety of competing methods. Our constraint-based graph representation learning and clustering methods, that may be useful in other domains as well, advance the state-of-the-art in both metagenomics binning and graph representation learning.}, 
+number={4}, 
+journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+author={Xue, Hansheng and Mallawaarachchi, Vijini and Zhang, Yujia and Rajan, Vaibhav and Lin, Yu}, 
+year={2022}, 
+month={Jun.}, 
+pages={4637-4645} 
+}
+
+@inproceedings{Xue:2024,
+title={Encoding Unitig-level Assembly Graphs with Heterophilous Constraints for Metagenomic Contigs Binning},
+author={Hansheng Xue and Vijini Mallawaarachchi and Lexing Xie and Vaibhav Rajan},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=vBw8JGBJWj}
+}
+
+@Article{Brooks:2017,
+author={Brooks, Brandon
+and Olm, Matthew R.
+and Firek, Brian A.
+and Baker, Robyn
+and Thomas, Brian C.
+and Morowitz, Michael J.
+and Banfield, Jillian F.},
+title={Strain-resolved analysis of hospital rooms and infants reveals overlap between the human and room microbiome},
+journal={Nature Communications},
+year={2017},
+month={Nov},
+day={27},
+volume={8},
+number={1},
+pages={1814},
+abstract={Preterm infants exhibit different microbiome colonization patterns relative to full-term infants, and it is speculated that the hospital room environment may contribute to infant microbiome development. Here, we present a genome-resolved metagenomic study of microbial genotypes from the gastrointestinal tracts of infants and from the neonatal intensive care unit (NICU) room environment. Some strains detected in hospitalized infants also occur in sinks and on surfaces, and belong to species such as Staphylococcus epidermidis, Enterococcus faecalis, Pseudomonas aeruginosa, and Klebsiella pneumoniae, which are frequently implicated in nosocomial infection and preterm infant gut colonization. Of the 15 K. pneumoniae strains detected in the study, four were detected in both infant gut and room samples. Time series experiments showed that nearly all strains associated with infant gut colonization can be detected in the room after, and often before, detection in the gut. Thus, we conclude that a component of premature infant gut colonization is the cycle of microbial exchange between the room and the occupant.},
+issn={2041-1723},
+doi={10.1038/s41467-017-02018-w},
+url={https://doi.org/10.1038/s41467-017-02018-w}
+}
+
+@Article{Kang:2024,
+author={Kang, Luyao
+and Song, Yutong
+and Mackelprang, Rachel
+and Zhang, Dianye
+and Qin, Shuqi
+and Chen, Leiyi
+and Wu, Linwei
+and Peng, Yunfeng
+and Yang, Yuanhe},
+title={Metagenomic insights into microbial community structure and metabolism in alpine permafrost on the Tibetan Plateau},
+journal={Nature Communications},
+year={2024},
+month={Jul},
+day={14},
+volume={15},
+number={1},
+pages={5920},
+abstract={Permafrost, characterized by its frozen soil, serves as a unique habitat for diverse microorganisms. Understanding these microbial communities is crucial for predicting the response of permafrost ecosystems to climate change. However, large-scale evidence regarding stratigraphic variations in microbial profiles remains limited. Here, we analyze microbial community structure and functional potential based on 16S rRNA gene amplicon sequencing and metagenomic data obtained from an ∼1000{\thinspace}km permafrost transect on the Tibetan Plateau. We find that microbial alpha diversity declines but beta diversity increases down the soil profile. Microbial assemblages are primarily governed by dispersal limitation and drift, with the importance of drift decreasing but that of dispersal limitation increasing with soil depth. Moreover, genes related to reduction reactions (e.g., ferric iron reduction, dissimilatory nitrate reduction, and denitrification) are enriched in the subsurface and permafrost layers. In addition, microbial groups involved in alternative electron accepting processes are more diverse and contribute highly to community-level metabolic profiles in the subsurface and permafrost layers, likely reflecting the lower redox potential and more complicated trophic strategies for microorganisms in deeper soils. Overall, these findings provide comprehensive insights into large-scale stratigraphic profiles of microbial community structure and functional potentials in permafrost regions.},
+issn={2041-1723},
+doi={10.1038/s41467-024-50276-2},
+url={https://doi.org/10.1038/s41467-024-50276-2}
+}
+
