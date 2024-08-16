@@ -60,12 +60,17 @@ GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin r
 
 [^1]: The assembly graph files can vary depending on the assembler used to generate the contigs. metaSPAdes version requires the assembly graph file in `.gfa` format and the paths file `contigs.paths`. MEGAHIT version requires the assembly graph file in `.gfa`. metaFlye version requires the assembly graph file `assembly_graph.gfa` and the paths file `assembly_info.txt`.
 
+## Binning, preparing binning results and bin refinement
 
 GraphBin-Tk supports metagenome assemblies generated from three popular metagenome assemblers; metaSPAdes [@Nurk:2017] and MEGAHIT [@Li:2015] for short-read sequencing data and metaFlye [@Kolmogorov:2020] for long-read sequencing data. GraphBin-Tk can be launched using the command `gbintk`. A user can start the analysis by running the `metacoag` subcommand to bin a metagenomic dataset and obtain MAGs as shown in \autoref{fig1}. The inputs required are the contigs file, the assembly graph files and the read coverage of contigs. The read coverage of contigs can be obtained by running a coverage calculation tool such as Koverage [@Roach:2024]. The MetaCoAG binning result can be formatted using the `prepare` subcommand into a `.csv` file that represents each contig and its bin name. This formatted binning result can be provided to either GraphBin or GraphBin2 using the subcommands `graphbin` or `graphbin2` along with the contigs file, the assembly graph files and the read coverage of contigs (refer to \autoref{fig1}). 
 
+## Visualisation
+
 The initial MetaCoAG binning result and the refined binning result can be visualised on the assembly graph using the `visualise` subcommand as shown in \autoref{fig2}. 
 
-Finally, the produced binning results can be evaluated using the `evaluate` subcommand by providing the ground truth bins of contigs. This evaluation is possible only for simulated or mock metagenomes where you know which contig belongs to which genome. GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies [@Alneberg:2014; @Meyer:2018; @Mallawaarachchi1:2020]. These metrics are calculates as follows. The binning result is denoted as a $K \times S$ matrix with $K$ number of bins and $S$ number of ground truth taxa. In this matrix, the element $a_{ks}$ denotes the number of contigs binned to the $k^{th}$ bin and belongs to the $s^{th}$ species. $U$ denotes the number of unbinned contigs. Following are the equations used to calculate the evaluation metrics.
+## Evaluation
+
+Finally, the produced binning results can be evaluated using the `evaluate` subcommand by providing the ground truth bins of contigs. This evaluation is possible only for simulated or mock metagenomes where you know which contig belongs to which genome. GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies [@Alneberg:2014; @Meyer:2018; @Mallawaarachchi1:2020]. These metrics are calculates as follows. The binning result is denoted as a $K \times S$ matrix with $K$ number of bins and $S$ number of ground truth taxa. In this matrix, the element $a_{ks}$ denotes the number of contigs binned to the $k^{th}$ bin and belongs to the $s^{th}$ taxa. $U$ denotes the number of unbinned contigs. Following are the equations used to calculate the evaluation metrics.
 
 __Precision__ = $\frac{\sum_{k}max_s \{a_{ks}\}}{\sum_{k}\sum_{s}a_{ks}}$
 
@@ -76,12 +81,13 @@ __F1-score__ = $2 \times \frac{Precision\times Recall}{Precision+Recall}$
 __ARI__ = $\frac{\sum_{k,s}\binom{a_{ks}}{2}-t_3}{\frac{1}{2}(t_1+t_2)-t_3}$ $where\;t_1 = \sum_{k}\binom{\sum_{s}a_{ks}}{2},\;t_2 = \sum_{s}\binom{\sum_{k}a_{ks}}{2},\; and\; t_3 = \frac{t_1t_2}{\binom{N}{2}}$ 
 
 
-![Visualisation of the assembly graph with the initial binning result from MetaCoAG and final binning result from GraphBin for a simulated metagenome containing five bacterial species.\label{fig2}](visualisation.png){width=100%}
+![Visualisation of the assembly graph with the initial binning result from MetaCoAG and final binning result from GraphBin for a simulated metagenome containing five bacterial species. The five colours represent the five bins and the white nodes represent unbinned contigs.\label{fig2}](visualisation.png){width=100%}
 
 
 # Availability
 
 GraphBin-Tk is distributed as a Conda package available in the Bioconda channel [@Gruning:2018] at [LINK]. GraphBin-Tk is also available as a Python package on PyPI at [LINK]. The source code is available on GitHub at [https://github.com/metagentools/gbintk](https://github.com/metagentools/gbintk) and features continuous integration, testing coverage, and continuous deployment using GitHub actions.
+
 
 # Acknowledgements
 
