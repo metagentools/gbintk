@@ -175,7 +175,7 @@ def graphbin(
     )
     logger.info("Running GraphBin...")
 
-    from graphbin.utils import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
+    from graphbin import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
 
     # Make args class
     class GraphBinArgsObj:
