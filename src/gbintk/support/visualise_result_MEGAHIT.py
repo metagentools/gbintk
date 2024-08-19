@@ -18,7 +18,7 @@ import subprocess
 import sys
 
 from cogent3.parse.fasta import MinimalFastaParser
-from graphbin.utils.bidirectionalmap.bidirectionalmap import BidirectionalMap
+from graphbin.bidirectionalmap.bidirectionalmap import BidirectionalMap
 from igraph import *
 
 __author__ = "Vijini Mallawaarachchi"

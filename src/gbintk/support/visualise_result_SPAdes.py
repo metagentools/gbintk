@@ -18,7 +18,7 @@ import subprocess
 import sys
 from collections import defaultdict
 
-from graphbin.utils.bidirectionalmap.bidirectionalmap import BidirectionalMap
+from graphbin.bidirectionalmap.bidirectionalmap import BidirectionalMap
 from igraph import *
 
 __author__ = "Vijini Mallawaarachchi"
