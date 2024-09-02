@@ -51,7 +51,7 @@ dev = [
     "black",
     "click",
     "flit",
-    "isort",
+    "isort==5.13.2",
     "pytest",
     "pytest-cov",
     "pytest-xdist",
