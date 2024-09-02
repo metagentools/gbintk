@@ -66,9 +66,9 @@ GraphBin-Tk supports metagenome assemblies generated from three popular metageno
 
 ## Visualisation
 
-The initial MetaCoAG binning result and the refined binning result can be visualised on the assembly graph using the `visualise` subcommand as shown in \autoref{fig2}. 
+The initial MetaCoAG binning result and the refined binning result can be visualised on the assembly graph using the `visualise` subcommand as shown in \autoref{fig2} for the Sim-5G+metaSPAdes dataset [@Mallawaarachchi2:2020; @Mallawaarachchi:2021]. 
 
-![Visualisation of the assembly graph with the initial binning result from MetaCoAG (left) and final binning result from GraphBin (right) for a simulated metagenome containing five bacterial species. The five colours represent the five bins and the white nodes represent unbinned contigs.\label{fig2}](visualisation.png){width=100%}
+![Visualisation of the assembly graph with the initial binning result from MetaCoAG (left) and final binning result from GraphBin (right) for the Sim-5G+metaSPAdes dataset containing five bacterial species. The five colours represent the five bins and the white nodes represent unbinned contigs.\label{fig2}](visualisation.png){width=100%}
 
 ## Evaluation
 
