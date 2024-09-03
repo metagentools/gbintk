@@ -656,8 +656,8 @@ def prepare(assembler, resfolder, delimiter, prefix, output):
 )
 @click.option(
     "--imgtype",
-    help="type of the image (jpg, png, eps, svg)",
-    type=click.Choice(["jpg", "png", "eps", "svg"], case_sensitive=False),
+    help="type of the image (png, eps, pdf, svg)",
+    type=click.Choice(["png", "eps", "pdf", "svg"], case_sensitive=False),
     default="png",
     show_default=True,
     required=False,
