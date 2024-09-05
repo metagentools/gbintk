@@ -14,6 +14,10 @@ authors:
   - name: Anuradha Wickramarachchi
     orcid: 0000-0003-4160-5965
     affiliation: 2
+  - name: Robert McArthur
+    affiliation: 3
+  - name: Katherine Caley
+    affiliation: 3
   - name: Gavin Huttley
     affiliation: 3
 affiliations:
