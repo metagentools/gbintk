@@ -17,9 +17,6 @@ authors:
   - name: Robert McArthur
     orcid: 0000-0000-0000-0000
     affiliation: 3
-  - name: Katherine Caley
-    orcid: 0000-0000-0000-0000
-    affiliation: 3
   - name: Gavin Huttley
     orcid: 0000-0000-0000-0000
     affiliation: 3
