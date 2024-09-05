@@ -29,7 +29,7 @@ Options:
   --vsize INTEGER                 size of the vertices  [default: 50]
   --lsize INTEGER                 size of the vertex labels  [default: 8]
   --margin INTEGER                margin of the figure  [default: 50]
-  --type TEXT                     type of the image (jpg, png, eps, svg)
+  --type TEXT                     type of the image (png, eps, pdf, svg)
                                   [default: png]
   --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
                                   a comma (,), a semicolon (;), a tab ($'\t'),

@@ -46,13 +46,12 @@ test = [
     "pytest",
     "pytest-cov",
     "pytest-xdist",
+    "pillow>10,<11",
 ]
 dev = [
     "black",
     "click",
     "flit",
     "isort==5.13.2",
-    "pytest",
-    "pytest-cov",
-    "pytest-xdist",
+    "gbintk[test]",
 ]
