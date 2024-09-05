@@ -55,11 +55,11 @@ def run(args):
     logger.info(f"Output path: {output_path}")
 
     # Get list of files in the folder path of binning result.
-    files = os.listdir(contig_bins_folder)
+    files_list = os.listdir(contig_bins_folder)
 
     # Check if folder path of binning result is empty.
     # ---------------------------------------------------
-    if len(files) == 0:
+    if len(files_list) == 0:
         logger.error(
             "Folder containing the initial binning result is empty. Please enter a valid path to the folder."
         )
@@ -68,11 +68,18 @@ def run(args):
 
     # Check if binning result folder contains fasta files.
     # ---------------------------------------------------
-    isFasta = True
-    for myfile in files:
-        if not myfile.lower().endswith((".fasta", ".fa", ".fna")):
-            isFasta = False
-            break
+    isFasta = False
+
+    files = []
+
+    for myfile in files_list:
+
+        # Full path of the file
+        filepath = os.path.join(contig_bins_folder, myfile)
+
+        if os.path.isfile(filepath) and myfile.lower().endswith((".fasta", ".fa", ".fna")):
+            isFasta = True
+            files.append(myfile)
 
     if not isFasta:
         logger.error(
@@ -80,6 +87,8 @@ def run(args):
         )
         logger.info(f"Exiting gbintk prepare... Bye...!")
         sys.exit(1)
+
+    logger.info(f"Found {len(files)} FASTA files")
 
     # Validate prefix
     # ---------------------------------------------------
