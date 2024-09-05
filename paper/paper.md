@@ -14,7 +14,11 @@ authors:
   - name: Anuradha Wickramarachchi
     orcid: 0000-0003-4160-5965
     affiliation: 2
+  - name: Robert McArthur
+    orcid: 0000-0000-0000-0000
+    affiliation: 3
   - name: Gavin Huttley
+    orcid: 0000-0000-0000-0000
     affiliation: 3
 affiliations:
  - name: Flinders Accelerator for Microbiome Exploration, College of Science and Engineering, Flinders University, Bedford Park, Adelaide, SA 5042, Australia
