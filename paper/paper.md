@@ -18,7 +18,7 @@ authors:
     orcid: 0000-0000-0000-0000
     affiliation: 3
   - name: Katherine Caley
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0002-8459-6168
     affiliation: 3
   - name: Gavin Huttley
     orcid: 0000-0000-0000-0000
@@ -28,7 +28,7 @@ affiliations:
    index: 1
  - name: Australian e-Health Research Centre, Commonwealth Scientific and Industrial Research Organisation (CSIRO), Westmead, NSW 2145, Australia
    index: 2
- - name: Research School of Biology, The Australian National University, Canberra, ACT 2600, Australia
+ - name: Research School of Biology, The Australian National University, Canberra, ACT 2601, Australia
    index: 3
 date: 15 August 2024
 bibliography: paper.bib
