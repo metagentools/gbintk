@@ -89,6 +89,9 @@ __F1-score__ = $2 \times \frac{Precision\times Recall}{Precision+Recall}$
 
 __ARI__ = $\frac{\sum_{k,s}\binom{a_{ks}}{2}-t_3}{\frac{1}{2}(t_1+t_2)-t_3}$ $where\;t_1 = \sum_{k}\binom{\sum_{s}a_{ks}}{2},\;t_2 = \sum_{s}\binom{\sum_{k}a_{ks}}{2},\; and\; t_3 = \frac{t_1t_2}{\binom{N}{2}}$ 
 
+These metrics can be plotted for comparison between the initial binning result and the refined binning result as shown in \autoref{fig3}.
+
+![Comparison of evaluation metrics for the intiial binning result from MetaCoAG and the refined binning result from GraphBin for the Sim-5G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.png){width=70%}
 
 # Availability
 
