@@ -6,7 +6,7 @@ from click.testing import CliRunner
 from gbintk.cli import graphbin2
 
 __author__ = "Vijini Mallawaarachchi"
-__credits__ = ["Vijini Mallawaarachchi"]
+__credits__ = ["Vijini Mallawaarachchi", "Yapeng Lang"]
 
 
 DATADIR = pathlib.Path(__file__).parent / "data"

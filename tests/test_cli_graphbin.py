@@ -7,7 +7,7 @@ from gbintk.cli import graphbin
 
 
 __author__ = "Vijini Mallawaarachchi"
-__credits__ = ["Vijini Mallawaarachchi"]
+__credits__ = ["Vijini Mallawaarachchi", "Katherine Caley"]
 
 
 DATADIR = pathlib.Path(__file__).parent / "data"

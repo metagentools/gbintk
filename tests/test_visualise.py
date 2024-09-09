@@ -7,7 +7,7 @@ from gbintk.cli import visualise
 from PIL import Image, UnidentifiedImageError
 
 __author__ = "Vijini Mallawaarachchi"
-__credits__ = ["Vijini Mallawaarachchi"]
+__credits__ = ["Vijini Mallawaarachchi", "Robert McArthur"]
 
 
 DATADIR = pathlib.Path(__file__).parent / "data"
