@@ -20,6 +20,9 @@ authors:
   - name: Katherine Caley
     orcid: 0000-0002-8459-6168
     affiliation: 3
+  - name: Yapeng Lang
+    orcid: 0000-0000-0000-0000
+    affiliation: 3
   - name: Gavin Huttley
     orcid: 0000-0000-0000-0000
     affiliation: 3
@@ -102,7 +105,7 @@ GraphBin-Tk is distributed as a Conda package available in the Bioconda channel 
 
 This work is dedicated to the memory of the late Dr Yu Lin (The Australian National University) whose guidance and support were instrumental in shaping the original work. His wisdom and mentorship will be deeply missed. 
 
-This work was undertaken with the assistance of resources and services from the National Computational Infrastructure (NCI Australia) which is supported by the Australian Government. This work was supported by an Essential Open Source Software for Science Grant [GRANT#] from the Chan Zuckerberg Initiative.
+This work was undertaken with the assistance of resources and services from the National Computational Infrastructure (NCI Australia) which is supported by the Australian Government. This work was supported by an Essential Open Source Software for Science Grant EOSS5-0000000223 from the Chan Zuckerberg Initiative.
 
 
 # References
