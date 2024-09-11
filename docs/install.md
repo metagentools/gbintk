@@ -1,5 +1,7 @@
 # Installing GraphBin-Tk
 
+Please follow the steps below to install `gbintk` using `flit`. `gbintk` will be added to Bioconda and PyPI soon.
+
 ```shell
 # clone repository
 git clone https://github.com/metagentools/gbintk.git
