@@ -13,9 +13,11 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
   <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/gbintk_workflow.png" width="800" title="Initial binning" alt="Initial binning">
 </p>
 
-**Detailed documentation hosted at [Read the Docs](https://gbintk.readthedocs.io/en/latest/) is coming soon!**
+**Detailed documentation is available at [Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
 
 ## Installing GraphBin-Tk
+
+Please follow the steps below to install `gbintk` using `flit`. `gbintk` will be added to Bioconda and PyPI soon.
 
 ```shell
 # clone repository
