@@ -94,7 +94,7 @@ __ARI__ = $\frac{\sum_{k,s}\binom{a_{ks}}{2}-t_3}{\frac{1}{2}(t_1+t_2)-t_3}$ $wh
 
 These metrics can be plotted for comparison between the initial binning result and the refined binning result as shown in \autoref{fig3}.
 
-![Comparison of evaluation metrics for the intiial binning result from MetaCoAG and the refined binning result from GraphBin for the Sim-5G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.png){width=70%}
+![Comparison of evaluation metrics for the intiial binning result from MetaCoAG and the refined binning result from GraphBin for the Sim-5G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.svg){width=70%}
 
 # Availability
 
