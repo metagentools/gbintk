@@ -24,7 +24,7 @@ authors:
     orcid: 0000-0000-0000-0000
     affiliation: 3
   - name: Gavin Huttley
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0001-7224-2074
     affiliation: 3
 affiliations:
  - name: Flinders Accelerator for Microbiome Exploration, College of Science and Engineering, Flinders University, Bedford Park, Adelaide, SA 5042, Australia
