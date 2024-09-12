@@ -55,7 +55,7 @@ It is crucial to obtain accurate binning results in metagenomic studies to under
 
 To address these challenges, GraphBin-Tk integrates the capabilities of GraphBin [@Mallawaarachchi1:2020], GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] and MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022], providing a comprehensive toolkit for metagenomic binning and refinement as shown in \autoref{fig1}. GraphBin-Tk unifies three state-of-the-art binning solutions in just one tool, making it easy to install and execute. It provides users with a more comprehensive set of features and capabilities, enabling them to perform a wider range of tasks related to metagenomic binning without needing additional software. This also eliminates the compatibility issues of having to run separate binning-related software and enhances the user experience by making the software easier to learn and use.
 
-![Example binning workflow using tools available from GraphBin-Tk.\label{fig1}](gbintk_workflow.png){width=100%}
+![Example binning workflow using tools available from GraphBin-Tk.\label{fig1}](gbintk_workflow.svg){width=100%}
 
 GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin refinement using either GraphBin or GraphBin2. Additionally, pre-processing functionalities to run these tools and post-processing functionalities to analyse the produced results are included in GraphBin-Tk. A list of the subcommands provided in GraphBin-Tk is as follows:
 
