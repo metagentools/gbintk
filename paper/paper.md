@@ -98,7 +98,7 @@ These metrics can be plotted for comparison between the initial binning result a
 
 # Availability
 
-GraphBin-Tk is distributed as a Conda package available in the Bioconda channel [@Gruning:2018] at [LINK]. GraphBin-Tk is also available as a Python package on PyPI at [LINK]. The source code is available on GitHub at [https://github.com/metagentools/gbintk](https://github.com/metagentools/gbintk) and features continuous integration, testing coverage, and continuous deployment using GitHub actions.
+GraphBin-Tk is distributed as a Conda package available in the Bioconda channel [@Gruning:2018] at [https://anaconda.org/bioconda/gbintk](https://anaconda.org/bioconda/gbintk). GraphBin-Tk is also available as a Python package on PyPI at [https://pypi.org/project/gbintk/](https://pypi.org/project/gbintk/). The source code is available on GitHub at [https://github.com/metagentools/gbintk](https://github.com/metagentools/gbintk) and features continuous integration, testing coverage, and continuous deployment using GitHub actions.
 
 
 # Acknowledgements
