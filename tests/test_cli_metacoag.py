@@ -1,4 +1,4 @@
-# import os
+import os
 import pathlib
 
 import pytest
@@ -30,23 +30,23 @@ def runner():
     return CliRunner()
 
 
-# def get_files_and_seq_counts(output_path):
-#     output_files = os.listdir(output_path)
-#     seq_counts = []
-#     for file in output_files:
-#         seq_count = 0
-#         with open(f"{output_path}/{file}", "r") as myfile:
-#             for line in myfile:
-#                 if line.strip().startswith(">"):
-#                     seq_count += 1
-#         seq_counts.append(seq_count)
+def get_files_and_seq_counts(output_path):
+    output_files = os.listdir(output_path)
+    seq_counts = []
+    for file in output_files:
+        seq_count = 0
+        with open(f"{output_path}/{file}", "r") as myfile:
+            for line in myfile:
+                if line.strip().startswith(">"):
+                    seq_count += 1
+        seq_counts.append(seq_count)
 
-#     seq_counts.sort()
+    seq_counts.sort()
 
-#     return len(output_files), seq_counts
+    return len(output_files), seq_counts
 
 
-# @pytest.fixture(scope="function")
+@pytest.fixture(scope="function")
 def test_metacoag_spades_run(runner, tmp_dir):
     outpath = tmp_dir
     graph = DATADIR / "5G_metaSPAdes" / "assembly_graph_with_scaffolds.gfa"
@@ -56,13 +56,13 @@ def test_metacoag_spades_run(runner, tmp_dir):
     args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --abundance {abundance} --output {outpath}".split()
     r = runner.invoke(metacoag, args, catch_exceptions=False)
 
-    assert r.exit_code == 0, r.output
+    assert r.exit_code == 0, r.output  # Check if the command ran successfully
 
-    # n_bins, seq_counts = get_files_and_seq_counts(outpath / "bins")
-    # return n_bins, seq_counts
+    n_bins, seq_counts = get_files_and_seq_counts(outpath / "bins")
+    return n_bins, seq_counts
 
 
-# @pytest.fixture(scope="function")
+@pytest.fixture(scope="function")
 def test_metacoag_megahit_run(runner, tmp_dir):
     outpath = tmp_dir
     graph = DATADIR / "5G_MEGAHIT" / "final.gfa"
@@ -73,8 +73,8 @@ def test_metacoag_megahit_run(runner, tmp_dir):
 
     assert r.exit_code == 0, r.output  # Check if the command ran successfully
 
-    # n_bins, seq_counts = get_files_and_seq_counts(outpath / "bins")
-    # return n_bins, seq_counts
+    n_bins, seq_counts = get_files_and_seq_counts(outpath / "bins")
+    return n_bins, seq_counts
 
 
 @pytest.fixture(scope="function")
@@ -103,6 +103,7 @@ def test_n_bins_metacoag_spades(test_metacoag_spades_run):
     assert seq_counts == [10, 23, 48, 69, 78]
 
 
+@pytest.mark.filterwarnings("ignore::RuntimeWarning")
 def test_n_bins_metacoag_megahit(test_metacoag_megahit_run):
     n_bins, seq_counts = test_metacoag_megahit_run
 
@@ -113,9 +114,9 @@ def test_n_bins_metacoag_megahit(test_metacoag_megahit_run):
     assert seq_counts == [36, 40, 46, 84, 127]
 
 
+@pytest.mark.filterwarnings("ignore::RuntimeWarning")
 def test_n_bins_metacoag_flye(test_metacoag_flye_run):
-    outpath = test_metacoag_flye_run
-    n_bins, seq_counts = get_files_and_seq_counts(outpath / "bins")
+    n_bins, seq_counts = test_metacoag_flye_run
 
     # Assert number of bins
     assert n_bins == 3
