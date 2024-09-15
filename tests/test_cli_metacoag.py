@@ -71,7 +71,7 @@ def test_metacoag_megahit_run(runner, tmp_dir):
     args = f"--assembler megahit --graph {graph} --contigs {contigs} --abundance {abundance} --output {outpath}".split()
     r = runner.invoke(metacoag, args, catch_exceptions=False)
 
-    assert r.exit_code == 0, r.output  # Check if the command ran successfully
+    assert r.exit_code == 0, r.output
 
     n_bins, seq_counts = get_files_and_seq_counts(outpath / "bins")
     return n_bins, seq_counts
@@ -123,3 +123,66 @@ def test_n_bins_metacoag_flye(test_metacoag_flye_run):
 
     # Assert bin sizes
     assert seq_counts == [1, 1, 1]
+
+
+@pytest.mark.parametrize(
+    "graph, contigs, paths, abundance",
+    [
+        (
+            DATADIR / "invlid_path" / "assembly_graph_with_scaffolds.gfa",
+            DATADIR / "5G_metaSPAdes" / "contigs.fasta",
+            DATADIR / "5G_metaSPAdes" / "contigs.paths",
+            DATADIR / "5G_metaSPAdes" / "coverm_mean_coverage.tsv",
+        ),
+    ],
+)
+def test_metacoag_spades_invalid_run(runner, tmp_dir, graph, contigs, paths, abundance):
+    outpath = tmp_dir
+    args = f"--assembler spades --graph {graph} --contigs {contigs} --paths {paths} --abundance {abundance} --output {outpath}".split()
+    r = runner.invoke(metacoag, args, catch_exceptions=False)
+    assert r.exit_code != 0
+    assert "Error" in r.output and "Path" in r.output  # Check for error messages
+
+
+@pytest.mark.parametrize(
+    "graph, contigs, abundance",
+    [
+        (
+            DATADIR / "invalid_path" / "final.gfa",
+            DATADIR / "5G_MEGAHIT" / "final.contigs.fa",
+            DATADIR / "5G_MEGAHIT" / "abundance.tsv",
+        ),
+    ],
+)
+def test_metacoag_megahit_invalid_run(
+    runner, tmp_path_factory, graph, contigs, abundance
+):
+    outpath = tmp_path_factory.mktemp("tmp")
+    args = f"--assembler megahit --graph {graph} --contigs {contigs} --abundance {abundance} --output {outpath}".split()
+    r = runner.invoke(metacoag, args, catch_exceptions=True)
+
+    assert r.exit_code != 0
+    assert "Error" in r.output and "Path" in r.output
+
+
+@pytest.mark.parametrize(
+    "graph, contigs, paths, abundance",
+    [
+        (
+            DATADIR / "invalid_path" / "assembly_graph.gfa",
+            DATADIR / "1Y3B_Flye" / "assembly.fasta",
+            DATADIR / "1Y3B_Flye" / "assembly_info.txt",
+            DATADIR / "1Y3B_Flye" / "abundance.tsv",
+        ),
+    ],
+)
+def test_metacoag_flye_invalid_run(
+    runner, tmp_path_factory, graph, contigs, paths, abundance
+):
+    outpath = tmp_path_factory.mktemp("tmp")
+    args = f"--assembler flye --graph {graph} --contigs {contigs} --paths {paths} --abundance {abundance} --output {outpath}".split()
+    r = runner.invoke(metacoag, args, catch_exceptions=True)
+
+    assert r.exit_code != 0
+    assert "Error" in r.output and "Path" in r.output
+    print(r.output)
