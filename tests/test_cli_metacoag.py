@@ -185,4 +185,3 @@ def test_metacoag_flye_invalid_run(
 
     assert r.exit_code != 0
     assert "Error" in r.output and "Path" in r.output
-    print(r.output)
