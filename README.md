@@ -1,6 +1,9 @@
 # GraphBin-Tk: assembly graph-based metagenomic binning toolkit
 
 ![GitHub License](https://img.shields.io/github/license/metagentools/gbintk)
+[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/gbintk/README.html)
+[![Conda](https://img.shields.io/conda/v/bioconda/gbintk)](https://anaconda.org/bioconda/gbintk)
+[![PyPI version](https://badge.fury.io/py/gbintk.svg)](https://badge.fury.io/py/gbintk)
 [![CI](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml)
 [![codecov](https://codecov.io/gh/metagentools/gbintk/graph/badge.svg?token=r5sniGexZG)](https://codecov.io/gh/metagentools/gbintk)
 [![CodeQL](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml)
