@@ -24,8 +24,8 @@ For detailed instructions on installation and usage, please refer to the documen
 
 ### Using conda
 
-You can install GraphBin-Tk using the [bioconda](https://anaconda.org/bioconda/gbintk) distribution. You can download 
-[Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) which contains `conda`. You can also use [`mamba`](https://mamba.readthedocs.io/en/latest/index.html) instead of `conda`.
+You can install GraphBin-Tk using the [bioconda](https://anaconda.org/bioconda/gbintk) distribution. You can download `conda` from 
+[Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). You can also use [`mamba`](https://mamba.readthedocs.io/en/latest/index.html) instead of `conda`.
 
 ```shell
 # add channels
