@@ -16,7 +16,7 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
   <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/gbintk_workflow.png" width="800" title="Initial binning" alt="Initial binning">
 </p>
 
-For detailed instructions on installation and usage, please refer to the detailed documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
+For detailed instructions on installation and usage, please refer to the documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
 
 **NEW:** GraphBin-Tk is now available on [bioconda](https://anaconda.org/bioconda/gbintk) and [PyPI](https://pypi.org/project/gbintk/).
 
@@ -24,8 +24,8 @@ For detailed instructions on installation and usage, please refer to the detaile
 
 ### Using conda
 
-You can install GraphBin-Tk using the [bioconda](https://anaconda.org/bioconda/gbintk) distribution. You can download 
-[Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) which contains `conda`. You can also use [`mamba`](https://mamba.readthedocs.io/en/latest/index.html) instead of `conda`.
+You can install GraphBin-Tk using the [bioconda](https://anaconda.org/bioconda/gbintk) distribution. You can download `conda` from 
+[Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). You can also use [`mamba`](https://mamba.readthedocs.io/en/latest/index.html) instead of `conda`.
 
 ```shell
 # add channels
