@@ -39,10 +39,10 @@ conda create -n gbintk
 # activate conda environment
 conda activate gbintk
 
-# install graphbin
+# install gbintk
 conda install -c bioconda gbintk
 
-# check graphbin installation
+# check gbintk installation
 gbintk --help
 ```
 
@@ -51,7 +51,11 @@ gbintk --help
 You can install GraphBin-Tk using `pip` from the [PyPI](https://pypi.org/project/gbintk/) distribution.
 
 ```shell
+# install gbintk
 pip install gbintk
+
+# check gbintk installation
+gbintk --help
 ```
 
 ### For development
