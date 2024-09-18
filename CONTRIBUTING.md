@@ -25,7 +25,7 @@ cd gbintk
 # install flit
 pip install flit
 
-# install graphbin via flit
+# install using flit
 flit install -s --python `which python`
 ```
 
