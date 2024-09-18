@@ -1,6 +1,9 @@
 # GraphBin-Tk: assembly graph-based metagenomic binning toolkit
 
 ![GitHub License](https://img.shields.io/github/license/metagentools/gbintk)
+[![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/gbintk/README.html)
+[![Conda](https://img.shields.io/conda/v/bioconda/gbintk)](https://anaconda.org/bioconda/gbintk)
+[![PyPI version](https://badge.fury.io/py/gbintk.svg)](https://badge.fury.io/py/gbintk)
 [![CI](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/testing_python_app.yml)
 [![codecov](https://codecov.io/gh/metagentools/gbintk/graph/badge.svg?token=r5sniGexZG)](https://codecov.io/gh/metagentools/gbintk)
 [![CodeQL](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml/badge.svg)](https://github.com/metagentools/gbintk/actions/workflows/codeql.yml)
@@ -13,11 +16,47 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
   <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/gbintk_workflow.png" width="800" title="Initial binning" alt="Initial binning">
 </p>
 
-**Detailed documentation is available at [Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
+For detailed instructions on installation and usage, please refer to the detailed documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
+
+**NEW:** GraphBin-Tk is now available on [bioconda](https://anaconda.org/bioconda/gbintk) and [PyPI](https://pypi.org/project/gbintk/).
 
 ## Installing GraphBin-Tk
 
-Please follow the steps below to install `gbintk` using `flit`. `gbintk` will be added to Bioconda and PyPI soon.
+### Using conda
+
+You can install GraphBin-Tk using the [bioconda](https://anaconda.org/bioconda/gbintk) distribution. You can download 
+[Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) which contains `conda`. You can also use [`mamba`](https://mamba.readthedocs.io/en/latest/index.html) instead of `conda`.
+
+```shell
+# add channels
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+# create conda environment
+conda create -n gbintk
+
+# activate conda environment
+conda activate gbintk
+
+# install graphbin
+conda install -c bioconda gbintk
+
+# check graphbin installation
+gbintk --help
+```
+
+### Using pip
+
+You can install GraphBin-Tk using `pip` from the [PyPI](https://pypi.org/project/gbintk/) distribution.
+
+```shell
+pip install gbintk
+```
+
+### For development
+
+Please follow the steps below to install `gbintk` using `flit` for development.
 
 ```shell
 # clone repository
@@ -31,7 +70,7 @@ conda env create -f environment.yml
 conda activate gbintk
 
 # install using flit
-flit install
+flit install -s --python `which python`
 
 # test installation
 gbintk --help
