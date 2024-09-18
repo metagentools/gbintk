@@ -18,6 +18,8 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
 
 For detailed instructions on installation and usage, please refer to the detailed documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
 
+**NEW:** GraphBin-Tk is now available on [bioconda](https://anaconda.org/bioconda/gbintk) and [PyPI](https://pypi.org/project/gbintk/).
+
 ## Installing GraphBin-Tk
 
 ### Using conda
