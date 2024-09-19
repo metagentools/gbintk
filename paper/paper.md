@@ -194,7 +194,7 @@ A text file containing the $K \times S$ matrix and the calculated evaluation met
 
 ![Comparison of evaluation metrics for the intiial binning result from MetaCoAG and the refined binning result from GraphBin for the Sim-5G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.svg){width=70%}
 
-Please refer to the original publications of GraphBin, GraphBin2 and MetaCoAG for detailed benchmarking results of each tool.
+Please refer to the original publications of GraphBin [@Mallawaarachchi1:2020], GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] and MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] for detailed benchmarking results of each tool.
 
 # Availability
 
