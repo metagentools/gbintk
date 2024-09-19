@@ -63,7 +63,7 @@ GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin r
 
 ### Tool/processing function
 
-A user can start the analysis by running the `metacoag` subcommand to bin a metagenomic dataset using the metagenomic binning tool MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] and obtain MAGs as shown in \autoref{fig1}. 
+A user can start the analysis by running the `metacoag` subcommand to bin a metagenomic dataset using the metagenomic binning tool MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] and obtain contig bins (or MAGs) as shown in \autoref{fig1}. 
 
 ### Inputs
 
