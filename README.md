@@ -16,7 +16,7 @@ GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning
   <img src="https://raw.githubusercontent.com/metagentools/gbintk/master/docs/images/gbintk_workflow.png" width="800" title="Initial binning" alt="Initial binning">
 </p>
 
-For detailed instructions on installation and usage, please refer to the documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**
+For detailed instructions on installation and usage, please refer to the documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**.
 
 **NEW:** GraphBin-Tk is now available on [bioconda](https://anaconda.org/bioconda/gbintk) and [PyPI](https://pypi.org/project/gbintk/).
 
