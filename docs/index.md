@@ -1,6 +1,6 @@
 # GraphBin-Tk: assembly graph-based metagenomic binning toolkit
 
-GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques [GraphBin](https://github.com/metagentools/GraphBin), [GraphBin2](https://github.com/metagentools/GraphBin2) and [MetaCoAG](https://github.com/metagentools/MetaCoAG) along with support functionality to visualise and evaluate results, into one comprehensive toolkit.
+GraphBin-Tk combines assembly graph-based metagenomic bin-refinement and binning techniques [GraphBin](https://github.com/metagentools/GraphBin), [GraphBin2](https://github.com/metagentools/GraphBin2) and [MetaCoAG](https://github.com/metagentools/MetaCoAG) along with additional processing functionality to visualise and evaluate results, into one comprehensive toolkit.
 
 ![](images/gbintk_workflow.png)
 

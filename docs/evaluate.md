@@ -23,7 +23,7 @@ Options:
 
 ### Input Format
 
-`visualise` subcommand takes in 2 files as inputs.
+`evaluate` subcommand takes in 2 files as inputs.
 
 * Binning result containing the comma separated records of `contig id,bin number` (in `.csv` format)
 * Ground truth annotations containing the comma separated records of `contig id, groud truth bin` (in `.csv` format)

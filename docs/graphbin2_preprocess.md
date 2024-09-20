@@ -20,7 +20,7 @@ gbintk prepare --assembler megahit ----resfolder /path/to/folder_with_binning_re
 # For Flye
 gbintk prepare --assembler flye ----resfolder /path/to/folder_with_binning_result --output /path/to/output_folder
 ```
-More details on the `prepare` subcommand can be found in the [Support](https://gbintk.readthedocs.io/en/latest/prepare/) section of this documentation.
+More details on the `prepare` subcommand can be found in the [Processing](https://gbintk.readthedocs.io/en/latest/prepare/) section of this documentation.
 
 Formatted binning result will be stored in a file named `initial_contig_bins.csv` in the output folder provided.
 
