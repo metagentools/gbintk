@@ -27,7 +27,7 @@ nav:
       - Introduction: graphbin2_intro.md
       - Preprocess: graphbin2_preprocess.md
       - Usage: graphbin2_usage.md
-    - Support:
+    - Processing:
       - Prepare: prepare.md
       - Visualise: visualise.md
       - Evaluate: evaluate.md
