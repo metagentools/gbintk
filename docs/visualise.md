@@ -17,6 +17,7 @@ Options:
                                   [required]
   --final PATH                    path to the final binning result  [required]
   --graph PATH                    path to the assembly graph file  [required]
+  --contigs PATH                  path to the contigs file  [required]
   --paths PATH                    path to the contigs.paths (metaSPAdes) or
                                   assembly.info (metaFlye) file
   --output PATH                   path to the output folder  [required]
@@ -29,11 +30,10 @@ Options:
   --vsize INTEGER                 size of the vertices  [default: 50]
   --lsize INTEGER                 size of the vertex labels  [default: 8]
   --margin INTEGER                margin of the figure  [default: 50]
-  --type TEXT                     type of the image (png, eps, pdf, svg)
+  --imgtype [png|eps|pdf|svg]     type of the image (png, eps, pdf, svg)
                                   [default: png]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
+  --delimiter [comma|tab]         delimiter for input/output results. Supports
+                                  a comma and a tab.  [default: comma]
   -h, --help                      Show this message and exit.
 ```
 

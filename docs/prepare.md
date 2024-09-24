@@ -15,9 +15,8 @@ Options:
                                   or Flye)  [required]
   --resfolder PATH                path to the folder containing FASTA files
                                   for individual bins  [required]
-  --delimiter [,|;|     |" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
+  --delimiter [comma|tab]         delimiter for input/output results. Supports
+                                  a comma and a tab.  [default: comma]
   --prefix TEXT                   prefix for the output file
   --output PATH                   path to the output folder  [required]
   -h, --help                      Show this message and exit.
