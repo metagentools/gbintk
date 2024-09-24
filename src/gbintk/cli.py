@@ -108,9 +108,9 @@ _prefix = click.option(
 )
 _delimiter = click.option(
     "--delimiter",
-    help="delimiter for input/output results. Supports a comma (,), a semicolon (;), a tab ($'\\t'), a space (\" \") and a pipe (|)",
-    type=click.Choice([",", ";", "\t", '" "'], case_sensitive=False),
-    default=",",
+    help="delimiter for input/output results. Supports a comma and a tab.",
+    type=click.Choice(["comma", "tab"], case_sensitive=False),
+    default="comma",
     show_default=True,
     required=False,
 )
@@ -201,7 +201,7 @@ def graphbin(
             self.prefix = prefix
             self.max_iteration = max_iteration
             self.diff_threshold = diff_threshold
-            self.delimiter = delimiter
+            self.delimiter = '\t' if delimiter == "tab" else ','
 
     # Make args object
     args = GraphBinArgsObj(
@@ -311,8 +311,8 @@ def graphbin2(
             self.prefix = prefix
             self.depth = depth
             self.threshold = threshold
-            self.delimiter = delimiter
             self.nthreads = nthreads
+            self.delimiter = '\t' if delimiter == "tab" else ','
 
     # Make args object
     args = GraphBin2ArgsObj(
@@ -514,8 +514,8 @@ def metacoag(
             self.mg_threshold = mg_threshold
             self.bin_mg_threshold = bin_mg_threshold
             self.min_bin_size = min_bin_size
-            self.delimiter = delimiter
             self.nthreads = nthreads
+            self.delimiter = '\t' if delimiter == "tab" else ','
 
     # Make args object
     args = MetaCoAGArgsObj(
@@ -573,9 +573,9 @@ def prepare(assembler, resfolder, delimiter, prefix, output):
         def __init__(self, assembler, resfolder, delimiter, prefix, output):
             self.assembler = assembler
             self.resfolder = resfolder
-            self.delimiter = delimiter
             self.prefix = prefix
             self.output = output
+            self.delimiter = '\t' if delimiter == "tab" else ','
 
     # Make args object
     args = PrepArgsObj(assembler, resfolder, delimiter, prefix, output)
@@ -733,7 +733,7 @@ def visualise(
             self.lsize = lsize
             self.margin = margin
             self.imgtype = imgtype
-            self.delimiter = delimiter
+            self.delimiter = '\t' if delimiter == "tab" else ','
 
     # Make args object
     args = VizArgsObj(
@@ -792,9 +792,9 @@ def evaluate(binned, groundtruth, delimiter, prefix, output):
         def __init__(self, binned, groundtruth, delimiter, prefix, output):
             self.binned = binned
             self.groundtruth = groundtruth
-            self.delimiter = delimiter
             self.prefix = prefix
             self.output = output
+            self.delimiter = '\t' if delimiter == "tab" else ','
 
     # Make args object
     args = EvalArgsObj(binned, groundtruth, delimiter, prefix, output)
