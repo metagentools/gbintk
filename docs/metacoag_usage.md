@@ -42,9 +42,8 @@ Options:
                                   0<=x<=1]
   --min_bin_size INTEGER          minimum size of a bin to output in base
                                   pairs (bp).  [default: 200000]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
+  --delimiter [comma|tab]         delimiter for input/output results. Supports
+                                  a comma and a tab.  [default: comma]
   --nthreads INTEGER              number of threads to use.  [default: 8]
   -h, --help                      Show this message and exit.
 ```

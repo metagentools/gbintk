@@ -24,9 +24,8 @@ Options:
                                   propagation algorithm  [default: 100]
   --diff_threshold FLOAT RANGE    difference threshold for label propagation
                                   algorithm  [default: 0.1; 0<=x<=1]
-  --delimiter [,|;|$'\t'|" "]     delimiter for input/output results. Supports
-                                  a comma (,), a semicolon (;), a tab ($'\t'),
-                                  a space (" ") and a pipe (|)  [default: ,]
+  --delimiter [comma|tab]         delimiter for input/output results. Supports
+                                  a comma and a tab.  [default: comma]
   -h, --help                      Show this message and exit.
 ```
 
