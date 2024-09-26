@@ -25,10 +25,10 @@ __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2023-2024, GraphBin-Tk Project"
 __credits__ = ["Vijini Mallawaarachchi", "Anuradha Wickramarachchi", "Yu Lin"]
 __license__ = "GPL-3.0"
-__version__ = "0.1.1"
+__version__ = "1.0.0"
 __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
-__status__ = "Alpha"
+__status__ = "Production/Stable"
 
 # create logger
 logger = logging.getLogger(f"GraphBin-Tk {__version__}")
