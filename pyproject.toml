@@ -24,11 +24,12 @@ dependencies = ["click",
   "graphbin2",
   "metacoag>=1.2.1"]
 classifiers = [
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
-        "Operating System :: OS Independent",
+        "Operating System :: MacOS",
+        "Operating System :: POSIX",
         "Programming Language :: Python :: 3",
     ]
 # the following are inferred from the source code
