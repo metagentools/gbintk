@@ -13,7 +13,7 @@ __license__ = "GPL-3.0"
 __version__ = "0.1.1"
 __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
-__status__ = "Alpha"
+__status__ = "Production/Stable"
 
 
 # Setup logger
