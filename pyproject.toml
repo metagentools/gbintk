@@ -21,7 +21,7 @@ dependencies = ["click",
   "tqdm",
   "tabulate",
   "graphbin",
-  "graphbin2",
+  "graphbin2>=1.3.3",
   "metacoag>=1.2.1"]
 classifiers = [
         "Development Status :: 5 - Production/Stable",
