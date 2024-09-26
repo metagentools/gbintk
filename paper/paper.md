@@ -71,7 +71,7 @@ The following inputs are required to run the `metacoag` subcommand.
 
 * Contigs file
 * Assembly graph file(s)
-* A delimited file containing the contig identifier and its average read coverage for each contig - can be obtained by running a read coverage calculation tool such as CoverM ([https://github.com/wwood/CoverM](https://github.com/wwood/CoverM)) or Koverage [@Roach:2024]
+* A delimited file containing the contig identifier and its average read coverage for each contig - can be obtained by running a read coverage calculation tool such as CoverM [Woodcroft:2017] or Koverage [@Roach:2024]
 
 The assembly graph files can vary depending on the assembler used to generate the contigs. The metaSPAdes version requires the assembly graph file in `.gfa` format and the paths file corresponding to the contigs file in `.paths` format. The MEGAHIT version requires the assembly graph file in `.gfa` format. The metaFlye version requires the assembly graph file `assembly_graph.gfa` and the paths file `assembly_info.txt` from the final assembly output.
 
