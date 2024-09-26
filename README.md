@@ -102,6 +102,8 @@ Commands:
   evaluate   Evaluate the binning results given a ground truth
 ```
 
+Please refer to [DEMO.md](https://github.com/metagentools/gbintk/blob/main/DEMO.md) for example code to run using test data provided. For further details on available subcommands and examples, please refer to the documentation hosted at **[Read the Docs](https://gbintk.readthedocs.io/en/latest/)**.
+
 ## Citation
 
 If you use GraphBin-Tk in your work, please cite the relevant tools.
