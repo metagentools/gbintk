@@ -1,42 +1,8 @@
 # GraphBin-Tk Demo
 
-## Setup GraphBin-Tk
+## Installing GraphBin-Tk
 
-First, let's download GraphBin-Tk. Make sure you have `git` installed.
-
-```shell
-git clone https://github.com/metagentools/gbintk.git
-```
-
-Now move in to the 'gbintk' directory.
-
-```shell
-cd gbintk
-```
-
-Let's create an environment for gbintk using the provided `environment.yml` file. Make sure you have `conda`` installed.
-
-```shell
-conda env create -f environment.yml
-```
-
-Activate the environment.
-
-```shell
-conda activate gbintk
-```
-
-Install using `flit`
-
-```shell
-flit install
-```
-
-Test your installation.
-
-```shell
-gbintk --help
-```
+Please follow the instructions provided in the [README](https://github.com/metagentools/gbintk/blob/main/README.md) to install `gbintk`.
 
 Now we are all set for the demo.
 
