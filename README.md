@@ -107,6 +107,8 @@ Please refer to [DEMO.md](https://github.com/metagentools/gbintk/blob/main/DEMO.
 
 ## Citation
 
+GraphBin-Tk is currently under review at the [Journal of Open Source Software](https://joss.theoj.org/papers/4647b0df563fc570f1550e721718ac17).
+
 If you use GraphBin-Tk in your work, please cite the relevant tools.
 
 **GraphBin**
