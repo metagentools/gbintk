@@ -24,6 +24,17 @@ jobs:
         with:
             python-version: "${{ matrix.python-version }}"
 
+      - name: Install Cairo dependencies
+        run: |
+          if [ "$OS" = "ubuntu-latest" ]; then
+            sudo apt-get install -y libcairo2-dev
+          elif [ "$OS" = "macos-latest" ]; then
+            brew install cairo
+          fi
+        env:
+          OS: ${{ matrix.os }}
+        shell: bash
+
       - name: "Install dependencies on ${{ matrix.os }} for Python ${{ matrix.python-version }}"
         run: |
           python --version
