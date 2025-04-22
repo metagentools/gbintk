@@ -12,6 +12,8 @@ requires-python = ">=3.9,<3.13"
 dependencies = ["click",
   "cogent3",
   "igraph",
+  "libcairo2-dev",
+  "pkg-config",
   "cairocffi",
   "pycairo",
   "networkx",
