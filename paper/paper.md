@@ -56,16 +56,16 @@ GraphBin-Tk addresses the aforementioned challenges by integrating the capabilit
 
 # Functionality
 
-GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin refinement using either GraphBin or GraphBin2. Additionally, pre- and post-processing functionalities to run these tools and analyse the produced results are included. GraphBin-Tk can be launched using the command `gbintk`. A list of the subcommands provided in GraphBin-Tk and the required inputs are explained as follows. Further details about the subcommands can be found in the GraphBin-Tk documentation at [https://gbintk.readthedocs.io/](https://gbintk.readthedocs.io/).
+GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin refinement using either GraphBin or GraphBin2. Additionally, pre- and post-processing functionalities to run these tools and analyse the produced results are included. GraphBin-Tk can be launched using the command `gbintk`. A list of the subcommands provided in GraphBin-Tk are as follows. Further details about the subcommands can be found in the GraphBin-Tk documentation available at [https://gbintk.readthedocs.io/](https://gbintk.readthedocs.io/).
 
-| Subcommand   | Tool/processing functionality                                       | Inputs required                                                              |
- |:------------:|:-------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
- | `graphbin`   | Bin refinement tool GraphBin                                        | Contigs, assembly graph files, initial binning result                  |
- | `graphbin2`  | Bin refinement tool GraphBin2                                       | Contigs, assembly graph files, initial binning result, coverage of contigs |
- | `metacoag`   | Binning tool MetaCoAG                                               | Contigs, assembly graph files, coverage of contigs                         |
- | `prepare`    | Format initial binning results for GraphBin and GraphBin2           | Folder containing the initial binning result                                 |
- | `visualise`  | Visualise initial and refined binning results on the assembly graph | Assembly graph files, initial binning result, final binning result         |
- | `evaluate`   | Evaluate binning results given a ground truth                       | Binning result, ground truth                                                 |
+| Subcommand   | Tool/processing functionality                                       |
+ |:------------:|:-------------------------------------------------------------------:|
+ | `graphbin`   | Bin refinement tool GraphBin                                        |
+ | `graphbin2`  | Bin refinement tool GraphBin2                                       |
+ | `metacoag`   | Binning tool MetaCoAG                                               |
+ | `prepare`    | Format initial binning results for GraphBin and GraphBin2           |
+ | `visualise`  | Visualise initial and refined binning results on the assembly graph |
+ | `evaluate`   | Evaluate binning results given a ground truth                       |
 
 After assembling a metagenomic dataset, a user can start the analysis by running the `metacoag` subcommand to bin the resulting contigs and obtain MAGs as shown in \autoref{fig1}. GraphBin-Tk supports metagenome assemblies generated from three popular metagenome assemblers; metaSPAdes [@Nurk:2017] and MEGAHIT [@Li:2015] for short-read sequencing data and metaFlye [@Kolmogorov:2020] for long-read sequencing data. The MetaCoAG binning result can be formatted using the `prepare` subcommand into a delimited text file such as `.csv` or `.tsv` that represents each contig and its bin name. This formatted binning result can be improved by providing to either GraphBin or GraphBin2 using the subcommands `graphbin` or `graphbin2` (\autoref{fig1}).
 
