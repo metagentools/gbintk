@@ -46,155 +46,39 @@ Conventional metagenomic binning tools make use of features such as nucleotide c
 
 # Statement of need
 
-It is crucial to obtain accurate binning results in metagenomic studies to understand the composition and functional potential of microbial communities. Conventional binning methods mainly rely on two features of contigs; 1) nucleotide composition, represented as normalised frequencies of oligonucleotides (short substrings of a particular length) and 2) abundance, the average number of reads that covers each nucleotide base of the contig [@Mallawaarachchi:2024]. Previous studies have found that these tools face several challenges when binning complex datasets [@Mallawaarachchi:2024]:
+It is crucial to obtain accurate binning results in metagenomic studies to understand the composition and functional potential of microbial communities. Conventional binning methods mainly rely on two features of contigs; 1) nucleotide composition, represented as normalised frequencies of oligonucleotides (short substrings of a particular length) and 2) abundance, the average number of reads that covers each nucleotide base of the contig [@Mallawaarachchi:2024]. Previous studies have found that these tools face several challenges when binning complex datasets, especially those containing closely related species, short sequences, and shared genomic regions [@Mallawaarachchi:2024].
 
-* Contigs of closely related species can be merged, producing contaminated bins.
-* Contigs having features that deviate from their constituent genomes (e.g., the presence of protein-coding regions and repeat regions can lead to deviated nucleotide and abundance features) can be placed in incorrect bins.
-* Contigs that are too short (e.g., shorter than 1000 base pairs) can be discarded during binning as they may not capture enough genomic signatures. Such short sequences can contain important regions such as repeats.
-* Contigs shared among different genomes are only placed in the bin of the most representative genome.
+To address these challenges, several graph-based metagenomic binning tools [@Mallawaarachchi:2024] such as MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] and GraphMB [@Lamurias:2022], and bin refinement tools such as GraphBin [@Mallawaarachchi1:2020] and GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] have been developed. These tools enhance the binning results by leveraging the connectivity information of the assembly graph -- an intermediate output generated from the assembly process, that is often discarded during downstream analysis. However, running these tools individually can be challenging. Users have to install and configure multiple software packages, resolve dependencies and manage different file formats, which raises the risk of errors. Furthermore, existing metagenomic binning toolkits and wrappers such as MetaWRAP [@Uritskiy:2018], DAS Tool [@Sieber:2018] and MetaBinner [@Wang:2023] aim to simplify metagenomic binning workflows, but they do not incorporate graph-based binning tools.
 
-GraphBin-Tk enhances binning accuracy and addresses the aforementioned challenges by integrating the capabilities of GraphBin [@Mallawaarachchi1:2020], GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] and MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022], which leverage the connectivity information of the assembly graph. GraphBin-Tk unifies these state-of-the-art binning solutions in a comprehensive toolkit for metagenomic binning and refinement as shown in \autoref{fig1}. It provides users with a more comprehensive set of features and capabilities, enabling them to perform a wider range of tasks related to metagenomic binning without needing to install and execute additional software. GraphBin-Tk  also eliminates any compatibility issues that may arise from running separate binning-related software and enhances the user experience by making the software easier to learn and use.
+GraphBin-Tk addresses the aforementioned challenges by integrating the capabilities of GraphBin [@Mallawaarachchi1:2020], GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] and MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] in a comprehensive toolkit for metagenomic binning and refinement as shown in \autoref{fig1}. Once a metagenomic assembly is obtained, GraphBin-Tk enables researchers to bin contigs, refine bins and provides additional features such as visualisation and evaluation, enabling a wider range of tasks to be performed seamlessly without needing to install and execute additional software. GraphBin-Tk also eliminates any compatibility issues that may arise from running separate binning-related software and enhances the user experience by making the software easier to learn and use.
 
 ![Example binning workflow using tools available from GraphBin-Tk.\label{fig1}](gbintk_workflow.svg){width=100%}
 
-GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin refinement using either GraphBin or GraphBin2. Additionally, pre- and post-processing functionalities to run these tools and analyse the produced results are included. GraphBin-Tk supports metagenome assemblies generated from three popular metagenome assemblers; metaSPAdes [@Nurk:2017] and MEGAHIT [@Li:2015] for short-read sequencing data and metaFlye [@Kolmogorov:2020] for long-read sequencing data. GraphBin-Tk can be launched using the command `gbintk`. The following subsections explain the subcommands provided in GraphBin-Tk.
+# Functionality
 
-## `metacoag`
+GraphBin-Tk can perform stand-alone metagenomic binning using MetaCoAG and bin refinement using either GraphBin or GraphBin2. Additionally, pre- and post-processing functionalities to run these tools and analyse the produced results are included. GraphBin-Tk can be launched using the command `gbintk`. A list of the subcommands provided in GraphBin-Tk is as follows. Further details about the subcommands can be found in the GraphBin-Tk documentation at [https://gbintk.readthedocs.io/](https://gbintk.readthedocs.io/).
 
-### Tool/processing function
+| Subcommand   | Tool/processing functionality                                       | Inputs required                                                              |
+ |:------------:|:-------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+ | `graphbin`   | Bin refinement tool GraphBin                                        | Contigs, assembly graph file(s), initial binning result                  |
+ | `graphbin2`  | Bin refinement tool GraphBin2                                       | Contigs, assembly graph file(s), initial binning result, coverage of contigs |
+ | `metacoag`   | Binning tool MetaCoAG                                               | Contigs, assembly graph file(s), coverage of contigs                         |
+ | `prepare`    | Format initial binning results for GraphBin and GraphBin2           | Folder containing the initial binning result                                 |
+ | `visualise`  | Visualise initial and refined binning results on the assembly graph | Assembly graph file(s), initial binning result, final binning result         |
+ | `evaluate`   | Evaluate binning results given a ground truth                       | Binning result, ground truth                                                 |
 
-A user can start the analysis by running the `metacoag` subcommand to bin a metagenomic dataset using the metagenomic binning tool MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] and obtain contig bins (or MAGs) as shown in \autoref{fig1}. 
+After assembling a metagenomic dataset, a user can start the analysis by running the `metacoag` subcommand to bin the resulting contigs and obtain MAGs as shown in \autoref{fig1}. GraphBin-Tk supports metagenome assemblies generated from three popular metagenome assemblers; metaSPAdes [@Nurk:2017] and MEGAHIT [@Li:2015] for short-read sequencing data and metaFlye [@Kolmogorov:2020] for long-read sequencing data. The MetaCoAG binning result can be formatted using the `prepare` subcommand into a delimited text file such as `.csv` or `.tsv` that represents each contig and its bin name. This formatted binning result can be improved by providing to either GraphBin or GraphBin2 using the subcommands `graphbin` or `graphbin2` with the contigs file, the assembly graph files and the read coverage of contigs (\autoref{fig1}).
 
-### Inputs
-
-The following inputs are required to run the `metacoag` subcommand.
-
-* Contigs file
-* Assembly graph file(s)
-* A delimited file containing the contig identifier and its average read coverage for each contig - can be obtained by running a read coverage calculation tool such as CoverM [@Woodcroft:2017] or Koverage [@Roach:2024]
-
-The assembly graph files can vary depending on the assembler used to generate the contigs. The metaSPAdes version requires the assembly graph file in `.gfa` format and the paths file corresponding to the contigs file in `.paths` format. The MEGAHIT version requires the assembly graph file in `.gfa` format. The metaFlye version requires the assembly graph file `assembly_graph.gfa` and the paths file `assembly_info.txt` from the final assembly output.
-
-### Outputs
-
-The following outputs will be generated by the `metacoag` subcommand.
-
-* A delimited text file containing the contig identifier and bin identifier for each binned contig
-* `.fasta` files of the identified bins
-
-
-## `prepare`
-
-### Tool/processing function
-
-If a delimited text file is not available, the initial binning result can be formatted using the `prepare` subcommand into a delimited text file  that represents each contig and its bin identifier. This function allows users to format binning results from any metagenomic binning tool.
-
-### Inputs
-
-The directory containing the initial binning is required to run the `prepare` subcommand.
-
-### Outputs
-
-The `prepare` subcommand will generate a delimited text file such as `.csv` or `.tsv` containing the contig identifier and bin identifier for each contig in the binning result.
-
-## `graphbin`
-
-### Tool/processing function
-
-A formatted initial binning result from the `prepare` subcommand can be improved by providing it to GraphBin [@Mallawaarachchi1:2020] using the subcommand `graphbin` (\autoref{fig1}).
-
-### Inputs
-
-The following inputs are required to run the `graphbin` subcommand.
-
-* Contigs file
-* Assembly graph file(s) - can vary depending on the assembler used (refer to inputs under `metacoag`)
-* A delimited text file containing the initial binning result
-
-### Outputs
-
-The following outputs will be generated by the `graphbin` subcommand.
-
-* A delimited text file containing the contig identifier and bin identifier for each binned contig
-* `.fasta` files of the refined bins
-
-## `graphbin2`
-
-### Tool/processing function
-
-A formatted initial binning result from the `prepare` subcommand can be improved by providing it to GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] using the subcommand `graphbin2` (\autoref{fig1}).
-
-### Inputs
-
-The following inputs are required to run the `graphbin2` subcommand.
-
-* Contigs file
-* Assembly graph file(s) - can vary depending on the assembler used (refer to inputs under `metacoag`)
-* A delimited text file containing the initial binning result
-* A delimited file containing the contig identifier and its average read coverage for each contig - can be obtained by running a read coverage calculation tool (refer to inputs under `metacoag`)
-
-### Outputs
-
-The following outputs will be generated by the `graphbin2` subcommand.
-
-* A delimited text file containing the contig identifier and bin identifier for each binned contig
-* `.fasta` files of the refined bins
-
-
-## `visualise`
-
-### Tool/processing function
-
-The initial binning result and the refined binning result can be visualised on the assembly graph using the `visualise` subcommand  (\autoref{fig1}). Users can generate images in different formats such as `png`, `eps`, `pdf` and `svg`, and customise the dimensions of the images. 
-
-### Inputs
-
-The following inputs are required to run the `visualise` subcommand.
-
-* Contigs file
-* Assembly graph file(s) - can vary depending on the assembler used to generate the contigs (refer to inputs under `metacoag`)
-* A delimited text file containing the initial binning result
-* A delimited text file containing the refined binning result
-
-### Outputs
-
-The following outputs will be generated by the `visualise` subcommand.
-
-* Figure of the assembly graph with the initial binning result
-* Figure of the assembly graph with the refined binning result
-
-An example visualisation for the Sim-5G+metaSPAdes dataset [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] containing five bacterial species is shown in \autoref{fig2}. 
+The initial MetaCoAG binning result and the refined binning result can be visualised on the assembly graph using the `visualise` subcommand  (\autoref{fig1}). Users can generate images in different formats such as `png`, `eps`, `pdf` and `svg`, and customise the dimensions of the images. An example is shown in \autoref{fig2} for the Sim-5G+metaSPAdes dataset [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] containing five bacterial species. 
 
 ![Visualisation of the assembly graph with the initial binning result from MetaCoAG (left) and final binning result from GraphBin (right) for the Sim-5G+metaSPAdes dataset. The vertices represent contigs and edges represent connections in the assembly graph. The five colours represent the five bins and the white vertices represent unbinned contigs.\label{fig2}](visualisation.svg){width=100%}
 
-## `evaluate`
-
-### Tool/processing function
-
-The produced binning results can be evaluated using the `evaluate` subcommand by providing the ground truth bins of contigs  (\autoref{fig1}). This evaluation is possible only for simulated or mock metagenomes where the ground truth genomes of contigs are known. GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies [@Alneberg:2014; @Meyer:2018; @Mallawaarachchi1:2020]. These metrics are calculated as follows. The binning result is denoted as a $K \times S$ matrix with $K$ number of bins and $S$ number of ground truth taxa. In this matrix, the element $a_{ks}$ denotes the number of contigs binned to the $k^{th}$ bin and belongs to the $s^{th}$ taxa. $U$ denotes the number of unbinned contigs and $N$ denotes the total number of contigs. Following are the equations used to calculate the evaluation metrics.
-
-__Precision__ = $\frac{\sum_{k}max_s \{a_{ks}\}}{\sum_{k}\sum_{s}a_{ks}}$
-
-__Recall__ = $\frac{\sum_{s}max_k \{a_{ks}\}}{(\sum_{k}\sum_{s}a_{ks}+U)}$
-
-__F1-score__ = $2 \times \frac{Precision\times Recall}{Precision+Recall}$
-
-__ARI__ = $\frac{\sum_{k,s}\binom{a_{ks}}{2}-t_3}{\frac{1}{2}(t_1+t_2)-t_3}$ $where\;t_1 = \sum_{k}\binom{\sum_{s}a_{ks}}{2},\;t_2 = \sum_{s}\binom{\sum_{k}a_{ks}}{2},\; and\; t_3 = \frac{t_1t_2}{\binom{N}{2}}$ 
-
-### Inputs
-
-The following inputs are required to run the `evaluate` subcommand.
-
-* A delimited text file containing the ground truth
-* A delimited text file containing the binning result
-
-### Outputs
-
-A text file containing the $K \times S$ matrix and the calculated evaluation metrics will be generated by the `evaluate` subcommand. These metrics can be plotted for comparison between the initial binning result and the refined binning result using custom code as shown in \autoref{fig3}.
+Finally, the produced binning results can be evaluated using the `evaluate` subcommand by providing the ground truth bins of contigs (\autoref{fig1}). This evaluation is possible only for simulated or mock metagenomes where the ground truth genomes of contigs are known. GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies [@Alneberg:2014; @Meyer:2018; @Mallawaarachchi1:2020]. These metrics can be plotted for comparison between the initial binning result and the refined binning result using custom code as shown in \autoref{fig3}.
 
 ![Comparison of evaluation metrics for the initial binning result from MetaCoAG and the refined binning result from GraphBin for the Sim-5G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.svg){width=70%}
 
 Please refer to the original publications of GraphBin [@Mallawaarachchi1:2020], GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] and MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] for detailed benchmarking results of each tool.
+
 
 # Availability
 

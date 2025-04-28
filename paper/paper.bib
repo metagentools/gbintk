@@ -408,3 +408,80 @@ abstract = {Metagenomics has enabled culture-independent analysis of micro-organ
   note= {Accessed: August 11, 2023},
   howpublished = {\url{https://github.com/wwood/CoverM}},
 }
+
+@article{Lamurias:2022,
+  author = {Lamurias, Andre and Sereika, Mantas and Albertsen, Mads and Hose, Katja and Nielsen, Thomas Dyhre},
+  title = {Metagenomic binning with assembly graph embeddings},
+  journal = {Bioinformatics},
+  volume = {38},
+  number = {19},
+  pages = {4481-4487},
+  year = {2022},
+  month = {08},
+  abstract = {Despite recent advancements in sequencing technologies and assembly methods, obtaining high-quality microbial genomes from metagenomic samples is still not a trivial task. Current metagenomic binners do not take full advantage of assembly graphs and are not optimized for long-read assemblies. Deep graph learning algorithms have been proposed in other fields to deal with complex graph data structures. The graph structure generated during the assembly process could be integrated with contig features to obtain better bins with deep learning.We propose GraphMB, which uses graph neural networks to incorporate the assembly graph into the binning process. We test GraphMB on long-read datasets of different complexities, and compare the performance with other binners in terms of the number of High Quality (HQ) genome bins obtained. With our approach, we were able to obtain unique bins on all real datasets, and obtain more bins on most datasets. In particular, we obtained on average 17.5\% more HQ bins when compared with state-of-the-art binners and 13.7\% when aggregating the results of our binner with the others. These results indicate that a deep learning model can integrate contig-specific and graph-structure information to improve metagenomic binning.GraphMB is available from https://github.com/MicrobialDarkMatter/GraphMB.Supplementary data are available at Bioinformatics online.},
+  issn = {1367-4811},
+  doi = {10.1093/bioinformatics/btac557},
+  url = {https://doi.org/10.1093/bioinformatics/btac557},
+  eprint = {https://academic.oup.com/bioinformatics/article-pdf/38/19/4481/49885079/btac557.pdf},
+}
+
+@Article{Uritskiy:2018,
+author={Uritskiy, Gherman V.
+and DiRuggiero, Jocelyne
+and Taylor, James},
+title={MetaWRAP---a flexible pipeline for genome-resolved metagenomic data analysis},
+journal={Microbiome},
+year={2018},
+month={Sep},
+day={15},
+volume={6},
+number={1},
+pages={158},
+abstract={The study of microbiomes using whole-metagenome shotgun sequencing enables the analysis of uncultivated microbial populations that may have important roles in their environments. Extracting individual draft genomes (bins) facilitates metagenomic analysis at the single genome level. Software and pipelines for such analysis have become diverse and sophisticated, resulting in a significant burden for biologists to access and use them. Furthermore, while bin extraction algorithms are rapidly improving, there is still a lack of tools for their evaluation and visualization.},
+issn={2049-2618},
+doi={10.1186/s40168-018-0541-1},
+url={https://doi.org/10.1186/s40168-018-0541-1}
+}
+
+@Article{Sieber:2018,
+author={Sieber, Christian M. K.
+and Probst, Alexander J.
+and Sharrar, Allison
+and Thomas, Brian C.
+and Hess, Matthias
+and Tringe, Susannah G.
+and Banfield, Jillian F.},
+title={Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy},
+journal={Nature Microbiology},
+year={2018},
+month={Jul},
+day={01},
+volume={3},
+number={7},
+pages={836-843},
+abstract={Microbial communities are critical to ecosystem function. A key objective of metagenomic studies is to analyse organism-specific metabolic pathways and reconstruct community interaction networks. This requires accurate assignment of assembled genome fragments to genomes. Existing binning methods often fail to reconstruct a reasonable number of genomes and report many bins of low quality and completeness. Furthermore, the performance of existing algorithms varies between samples and biotopes. Here, we present a dereplication, aggregation and scoring strategy, DAS Tool, that combines the strengths of a flexible set of established binning algorithms. DAS Tool applied to a constructed community generated more accurate bins than any automated method. Indeed, when applied to environmental and host-associated samples of different complexity, DAS Tool recovered substantially more near-complete genomes, including previously unreported lineages, than any single binning method alone. The ability to reconstruct many near-complete genomes from metagenomics data will greatly advance genome-centric analyses of ecosystems.},
+issn={2058-5276},
+doi={10.1038/s41564-018-0171-1},
+url={https://doi.org/10.1038/s41564-018-0171-1}
+}
+
+@Article{Wang:2023,
+author={Wang, Ziye
+and Huang, Pingqin
+and You, Ronghui
+and Sun, Fengzhu
+and Zhu, Shanfeng},
+title={MetaBinner: a high-performance and stand-alone ensemble binning method to recover individual genomes from complex microbial communities},
+journal={Genome Biology},
+year={2023},
+month={Jan},
+day={06},
+volume={24},
+number={1},
+pages={1},
+abstract={Binning aims to recover microbial genomes from metagenomic data. For complex metagenomic communities, the available binning methods are far from satisfactory, which usually do not fully use different types of features and important biological knowledge. We developed a novel ensemble binner, MetaBinner, which generates component results with multiple types of features by k-means and uses single-copy gene information for initialization. It then employs a two-stage ensemble strategy based on single-copy genes to integrate the component results efficiently and effectively. Extensive experimental results on three large-scale simulated datasets and one real-world dataset demonstrate that MetaBinner outperforms the state-of-the-art binners significantly.},
+issn={1474-760X},
+doi={10.1186/s13059-022-02832-6},
+url={https://doi.org/10.1186/s13059-022-02832-6}
+}
+
