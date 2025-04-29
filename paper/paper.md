@@ -75,7 +75,7 @@ The initial binning result and the refined binning result can be visualised on t
 
 Finally, the binning results can be evaluated using the `evaluate` subcommand by providing the ground truth bins of contigs (\autoref{fig1}). This evaluation is possible only for simulated or mock metagenomes where the ground truth genomes of contigs are known. GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies [@Alneberg:2014; @Meyer:2018; @Mallawaarachchi1:2020]. These metrics can be plotted for comparison between the initial binning result and the refined binning result using custom code as shown in \autoref{fig3}.
 
-![Comparison of evaluation metrics for the initial binning result from MetaCoAG and the refined binning result from GraphBin for the Sim-5G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.svg){width=70%}
+![Comparison of evaluation metrics for the initial binning result from MetaCoAG and the refined binning results from GraphBin and GraphBin2 for the Sim-20G+metaSPAdes dataset.\label{fig3}](gbintk_metrics_comparison.svg){width=70%}
 
 Please refer to the original publications of GraphBin [@Mallawaarachchi1:2020], GraphBin2 [@Mallawaarachchi2:2020; @Mallawaarachchi:2021] and MetaCoAG [@Mallawaarachchi1:2022; @Mallawaarachchi2:2022] for detailed benchmarking results of each tool.
 
