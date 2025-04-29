@@ -53,6 +53,8 @@ gbintk evaluate --binned Sim-20G/graphbin_output.csv --groundtruth Sim-20G/groun
 
 You will get a file named `evaluation_results.txt` that contains the $K \times S$ matrix and the calculated evaluation metrics.
 
+**Note:** Make sure that the binning result consists of contigs belonging to only one bin. The evaluation metrics consider contigs which belong to only one bin. Please refer to the the [GraphBin2 publication](https://doi.org/10.1186/s13015-021-00185-6) for details on metrics used to evaluate multi-labelled contigs.
+
 ### Plotting Evaluation Results
 
 You can use the evaluation results calculated for an initial binning result and a refined binning result to plot and compare. Following is an example code using the results obtained for the `Sim-20G` dataset assembled using metaSPAdes.
