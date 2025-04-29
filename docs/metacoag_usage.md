@@ -1,5 +1,7 @@
 # Using MetaCoAG
 
+A user can start an analysis by running the `metacoag` subcommand to bin a metagenomic dataset using the metagenomic binning tool MetaCoAG and obtain contig bins or metagenome-assembled genomes (MAGs).
+
 Run `gbintk metacoag --help` or `gbintk metacoag -h` to list the help message for MetaCoAG.
 
 ```shell
@@ -50,13 +52,6 @@ Options:
 
 `min_length`, `p_intra`, `p_inter`, `d_limit`, `mg_threshold`, `bin_mg_threshold`, `min_bin_size`, `depthlp` and `nthreads` parameters are set by default to `1000`, `0.1`, `0.01`, `20`, `0.5`, `0.3333`, `200000`, `10` and `8` respectively. However, the user can specify them when running MetaCoAG.
 
-You can specify the delimiter for the final binning output file using the `delimiter` parameter. Enter the following values for different delimiters; 
-* `,` for a comma
-* `;` for a semicolon
-* `$'\t'` for a tab
-* `" "` for a space 
-* `|` for a pipe.
-
 ## Input Format
 
 For the *metaSPAdes* version, MetaCoAG takes in 4 files as inputs.
@@ -64,40 +59,42 @@ For the *metaSPAdes* version, MetaCoAG takes in 4 files as inputs.
 * Assembly graph file (in `.gfa` format)
 * Contigs file (in `.fasta` format)
 * Contig paths file (in `.paths` format)
-* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+* A tab delimited file containing the contig identifier and its average read coverage for each contig. A `.tsv` can be obtained by running a read coverage calculation tool such as [CoverM](https://github.com/wwood/CoverM) or [Koverage](https://github.com/beardymcjohnface/Koverage).
 
 For the *MEGAHIT* version, MetaCoAG takes in 3 files as inputs.
 
 * Assembly graph file (in `.gfa` format)
 * Contigs file (in `.fasta` format)
-* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+* A tab delimited file containing the contig identifier and its average read coverage for each contig
 
 For the *Flye* version, MetaCoAG takes in 4 files as inputs.
 
 * Assembly graph file (`assembly_graph.gfa`)
 * Contigs file (`assembly.fasta`)
 * Contig paths file (`assembly_info.txt`)
-* Abundance file (in `.tsv` format) with a contig in a line and its coverage in each sample separated by tabs.
+* A tab delimited file containing the contig identifier and its average read coverage for each contig
+
+**Note:** You can specify the delimiter for the initial binning result file and the final output file using the delimiter paramter. Supports comma (`comma`) and tab (`tab`).
 
 ## Example Usage
 
 ```shell
-# SPAdes assembly
-gbintk metacoag --assembler spades --graph /path/to/graph_file.gfa --contigs /path/to/contigs.fasta --paths /path/to/paths_file.paths --abundance /path/to/abundance.tsv --output /path/to/output_folder
+# SPAdes assembly available in tests/data/
+gbintk metacoag --assembler spades --graph tests/data/5G_metaSPAdes/assembly_graph_with_scaffolds.gfa --contigs tests/data/5G_metaSPAdes/contigs.fasta --paths tests/data/5G_metaSPAdes/contigs.paths --abundance tests/data/5G_metaSPAdes/abundance.tsv --output tests/data/5G_metaSPAdes/metacoag_results
 
-# MEGAHIT assembly
-gbintk metacoag --assembler megahit --graph /path/to/graph_file.gfa --contigs /path/to/contigs.fasta --abundance /path/to/abundance.tsv --output /path/to/output_folder
+# MEGAHIT assembly available in tests/data/
+gbintk metacoag --assembler megahit --graph tests/data/5G_MEGAHIT/final.gfa --contigs tests/data/5G_MEGAHIT/final.contigs.fasta --abundance tests/data/5G_MEGAHIT/abundance.tsv --output tests/data/5G_MEGAHIT/metacoag_results
 
-# Flye assembly
-gbintk metacoag --assembler flye --graph /path/to/assembly_graph.gfa --contigs /path/to/assembly.fasta --paths /path/to/assembly_info.txt --abundance /path/to/abundance.tsv --output /path/to/output_folder
+# Flye assembly available in tests/data/
+gbintk metacoag --assembler flye --graph tests/data/1Y3B_Flye/assembly_graph.gfa --contigs tests/data/1Y3B_Flye/assembly.fasta --paths tests/data/1Y3B_Flye/assembly_info.txt --abundance tests/data/1Y3B_Flye/abundance.tsv --output tests/data/1Y3B_Flye/metacoag_results
 ```
 
 ## Output
 
 The output of MetaCoAG will contain the following main files and folders.
 
-* `contig_to_bin.tsv` containing the comma separated records of `contig id, bin number`
+* A delimited text file containing the contig identifier and bin identifier for each binned contig (e.g. `contig_to_bin.csv`)
 * `bins` containing the identified bins (FASTA file for each bin)
 * `low_quality_bins` containing the identified low-quality bins, i.e., having a fraction of marker genes lower than `bin_mg_threshold` (FASTA file for each bin)
 * `*.frag.faa`, `*.frag.ffn` and `*.frag.gff` files containing FragGeneScan output
-* `*.hmmout` containing HMMER output
+* `*.hmmout` file containing HMMER output

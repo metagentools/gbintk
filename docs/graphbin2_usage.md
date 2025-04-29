@@ -1,5 +1,7 @@
 # Using GraphBin2
 
+A formatted initial binning result from the `prepare` subcommand can be improved by providing it to GraphBin2 using the subcommand `graphbin2`.
+
 Run `gbintk graphbin2 --help` or `gbintk graphbin2 -h` to list the help message for GraphBin2.
 
 ```shell
@@ -35,26 +37,28 @@ Options:
 
 ## Input Format
 
-The SPAdes version of GraphBin2 takes in 4 files as inputs (required).
+The SPAdes version of GraphBin2 takes in 5 files as inputs (required).
 
 * Contigs file (in `.fasta` format)
 * Assembly graph file (in `.gfa` format)
-* Paths of contigs (in `.paths` format)
-* Binning output from an existing tool (in `.csv` format)
+* Contig paths file (in `.paths` format)
+* A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
+* A tab delimited file containing the contig identifier and its average read coverage for each contig - A `.tsv` can be obtained by running a read coverage calculation tool such as [CoverM](https://github.com/wwood/CoverM) or [Koverage](https://github.com/beardymcjohnface/Koverage).
 
 The MEGAHIT version of GraphBin2 takes in 4 files as inputs (required).
 
 * Contigs file (in `.fasta` format)
-* Abundance file (tab separated file with contig ID and coverage in each line)
 * Assembly graph file (in `.gfa` format)
-* Binning output from an existing tool (in `.csv` format)
+* A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
+* A tab delimited file containing the contig identifier and its average read coverage for each contig
 
-The Flye version of GraphBin2 takes in 4 files as inputs (required).
+The Flye version of GraphBin2 takes in 5 files as inputs (required).
 
-* Contigs file (in `.fasta` format)
-* Abundance file (tab separated file with contig ID and coverage in each line)
-* Assembly graph file (in `.gfa` format)
-* Binning output from an existing tool (in `.csv` format)
+* Assembly graph file (`assembly_graph.gfa`)
+* Contigs file (`assembly.fasta`)
+* Contig paths file (`assembly_info.txt`)
+* A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
+* A tab delimited file containing the contig identifier and its average read coverage for each contig
 
 **Note:** Make sure that the initial binning result consists of contigs belonging to only one bin. GraphBin2 is designed to handle initial contigs which belong to only one bin.
 
@@ -62,19 +66,20 @@ The Flye version of GraphBin2 takes in 4 files as inputs (required).
 ## Example Usage
 
 ```shell
-# SPAdes assembly
-gbintk graphbin2 --assembler spades --contigs /path/to/contigs.fasta --paths /path/to/paths_file.paths --graph /path/to/graph_file.gfa  --binned /path/to/binning_result.csv --abundance /path/to/abundance.tsv --output /path/to/output_folder
+# SPAdes assembly available in tests/data/
+gbintk graphbin2 --assembler spades --graph tests/data/5G_metaSPAdes/assembly_graph_with_scaffolds.gfa  --contigs tests/data/5G_metaSPAdes/contigs.fasta --paths tests/data/5G_metaSPAdes/contigs.paths --binned tests/data/5G_metaSPAdes/initial_contig_bins.csv --abundance tests/data/5G_metaSPAdes/abundance.tsv --output tests/data/5G_metaSPAdes/graphbin2_results
 
-# MEGAHIT version
-gbintk graphbin2 --assembler megahit --graph /path/to/final.gfa --contigs /path/to/final.contigs.fa --binned /path/to/binning_result.csv --abundance /path/to/abundance.tsv --output /path/to/output_folder
+# MEGAHIT assembly available in tests/data/
+gbintk graphbin2 --assembler megahit --graph tests/data/5G_MEGAHIT/final.gfa --contigs tests/data/5G_MEGAHIT/final.contigs.fa --binned tests/data/5G_MEGAHIT/initial_contig_bins.csv --abundance tests/data/5G_MEGAHIT/abundance.tsv --output tests/data/5G_MEGAHIT/graphbin2_results
 
-# Flye assembly
-gbintk graphbin2 --assembler flye --contigs /path/to/assembly.fasta --paths /path/to/assembly_info.txt --graph /path/to/graph_file.gfa --binned /path/to/binning_result.csv --abundance /path/to/abundance.tsv --output /path/to/output_folder
+# Flye assembly available in tests/data/
+gbintk graphbin2 --assembler flye --contigs tests/data/1Y3B_Flye/assembly.fasta --paths tests/data/1Y3B_Flye/assembly_info.txt --graph tests/data/1Y3B_Flye/graph_file.gfa --binned tests/data/1Y3B_Flye/initial_contig_bins.csv --abundance tests/data/1Y3B_Flye/abundance.tsv --output tests/data/1Y3B_Flye/graphbin2_results
 ```
 
 ## Output
 
 The output of GraphBin2 will contain the following main files and folders.
 
-* `graphbin2_output.csv` file with comma separated values ```(contig_identifier, bin_identifier)``` for the refined binning result.
+* A delimited text file containing the contig identifier and bin identifier for each binned contig (e.g. `graphbin2_output.csv`).
 * `bins` folder containing `.fasta` files of the refined bins. The bins include shared contigs as well.
+* Shared contigs and their corresponding bins can be found in the `graphbin2.log` file.

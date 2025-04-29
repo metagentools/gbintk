@@ -1,8 +1,8 @@
 ## Evaluating binning results
 
-You can use the `evaluate` subcommand to evaluate your binning results given a ground truth.
+You can use the `evaluate` subcommand to evaluate your binning results given a ground truth. This evaluation is possible only for simulated or mock metagenomes where the ground truth genomes of contigs are known. 
 
-Run `gbintk evaluate --help` or `gbintk evaluate -h` to list the help message for evaluation.
+You can run `gbintk evaluate --help` or `gbintk evaluate -h` to list the help message for evaluation.
 
 ```shell
 Usage: gbintk evaluate [OPTIONS]
@@ -21,28 +21,43 @@ Options:
   -h, --help               Show this message and exit.
 ```
 
+### Evaluation Metrics
+
+GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies. These metrics are calculated as follows. The binning result is denoted as a $K \times S$ matrix with $K$ number of bins and $S$ number of ground truth taxa. In this matrix, the element $a_{ks}$ denotes the number of contigs binned to the $k^{th}$ bin and belongs to the $s^{th}$ taxa. $U$ denotes the number of unbinned contigs and $N$ denotes the total number of contigs. Following are the equations used to calculate the evaluation metrics.
+
+__Precision__ = $\frac{\sum_{k}max_s \{a_{ks}\}}{\sum_{k}\sum_{s}a_{ks}}$
+
+__Recall__ = $\frac{\sum_{s}max_k \{a_{ks}\}}{(\sum_{k}\sum_{s}a_{ks}+U)}$
+
+__F1-score__ = $2 \times \frac{Precision\times Recall}{Precision+Recall}$
+
+__ARI__ = $\frac{\sum_{k,s}\binom{a_{ks}}{2}-t_3}{\frac{1}{2}(t_1+t_2)-t_3}$ $where\;t_1 = \sum_{k}\binom{\sum_{s}a_{ks}}{2},\;t_2 = \sum_{s}\binom{\sum_{k}a_{ks}}{2},\; and\; t_3 = \frac{t_1t_2}{\binom{N}{2}}$ 
+
+Please refer to the supplementary material of the [GraphBin publication](https://doi.org/10.1093/bioinformatics/btaa180) for further details.
+
 ### Input Format
 
-`evaluate` subcommand takes in 2 files as inputs.
+The following inputs are required to run the `evaluate` subcommand.
 
-* Binning result containing the comma separated records of `contig id,bin number` (in `.csv` format)
-* Ground truth annotations containing the comma separated records of `contig id, groud truth bin` (in `.csv` format)
+* A delimited text file containing the ground truth (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
+* A delimited text file containing the binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)
 
 ### Example Usage
 
 ```shell
-gbintk evaluate --binned /path/to/binning_res.csv --groundtruth /path/to/grouhdtruth.csv --output /path/to/output_folder
+# Using the `Sim-20G` dataset assembled using metaSPAdes (available on Zenodo)
+gbintk evaluate --binned Sim-20G/graphbin_output.csv --groundtruth Sim-20G/ground_truth.csv --output Sim-20G/evaluate_results
 ```
 
 ### Output
 
-You will get a file named `evaluation_results.txt` that contains the confusion matrix and the evaluation metrics precition, recall, F1-score and adjusted rand index (ARI). 
+You will get a file named `evaluation_results.txt` that contains the $K \times S$ matrix and the calculated evaluation metrics.
 
-Please refer to the supplementary material of the [GraphBin publication](https://doi.org/10.1093/bioinformatics/btaa180) for further details on the confusion matrix and the evaluation metrics.
+**Note:** Make sure that the binning result consists of contigs belonging to only one bin. The evaluation metrics consider contigs which belong to only one bin. Please refer to the the [GraphBin2 publication](https://doi.org/10.1186/s13015-021-00185-6) for details on metrics used to evaluate multi-labelled contigs.
 
 ### Plotting Evaluation Results
 
-You can use the evaluation results calculated for an initial binning result and a refined binning result to plot and compare. Following is an example code using the results obtained for the `5G_metaSPAdes` test dataset.
+You can use the evaluation results calculated for an initial binning result and a refined binning result to plot and compare. Following is an example code using the results obtained for the `Sim-20G` dataset assembled using metaSPAdes.
 
 ```python
 import matplotlib.pyplot as plt
@@ -51,8 +66,9 @@ import numpy as np
 metrics = ("Precision", "Recall", "F1-score", "ARI")
 
 tools_means = {
-    'MetaCoAG': (93.204, 37.721, 53.706, 84.173),
-    'MetaCoAG + GraphBin': (100.0, 97.642, 98.807, 100.0),
+    'MetaCoAG': (90.28, 39.28, 54.72, 79.92),
+    'MetaCoAG + GraphBin': (97.11, 86.17, 91.32, 96.61),
+    'MetaCoAG + GraphBin2': (98.66, 97.84, 98.24, 98.10),
 }
 
 # Prepare the data
@@ -63,7 +79,7 @@ n_tools = len(tool_names)
 
 # X-axis values
 indices = np.arange(n_metrics)  # the label locations
-bar_width = 0.35  # the width of the bars
+bar_width = 0.27  # the width of the bars
 
 # Plotting
 fig, ax = plt.subplots(figsize=(7, 4))  # Adjust the figure size here (width, height)
@@ -78,10 +94,10 @@ for i, (tool_name, tool_scores) in enumerate(tools_means.items()):
                 ha='center', va='bottom', fontsize=10)
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_xlabel('Metrics')
-ax.set_ylabel('Scores')
-ax.set_title('Comparison of evaluation metrics on Sim-5G+metaSPAdes')
-ax.set_xticks(indices + bar_width / 2)
+ax.set_xlabel('Evaluation metrics')
+ax.set_ylabel('Scores (%)')
+ax.set_title('Comparison of evaluation metrics on Sim-20G+metaSPAdes')
+ax.set_xticks(indices + bar_width)
 ax.set_xticklabels(metrics)
 ax.set_ylim(0, 108)
 ax.legend(loc="lower right", framealpha=1)
