@@ -45,7 +45,8 @@ The following inputs are required to run the `evaluate` subcommand.
 ### Example Usage
 
 ```shell
-gbintk evaluate --binned Sim-20G/graphbin_output.csv --groundtruth Sim-20G/ground_truth.csv --output Sim-20G/evaluation_results
+# Using the `Sim-20G` dataset assembled using metaSPAdes (available on Zenodo)
+gbintk evaluate --binned Sim-20G/graphbin_output.csv --groundtruth Sim-20G/ground_truth.csv --output Sim-20G/evaluate_results
 ```
 
 ### Output
