@@ -41,7 +41,7 @@ The SPAdes version of GraphBin2 takes in 4 files as inputs (required).
 
 * Contigs file (in `.fasta` format)
 * Assembly graph file (in `.gfa` format)
-* Paths of contigs (in `.paths` format)
+* Contig paths file (in `.paths` format)
 * A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
 * A delimited file containing the contig identifier and its average read coverage for each contig - can be obtained by running a read coverage calculation tool such as [CoverM](https://github.com/wwood/CoverM) or [Koverage](https://github.com/beardymcjohnface/Koverage).
 
@@ -54,8 +54,9 @@ The MEGAHIT version of GraphBin2 takes in 4 files as inputs (required).
 
 The Flye version of GraphBin2 takes in 4 files as inputs (required).
 
-* Contigs file (in `.fasta` format)
-* Assembly graph file (in `.gfa` format)
+* Assembly graph file (`assembly_graph.gfa`)
+* Contigs file (`assembly.fasta`)
+* Contig paths file (`assembly_info.txt`)
 * A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
 * A delimited file containing the contig identifier and its average read coverage for each contig
 
@@ -66,7 +67,7 @@ The Flye version of GraphBin2 takes in 4 files as inputs (required).
 
 ```shell
 # SPAdes assembly available in tests/data/
-gbintk graphbin2 --assembler spades --graph tests/data/5G_metaSPAdes/graph_file.gfa  --contigs tests/data/5G_metaSPAdes/contigs.fasta --paths tests/data/5G_metaSPAdes/contigs.paths --binned tests/data/5G_metaSPAdes/initial_contig_bins.csv --abundance tests/data/5G_metaSPAdes/abundance.tsv --output tests/data/5G_metaSPAdes/graphbin2_results
+gbintk graphbin2 --assembler spades --graph tests/data/5G_metaSPAdes/assembly_graph_with_scaffolds.gfa  --contigs tests/data/5G_metaSPAdes/contigs.fasta --paths tests/data/5G_metaSPAdes/contigs.paths --binned tests/data/5G_metaSPAdes/initial_contig_bins.csv --abundance tests/data/5G_metaSPAdes/abundance.tsv --output tests/data/5G_metaSPAdes/graphbin2_results
 
 # MEGAHIT assembly available in tests/data/
 gbintk graphbin2 --assembler megahit --graph tests/data/5G_MEGAHIT/final.gfa --contigs tests/data/5G_MEGAHIT/final.contigs.fa --binned tests/data/5G_MEGAHIT/initial_contig_bins.csv --abundance tests/data/5G_MEGAHIT/abundance.tsv --output tests/data/5G_MEGAHIT/graphbin2_results
@@ -79,6 +80,6 @@ gbintk graphbin2 --assembler flye --contigs tests/data/1Y3B_Flye/assembly.fasta 
 
 The output of GraphBin2 will contain the following main files and folders.
 
-* A delimited text file containing the contig identifier and bin identifier for each binned contig.
+* A delimited text file containing the contig identifier and bin identifier for each binned contig (e.g. `graphbin2_output.csv`).
 * `bins` folder containing `.fasta` files of the refined bins. The bins include shared contigs as well.
 * Shared contigs and their corresponding bins can be found in the `graphbin2.log` file.
