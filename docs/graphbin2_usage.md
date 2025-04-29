@@ -37,28 +37,28 @@ Options:
 
 ## Input Format
 
-The SPAdes version of GraphBin2 takes in 4 files as inputs (required).
+The SPAdes version of GraphBin2 takes in 5 files as inputs (required).
 
 * Contigs file (in `.fasta` format)
 * Assembly graph file (in `.gfa` format)
 * Contig paths file (in `.paths` format)
 * A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
-* A delimited file containing the contig identifier and its average read coverage for each contig - can be obtained by running a read coverage calculation tool such as [CoverM](https://github.com/wwood/CoverM) or [Koverage](https://github.com/beardymcjohnface/Koverage).
+* A tab delimited file containing the contig identifier and its average read coverage for each contig - A `.tsv` can be obtained by running a read coverage calculation tool such as [CoverM](https://github.com/wwood/CoverM) or [Koverage](https://github.com/beardymcjohnface/Koverage).
 
 The MEGAHIT version of GraphBin2 takes in 4 files as inputs (required).
 
-* Contigs file (in `.fasta` format)\
+* Contigs file (in `.fasta` format)
 * Assembly graph file (in `.gfa` format)
 * A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
-* A delimited file containing the contig identifier and its average read coverage for each contig
+* A tab delimited file containing the contig identifier and its average read coverage for each contig
 
-The Flye version of GraphBin2 takes in 4 files as inputs (required).
+The Flye version of GraphBin2 takes in 5 files as inputs (required).
 
 * Assembly graph file (`assembly_graph.gfa`)
 * Contigs file (`assembly.fasta`)
 * Contig paths file (`assembly_info.txt`)
 * A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
-* A delimited file containing the contig identifier and its average read coverage for each contig
+* A tab delimited file containing the contig identifier and its average read coverage for each contig
 
 **Note:** Make sure that the initial binning result consists of contigs belonging to only one bin. GraphBin2 is designed to handle initial contigs which belong to only one bin.
 

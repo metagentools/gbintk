@@ -35,7 +35,7 @@ Options:
 
 ## Input Format
 
-For the SPAdes version, GraphBin takes in 3 files as inputs (required).
+For the SPAdes version, GraphBin takes in 4 files as inputs (required).
 
 * Assembly graph file (in `.gfa` format)
 * Contigs file (in `.fasta` format)
@@ -48,7 +48,7 @@ For the MEGAHIT version, GraphBin takes in 3 files as inputs (required).
 * Contigs file (in `.fasta` format)
 * A delimited text file containing the initial binning result (e.g.`<contig_id>,<groud_truth_bin>` in `.csv` format)
 
-For the Flye version, GraphBin takes in 3 files as inputs (required).
+For the Flye version, GraphBin takes in 4 files as inputs (required).
 
 * Assembly graph file (`assembly_graph.gfa`)
 * Contigs file (`assembly.fasta`)
