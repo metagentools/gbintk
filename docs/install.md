@@ -38,6 +38,34 @@ pip install gbintk
 gbintk --help
 ```
 
+## Dependencies and external software checklist
+
+Please make sure that the following dependencies and external software are properly installed before running GraphBin-Tk.
+
+* [`python>=3.9,<3.13`](https://www.python.org/)
+* [`cogent3`](https://cogent3.org/)
+* [`igraph`](https://python.igraph.org/en/stable/)
+* [`cairocffi`](https://pypi.org/project/cairocffi/)
+* [`pycairo`](https://pypi.org/project/pycairo/)
+* [`networkx`](https://networkx.org/)
+* [`scipy`](https://scipy.org/)
+* [`numpy`](https://numpy.org/)
+* [`pandas`](https://pandas.pydata.org/)
+* [`tqdm`](https://tqdm.github.io/)
+* [`click`](https://click.palletsprojects.com/en/stable/)
+* [`tabulate`](https://pypi.org/project/tabulate/)
+* [`graphbin`](https://graphbin.readthedocs.io/en/latest/)
+* [`graphbin2>=1.3.3`](https://graphbin2.readthedocs.io/en/latest/)
+* [`metacoag>=1.2.1`](https://metacoag.readthedocs.io/en/stable/)
+* [`fraggenescan`](https://sourceforge.net/projects/fraggenescan/)
+* [`hmmer`](http://hmmer.org/)
+
+You will need one of the following assemblers to obtain the metagenome assemblies depending on your read data.
+
+* [spades](https://github.com/ablab/spades)
+* [megahit](https://github.com/voutcn/megahit)
+* [flye](https://github.com/mikolmogorov/Flye)
+
 ## Available subcommands
 
 Run `gbintk --help` or `gbintk -h` to list the help message for GraphBin-Tk.

@@ -23,17 +23,14 @@ Options:
 
 ### Evaluation Metrics
 
-GraphBin-Tk uses the four common metrics 1) precision, 2) recall, 3) F1-score and 4) Adjusted Rand Index (ARI) that have been used in previous binning studies. These metrics are calculated as follows. The binning result is denoted as a $K \times S$ matrix with $K$ number of bins and $S$ number of ground truth taxa. In this matrix, the element $a_{ks}$ denotes the number of contigs binned to the $k^{th}$ bin and belongs to the $s^{th}$ taxa. $U$ denotes the number of unbinned contigs and $N$ denotes the total number of contigs. Following are the equations used to calculate the evaluation metrics.
+GraphBin-Tk uses the four common metrics that have been used in previous binning studies.
 
-__Precision__ = $\frac{\sum_{k}max_s \{a_{ks}\}}{\sum_{k}\sum_{s}a_{ks}}$
+1. Precision
+2. Recall
+3. F1-score
+4. Adjusted Rand Index (ARI) 
 
-__Recall__ = $\frac{\sum_{s}max_k \{a_{ks}\}}{(\sum_{k}\sum_{s}a_{ks}+U)}$
-
-__F1-score__ = $2 \times \frac{Precision\times Recall}{Precision+Recall}$
-
-__ARI__ = $\frac{\sum_{k,s}\binom{a_{ks}}{2}-t_3}{\frac{1}{2}(t_1+t_2)-t_3}$ $where\;t_1 = \sum_{k}\binom{\sum_{s}a_{ks}}{2},\;t_2 = \sum_{s}\binom{\sum_{k}a_{ks}}{2},\; and\; t_3 = \frac{t_1t_2}{\binom{N}{2}}$ 
-
-Please refer to the supplementary material of the [GraphBin publication](https://doi.org/10.1093/bioinformatics/btaa180) for further details.
+Please refer to the supplementary material of the [GraphBin publication](https://doi.org/10.1093/bioinformatics/btaa180) for further details on how to calculate these metrics.
 
 ### Input Format
 

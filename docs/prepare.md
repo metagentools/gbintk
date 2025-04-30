@@ -31,25 +31,16 @@ Options:
 You can use the `prepare` subcommand to format an initial binning result in to the `.csv` format (by default) with contig identifiers and bin ID. You can run the `prepare` subcommand as follows.
 
 ```shell
-# For SPAdes
-gbintk prepare --assembler spades ----resfolder /path/to/folder_with_binning_result --output /path/to/output_folder
+# For SPAdes data available in tests/data/
+gbintk prepare --assembler spades --resfolder tests/data/5G_metaSPAdes/initial_bins --output tests/data/5G_metaSPAdes/prepare_results
 
-# For MEGAHIT
-gbintk prepare --assembler megahit ----resfolder /path/to/folder_with_binning_result --output /path/to/output_folder
+# For MEGAHIT data available in tests/data/
+gbintk prepare --assembler megahit --resfolder tests/data/5G_MEGAHIT/initial_bins --output tests/data/5G_MEGAHIT/prepare_results
 
-# For Flye
-gbintk prepare --assembler flye ----resfolder /path/to/folder_with_binning_result --output /path/to/output_folder
+# For Flye data available in tests/data/
+gbintk prepare --assembler flye --resfolder tests/data/1Y3B_Flye/initial_bins --output tests/data/1Y3B_Flye/prepare_results
 ```
 
 ## Output
 
-Formatted binning result will be stored in a file named `initial_contig_bins.csv` in the output folder provided. Contigs are named according to their original identifier and bins are numbered according to the fasta file name. This file would look as below.
-
-```
-contig-1,bin-1
-contig-2,bin-1
-contig-3,bin-2
-contig-4,bin-2
-contig-5,bin-3
-...
-```
+Formatted binning result will be stored in a delimited text file in the output folder provided (e.g. `initial_contig_bins.csv`). Contigs are named according to their original identifier and bins are numbered according to the fasta file name.
