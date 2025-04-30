@@ -82,7 +82,7 @@ Please refer to the original publications of GraphBin [@Mallawaarachchi1:2020], 
 
 # Availability
 
-GraphBin-Tk is distributed as a Conda package available in the Bioconda channel [@Gruning:2018] at [https://anaconda.org/bioconda/gbintk](https://anaconda.org/bioconda/gbintk). GraphBin-Tk is also available as a Python package on PyPI at [https://pypi.org/project/gbintk](https://pypi.org/project/gbintk/). The source code is available on GitHub at [https://github.com/metagentools/gbintk](https://github.com/metagentools/gbintk) and features continuous integration, testing coverage, and continuous deployment using GitHub actions. Detailed documentation and example usage can be found at [https://gbintk.readthedocs.io/](https://gbintk.readthedocs.io/).
+GraphBin-Tk is distributed as a Conda package available in the Bioconda channel [@Gruning:2018] at [https://anaconda.org/bioconda/gbintk](https://anaconda.org/bioconda/gbintk). GraphBin-Tk is also available as a Python package on PyPI at [https://pypi.org/project/gbintk](https://pypi.org/project/gbintk/). The source code is available on GitHub at [https://github.com/metagentools/gbintk](https://github.com/metagentools/gbintk) and features continuous integration, testing coverage, and continuous deployment using GitHub actions. Detailed documentation and example usage can be found at [https://gbintk.readthedocs.io/](https://gbintk.readthedocs.io/). Example datasets used are available on Zenodo at [https://zenodo.org/records/15313645](https://zenodo.org/records/15313645).
 
 # Acknowledgements
 
