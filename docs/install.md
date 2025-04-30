@@ -60,6 +60,12 @@ Please make sure that the following dependencies and external software are prope
 * [`fraggenescan`](https://sourceforge.net/projects/fraggenescan/)
 * [`hmmer`](http://hmmer.org/)
 
+You will need one of the following assemblers to obtain the metagenome assemblies depending on your read data.
+
+* [spades](https://github.com/ablab/spades)
+* [megahit](https://github.com/voutcn/megahit)
+* [flye](https://github.com/mikolmogorov/Flye)
+
 ## Available subcommands
 
 Run `gbintk --help` or `gbintk -h` to list the help message for GraphBin-Tk.
