@@ -22,7 +22,6 @@ megahit -1 reads_1.fastq -2 reads_2.fastq --k-min 21 --k-max 77 -o megahit_assem
 ```shell
 fastg2gfa megahit_assembly/final.fastg > megahit_assembly/final.gfa
 ```
-Support for FASTG files will be added in the near future.
 
 ### Flye
 [**Flye**](https://github.com/fenderglass/Flye) is a long-read assembler based on the de Bruijn graph approach. **metaFlye** is the metagenomic version of Flye. Use metaFlye to assemble reads into contigs. A sample command is given below.
@@ -40,7 +39,7 @@ coverm contig -1 reads_1.fastq -2 reads_2.fastq -r contigs.fasta -o abundance.ts
 sed -i '1d' abundance.tsv	# remove the header of the file
 ```
 
-You can use the -c (or --coupled) option of CoverM if you have multiple samples. Please refer the [CoverM contig documentation](https://wwood.github.io/CoverM/coverm-contig.html) for further details.
+You can use the `-c` (or `--coupled`) option of CoverM if you have multiple samples. Please refer the [CoverM contig documentation](https://wwood.github.io/CoverM/coverm-contig.html) for further details.
 
 The resulting `abundance.tsv` file can be directly used in MetaCoAG.
 
