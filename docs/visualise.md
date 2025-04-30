@@ -39,7 +39,7 @@ Options:
 
 ## Input Format
 
-The *metaSPAdes* version takes in 4 files as inputs.
+The *metaSPAdes* version takes in 5 files as inputs.
 
 * A delimited text file containing the initial binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)
 * A delimited text file containing the refined binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)
@@ -47,14 +47,14 @@ The *metaSPAdes* version takes in 4 files as inputs.
 * Contigs file (in `.fasta` format)
 * Contig paths file (in `.paths` format)
 
-The *MEGAHIT* version takes in 3 files as inputs.
+The *MEGAHIT* version takes in 4 files as inputs.
 
 * A delimited text file containing the initial binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)
 * A delimited text file containing the refined binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)
 * Assembly graph file (in `.gfa` format)
 * Contigs file (in `.fasta` format)
 
-The *Flye* version takes in 4 files as inputs.
+The *Flye* version takes in 5 files as inputs.
 
 * A delimited text file containing the initial binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)
 * A delimited text file containing the refined binning result (e.g. `<contig_id>,<bin_number>` in `.csv` format)

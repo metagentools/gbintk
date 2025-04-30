@@ -32,13 +32,13 @@ You can use the `prepare` subcommand to format an initial binning result in to t
 
 ```shell
 # For SPAdes data available in tests/data/
-gbintk prepare --assembler spades ----resfolder tests/data/5G_metaSPAdes/initial_bins --output tests/data/5G_metaSPAdes/prepare_results
+gbintk prepare --assembler spades --resfolder tests/data/5G_metaSPAdes/initial_bins --output tests/data/5G_metaSPAdes/prepare_results
 
 # For MEGAHIT data available in tests/data/
-gbintk prepare --assembler megahit ----resfolder tests/data/5G_MEGAHIT/initial_bins --output tests/data/5G_MEGAHIT/prepare_results
+gbintk prepare --assembler megahit --resfolder tests/data/5G_MEGAHIT/initial_bins --output tests/data/5G_MEGAHIT/prepare_results
 
 # For Flye data available in tests/data/
-gbintk prepare --assembler flye ----resfolder tests/data/1Y3B_Flye/initial_bins --output tests/data/1Y3B_Flye/prepare_results
+gbintk prepare --assembler flye --resfolder tests/data/1Y3B_Flye/initial_bins --output tests/data/1Y3B_Flye/prepare_results
 ```
 
 ## Output
