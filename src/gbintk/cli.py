@@ -3,6 +3,7 @@
 import logging
 from collections import OrderedDict
 from typing import Mapping, Optional
+from pathlib import Path
 
 import click
 
@@ -10,7 +11,7 @@ __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2023-2024, GraphBin-Tk Project"
 __credits__ = ["Vijini Mallawaarachchi", "Anuradha Wickramarachchi", "Yu Lin"]
 __license__ = "GPL-3.0"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
 __status__ = "Production/Stable"
@@ -177,6 +178,8 @@ def graphbin(
 
     from graphbin import graphbin_Flye, graphbin_MEGAHIT, graphbin_SPAdes
 
+    Path(output).mkdir(parents=True, exist_ok=True)
+
     # Make args class
     class GraphBinArgsObj:
         def __init__(
@@ -283,6 +286,8 @@ def graphbin2(
     logger.info(f"Running GraphBin2...")
 
     from graphbin2 import graphbin2_Flye, graphbin2_MEGAHIT, graphbin2_SPAdes
+
+    Path(output).mkdir(parents=True, exist_ok=True)
 
     # Make args class
     class GraphBin2ArgsObj:
@@ -471,6 +476,8 @@ def metacoag(
 
     from metacoag import metacoag_runner
 
+    Path(output).mkdir(parents=True, exist_ok=True)
+
     # Make args class
     class MetaCoAGArgsObj:
         def __init__(
@@ -566,7 +573,10 @@ def prepare(assembler, resfolder, delimiter, prefix, output):
         f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
     )
     logger.info("Formatting the binning result...")
+
     from gbintk.support import prep_result
+
+    Path(output).mkdir(parents=True, exist_ok=True)
 
     # Make args class
     class PrepArgsObj:
@@ -697,6 +707,8 @@ def visualise(
         visualise_result_SPAdes,
     )
 
+    Path(output).mkdir(parents=True, exist_ok=True)
+
     # Make args class
     class VizArgsObj:
         def __init__(
@@ -785,7 +797,10 @@ def evaluate(binned, groundtruth, delimiter, prefix, output):
         f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
     )
     logger.info("Evaluating the binning results results...")
+    
     from gbintk.support import evaluate
+
+    Path(output).mkdir(parents=True, exist_ok=True)
 
     # Make args class
     class EvalArgsObj:
