@@ -2,8 +2,8 @@
 
 import logging
 from collections import OrderedDict
-from typing import Mapping, Optional
 from pathlib import Path
+from typing import Mapping, Optional
 
 import click
 
@@ -204,7 +204,7 @@ def graphbin(
             self.prefix = prefix
             self.max_iteration = max_iteration
             self.diff_threshold = diff_threshold
-            self.delimiter = '\t' if delimiter == "tab" else ','
+            self.delimiter = "\t" if delimiter == "tab" else ","
 
     # Make args object
     args = GraphBinArgsObj(
@@ -317,7 +317,7 @@ def graphbin2(
             self.depth = depth
             self.threshold = threshold
             self.nthreads = nthreads
-            self.delimiter = '\t' if delimiter == "tab" else ','
+            self.delimiter = "\t" if delimiter == "tab" else ","
 
     # Make args object
     args = GraphBin2ArgsObj(
@@ -522,7 +522,7 @@ def metacoag(
             self.bin_mg_threshold = bin_mg_threshold
             self.min_bin_size = min_bin_size
             self.nthreads = nthreads
-            self.delimiter = '\t' if delimiter == "tab" else ','
+            self.delimiter = "\t" if delimiter == "tab" else ","
 
     # Make args object
     args = MetaCoAGArgsObj(
@@ -585,7 +585,7 @@ def prepare(assembler, resfolder, delimiter, prefix, output):
             self.resfolder = resfolder
             self.prefix = prefix
             self.output = output
-            self.delimiter = '\t' if delimiter == "tab" else ','
+            self.delimiter = "\t" if delimiter == "tab" else ","
 
     # Make args object
     args = PrepArgsObj(assembler, resfolder, delimiter, prefix, output)
@@ -745,7 +745,7 @@ def visualise(
             self.lsize = lsize
             self.margin = margin
             self.imgtype = imgtype
-            self.delimiter = '\t' if delimiter == "tab" else ','
+            self.delimiter = "\t" if delimiter == "tab" else ","
 
     # Make args object
     args = VizArgsObj(
@@ -797,7 +797,7 @@ def evaluate(binned, groundtruth, delimiter, prefix, output):
         f"Welcome to GraphBin-Tk: Assembly graph-based metagenomic binning toolkit!"
     )
     logger.info("Evaluating the binning results results...")
-    
+
     from gbintk.support import evaluate
 
     Path(output).mkdir(parents=True, exist_ok=True)
@@ -809,7 +809,7 @@ def evaluate(binned, groundtruth, delimiter, prefix, output):
             self.groundtruth = groundtruth
             self.prefix = prefix
             self.output = output
-            self.delimiter = '\t' if delimiter == "tab" else ','
+            self.delimiter = "\t" if delimiter == "tab" else ","
 
     # Make args object
     args = EvalArgsObj(binned, groundtruth, delimiter, prefix, output)

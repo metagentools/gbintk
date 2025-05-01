@@ -77,7 +77,9 @@ def run(args):
         # Full path of the file
         filepath = os.path.join(contig_bins_folder, myfile)
 
-        if os.path.isfile(filepath) and myfile.lower().endswith((".fasta", ".fa", ".fna")):
+        if os.path.isfile(filepath) and myfile.lower().endswith(
+            (".fasta", ".fa", ".fna")
+        ):
             isFasta = True
             files.append(myfile)
 
