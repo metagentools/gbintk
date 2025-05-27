@@ -2,7 +2,7 @@
 
 """visualise_result_Flye.py: Visualise the binning result from on the Flye assembly graph.
 
-Visualize the binning result by denoting coloured contigs in the assembly
+Visualise the binning result by denoting coloured contigs in the assembly
 graph according to their corresponding bins. You can visualise the initial
 binning result obtained from an existing binning tool and the final binning
 result obtained from GraphBin and compare.
