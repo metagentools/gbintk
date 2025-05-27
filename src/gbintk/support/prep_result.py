@@ -3,7 +3,7 @@
 """prep_result.py: Format the initial binning result from an existing binning tool.
 
 Format the initial binning result from an existing binning tool in the .csv format
-with contig ID and bin ID. Contigs are numbered starting from 0 and bins are 
+with contig ID and bin ID. Contigs are numbered starting from 0 and bins are
 numbered starting from 1.
 
 """
