@@ -1,6 +1,6 @@
 # GraphBin: Refined Binning of Metagenomic Contigs using Assembly Graphs
 
-**GraphBin** is a NGS data-based metagenomic contig bin refinment tool that makes use of the contig connectivity information from the assembly graph to bin contigs. It utilizes the binning result of an existing binning tool and a label propagation algorithm to correct mis-binned contigs and predict the labels of contigs which are discarded due to short length.
+**GraphBin** is a NGS data-based metagenomic contig bin refinement tool that makes use of the contig connectivity information from the assembly graph to bin contigs. It utilizes the binning result of an existing binning tool and a label propagation algorithm to correct mis-binned contigs and predict the labels of contigs which are discarded due to short length.
 
 You can find more details about GraphBin at [https://github.com/metagentools/GraphBin](https://github.com/metagentools/GraphBin).
 

@@ -2,7 +2,7 @@
 
 """visualise_result_SPAdes.py: Visualise the binning result from on the SPAdes assembly graph.
 
-Visualize the binning result by denoting coloured contigs in the assembly
+Visualise the binning result by denoting coloured contigs in the assembly
 graph according to their corresponding bins. You can visualise the initial
 binning result obtained from an existing binning tool and the final binning
 result obtained from GraphBin and compare.
@@ -22,10 +22,10 @@ from graphbin.bidirectionalmap.bidirectionalmap import BidirectionalMap
 from igraph import *
 
 __author__ = "Vijini Mallawaarachchi"
-__copyright__ = "Copyright 2023-2024, GraphBin-Tk Project"
+__copyright__ = "Copyright 2023-2025, GraphBin-Tk Project"
 __credits__ = ["Vijini Mallawaarachchi", "Anuradha Wickramarachchi", "Yu Lin"]
 __license__ = "GPL-3.0"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
 __status__ = "Production/Stable"

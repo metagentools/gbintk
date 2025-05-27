@@ -8,10 +8,10 @@ from typing import Mapping, Optional
 import click
 
 __author__ = "Vijini Mallawaarachchi"
-__copyright__ = "Copyright 2023-2024, GraphBin-Tk Project"
+__copyright__ = "Copyright 2023-2025, GraphBin-Tk Project"
 __credits__ = ["Vijini Mallawaarachchi", "Anuradha Wickramarachchi", "Yu Lin"]
 __license__ = "GPL-3.0"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
 __status__ = "Production/Stable"
