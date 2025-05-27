@@ -3,7 +3,7 @@
 """prep_result.py: Format the initial binning result from an existing binning tool.
 
 Format the initial binning result from an existing binning tool in the .csv format
-with contig ID and bin ID. Contigs are numbered starting from 0 and bins are 
+with contig ID and bin ID. Contigs are numbered starting from 0 and bins are
 numbered starting from 1.
 
 """
@@ -21,7 +21,7 @@ __author__ = "Vijini Mallawaarachchi"
 __copyright__ = "Copyright 2023-2025, GraphBin-Tk Project"
 __credits__ = ["Vijini Mallawaarachchi", "Anuradha Wickramarachchi", "Yu Lin"]
 __license__ = "GPL-3.0"
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 __maintainer__ = "Vijini Mallawaarachchi"
 __email__ = "viji.mallawaarachchi@gmail.com"
 __status__ = "Production/Stable"
