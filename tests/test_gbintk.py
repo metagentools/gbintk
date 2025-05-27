@@ -42,7 +42,7 @@ def exec_command(cmnd, stdout=subprocess.PIPE, stderr=subprocess.PIPE):
 
 def test_gbintk():
     """test gbintk"""
-    cmd = "gbintk"
+    cmd = "gbintk --help"
     exec_command(cmd)
 
 
@@ -54,35 +54,35 @@ def test_gbintk_version():
 
 def test_gbintk_graphbin():
     """test gbintk graphbin"""
-    cmd = "gbintk graphbin"
+    cmd = "gbintk graphbin --help"
     exec_command(cmd)
 
 
 def test_gbintk_graphbin2():
     """test gbintk graphbin2"""
-    cmd = "gbintk graphbin2"
+    cmd = "gbintk graphbin2 --help"
     exec_command(cmd)
 
 
 def test_gbintk_metacoag():
     """test gbintk metacoag"""
-    cmd = "gbintk metacoag"
+    cmd = "gbintk metacoag --help"
     exec_command(cmd)
 
 
 def test_gbintk_prepare():
     """test gbintk prepare"""
-    cmd = "gbintk prepare"
+    cmd = "gbintk prepare --help"
     exec_command(cmd)
 
 
 def test_gbintk_visualise():
     """test gbintk visualise"""
-    cmd = "gbintk visualise"
+    cmd = "gbintk visualise --help"
     exec_command(cmd)
 
 
 def test_gbintk_evaluate():
     """test gbintk evaluate"""
-    cmd = "gbintk evaluate"
+    cmd = "gbintk evaluate --help"
     exec_command(cmd)
