@@ -1,24 +1,60 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
-title: "GraphBin-Tk: assembly graph-based metagenomic binning toolkit"
+cff-version: "1.2.0"
 authors:
-- family-names: "Mallawaarachchi"
-  given-names: "Vijini"
+- family-names: Mallawaarachchi
+  given-names: Vijini
   orcid: "https://orcid.org/0000-0002-2651-8719"
-- family-names: "Wickramarachchi"
-  given-names: "Anuradha"
+- family-names: Wickramarachchi
+  given-names: Anuradha
   orcid: "https://orcid.org/0000-0003-4160-5965"
-- family-names: "McArthur"
-  given-names: "Robert"
+- family-names: McArthur
+  given-names: Robert
   orcid: "https://orcid.org/0000-0001-9099-339X"
-- family-names: "Lang"
-  given-names: "Yapeng"
+- family-names: Lang
+  given-names: Yapeng
   orcid: "https://orcid.org/0009-0001-6828-0964"
-- family-names: "Caley"
-  given-names: "Katherine"
+- family-names: Caley
+  given-names: Katherine
   orcid: "https://orcid.org/0000-0002-8459-6168"
-- family-names: "Huttley"
-  given-names: "Gavin"
+- family-names: Huttley
+  given-names: Gavin
   orcid: "https://orcid.org/0000-0001-7224-2074"
-doi: 10.5281/zenodo.15524165
-url: "https://github.com/metagentools/gbintk"
+contact:
+- family-names: Mallawaarachchi
+  given-names: Vijini
+  orcid: "https://orcid.org/0000-0002-2651-8719"
+doi: 10.5281/zenodo.15531680
+message: If you use this software, please cite our article in the
+  Journal of Open Source Software.
+preferred-citation:
+  authors:
+  - family-names: Mallawaarachchi
+    given-names: Vijini
+    orcid: "https://orcid.org/0000-0002-2651-8719"
+  - family-names: Wickramarachchi
+    given-names: Anuradha
+    orcid: "https://orcid.org/0000-0003-4160-5965"
+  - family-names: McArthur
+    given-names: Robert
+    orcid: "https://orcid.org/0000-0001-9099-339X"
+  - family-names: Lang
+    given-names: Yapeng
+    orcid: "https://orcid.org/0009-0001-6828-0964"
+  - family-names: Caley
+    given-names: Katherine
+    orcid: "https://orcid.org/0000-0002-8459-6168"
+  - family-names: Huttley
+    given-names: Gavin
+    orcid: "https://orcid.org/0000-0001-7224-2074"
+  date-published: 2025-05-28
+  doi: 10.21105/joss.07713
+  issn: 2475-9066
+  issue: 109
+  journal: Journal of Open Source Software
+  publisher:
+    name: Open Journals
+  start: 7713
+  title: "GraphBin-Tk: assembly graph-based metagenomic binning toolkit"
+  type: article
+  url: "https://joss.theoj.org/papers/10.21105/joss.07713"
+  volume: 10
+title: "GraphBin-Tk: assembly graph-based metagenomic binning toolkit"
