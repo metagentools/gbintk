@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-22.04, macos-latest]
         python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Install Cairo dependencies
         run: |
-          if [ "$OS" = "ubuntu-latest" ]; then
+          if [ "$OS" = "ubuntu-22.04" ]; then
             sudo apt-get install -y libcairo2-dev
           elif [ "$OS" = "macos-latest" ]; then
             brew install cairo
