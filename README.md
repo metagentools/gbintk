@@ -1,7 +1,7 @@
 # GraphBin-Tk: assembly graph-based metagenomic binning toolkit
 
 ![GitHub License](https://img.shields.io/github/license/metagentools/gbintk)
-[![status](https://joss.theoj.org/papers/4647b0df563fc570f1550e721718ac17/status.svg)](https://joss.theoj.org/papers/4647b0df563fc570f1550e721718ac17)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.07713/status.svg)](https://doi.org/10.21105/joss.07713)
 [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat)](http://bioconda.github.io/recipes/gbintk/README.html)
 [![Conda](https://img.shields.io/conda/v/bioconda/gbintk)](https://anaconda.org/bioconda/gbintk)
 [![PyPI version](https://badge.fury.io/py/gbintk.svg)](https://badge.fury.io/py/gbintk)
@@ -105,9 +105,12 @@ Please refer to [DEMO.md](https://github.com/metagentools/gbintk/blob/main/DEMO.
 
 ## Citation
 
-GraphBin-Tk is currently under review at the [Journal of Open Source Software](https://joss.theoj.org/papers/4647b0df563fc570f1550e721718ac17).
+GraphBin-Tk is published in the [Journal of Open Source Software](https://joss.theoj.org/) at [https://doi.org/10.21105/joss.07713](https://doi.org/10.21105/joss.07713).
 
-If you use GraphBin-Tk in your work, please cite the relevant tools.
+If you use GraphBin-Tk in your work, please cite GraphBin-Tk and the relevant tools.
+
+**GraphBin-Tk**
+> Mallawaarachchi et al., (2025). GraphBin-Tk: assembly graph-based metagenomic binning toolkit. Journal of Open Source Software, 10(109), 7713, [https://doi.org/10.21105/joss.07713](https://doi.org/10.21105/joss.07713)
 
 **GraphBin**
 > Vijini Mallawaarachchi, Anuradha Wickramarachchi, Yu Lin. GraphBin: Refined binning of metagenomic contigs using assembly graphs. Bioinformatics, Volume 36, Issue 11, June 2020, Pages 3307–3313, DOI: [https://doi.org/10.1093/bioinformatics/btaa180](https://doi.org/10.1093/bioinformatics/btaa180)
