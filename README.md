@@ -112,6 +112,20 @@ If you use GraphBin-Tk in your work, please cite GraphBin-Tk and the relevant to
 **GraphBin-Tk**
 > Mallawaarachchi et al., (2025). GraphBin-Tk: assembly graph-based metagenomic binning toolkit. Journal of Open Source Software, 10(109), 7713, [https://doi.org/10.21105/joss.07713](https://doi.org/10.21105/joss.07713)
 
+```bibtex
+@article{Mallawaarachchi2025,
+  title = {GraphBin-Tk: assembly graph-based metagenomic binning toolkit}, journal = {Journal of Open Source Software},
+  author = {Mallawaarachchi, Vijini and Wickramarachchi, Anuradha and McArthur, Robert and Lang, Yapeng and Caley, Katherine and Huttley, Gavin},
+  year = {2025},
+  publisher = {The Open Journal},
+  volume = {10},
+  number = {109},
+  pages = {7713},
+  doi = {10.21105/joss.07713},
+  url = {https://doi.org/10.21105/joss.07713}
+}
+```
+
 **GraphBin**
 > Vijini Mallawaarachchi, Anuradha Wickramarachchi, Yu Lin. GraphBin: Refined binning of metagenomic contigs using assembly graphs. Bioinformatics, Volume 36, Issue 11, June 2020, Pages 3307–3313, DOI: [https://doi.org/10.1093/bioinformatics/btaa180](https://doi.org/10.1093/bioinformatics/btaa180)
 
