@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/metagentools/gbintk/main/GraphBin-Tk_logo.png" width="500" title="GraphBin-Tk logo" alt="GraphBin-Tk logo">
+</p>
+
 # GraphBin-Tk: assembly graph-based metagenomic binning toolkit
 
 ![GitHub License](https://img.shields.io/github/license/metagentools/gbintk)
